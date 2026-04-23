@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP Chemistry Unit 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<nav id="sidebar">
+  <div class="sidebar-header">Unit 1</div>
+  <div class="sidebar-owner"><a class="sidebar-back-link" href="../index.html">Home</a></div>
+  <details class="unit-switcher">
+    <summary>Unit 1: Atomic Structure and Properties</summary>
+    <div class="toc-section"><a href="unit1.html">Unit 1: Atomic Structure and Properties</a></div>
+    <div class="toc-section"><a href="unit2.html">Unit 2: Compound Structure and Properties</a></div>
+    <div class="toc-section"><a href="unit3.html">Unit 3: Properties of Substances and Mixtures</a></div>
+    <div class="toc-section"><a href="unit4.html">Unit 4: Chemical Reactions</a></div>
+    <div class="toc-section"><a href="unit5.html">Unit 5: Kinetics</a></div>
+    <div class="toc-section"><a href="unit6.html">Unit 6: Thermochemistry</a></div>
+    <div class="toc-section"><a href="unit7.html">Unit 7: Equilibrium</a></div>
+    <div class="toc-section"><a href="unit8.html">Unit 8: Acids and Bases</a></div>
+    <div class="toc-section"><a href="unit9.html">Unit 9: Thermodynamics and Electrochemistry</a></div>
+  </details>
+  <div class="toc-section"><a href="#t11">1.1 Moles and Molar Mass</a></div>
+  <div class="toc-section"><a href="#t12">1.2 Mass Spectra of Elements</a></div>
+  <div class="toc-section"><a href="#t13">1.3 Elemental Composition</a></div>
+  <div class="toc-section"><a href="#t14">1.4 Composition of Mixtures</a></div>
+  <div class="toc-section"><a href="#t15">1.5 Atomic Structure and Electron Configuration</a></div>
+  <div class="toc-section"><a href="#t16">1.6 Photoelectron Spectroscopy</a></div>
+  <div class="toc-section"><a href="#t17">1.7 Periodic Trends</a></div>
+  <div class="toc-section"><a href="#t18">1.8 Valence Electrons and Ionic Compounds</a></div>
+</nav>
+<main id="main">
+  <div class="doc-title-block"><div class="doc-label">AP Chemistry</div><h1 class="doc-title">Unit 1: Atomic Structure and Properties</h1></div>
+  <div class="learn-block">
+    <div class="teaching-label">How To Use This Unit</div>
+    <p>Start with moles and composition (1.1-1.4), then move to atom/electron models (1.5-1.6), and finish with periodic patterns and ions (1.7-1.8). If a problem feels hard, check units first, then check particle meaning.</p>
+  </div>
+
+  <div class="chapter" id="t11"><div class="chapter-header" onclick="toggle(this)"><h2>1.1 Moles and Molar Mass</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <ul class="notes-list"><li>1 mole = <span class="formula">\(6.022 \times 10^{23}\)</span> particles (Avogadro constant).</li><li>Molar mass uses periodic table mass in <span class="formula">\(\mathrm{g/mol}\)</span>.</li><li>Dimensional analysis tracks units and cancels correctly.</li></ul>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Write what you have and what you need.</li><li>Use a conversion factor so the old unit cancels.</li><li>Keep 3-4 significant figures unless instructed otherwise.</li></ul></div>
+    <div class="callout example">Example: \(24.0\text{ g Mg}\times\frac{1\text{ mol Mg}}{24.31\text{ g Mg}}=0.987\text{ mol Mg}\)</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Students invert the conversion factor. Put the target unit on top so the starting unit cancels.</p></div>
+  </div></div>
+
+  <div class="chapter" id="t12"><div class="chapter-header" onclick="toggle(this)"><h2>1.2 Mass Spectra of Elements</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <ul class="notes-list"><li>Mass spectrum peaks identify isotopes by mass-to-charge ratio.</li><li>Peak height/area corresponds to relative abundance.</li><li>Average atomic mass is a weighted average of isotopic masses.</li></ul>
+    <div class="formula-block">\(\text{Average atomic mass} = \sum (\text{isotope mass})(\text{fractional abundance})\)</div>
+    <div class="mini-diagram">
+      <svg viewBox="0 0 420 110" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="90" x2="400" y2="90" stroke="#8892b0"/>
+        <line x1="20" y1="90" x2="20" y2="15" stroke="#8892b0"/>
+        <rect x="105" y="52" width="16" height="38" fill="#5b8dee"/>
+        <rect x="205" y="28" width="16" height="62" fill="#7dd3a8"/>
+        <rect x="305" y="70" width="16" height="20" fill="#f0a04b"/>
+        <text x="94" y="104" fill="#d4daf0" font-size="11">24</text>
+        <text x="194" y="104" fill="#d4daf0" font-size="11">25</text>
+        <text x="294" y="104" fill="#d4daf0" font-size="11">26</text>
+      </svg>
+    </div>
+    <div class="why-block"><div class="teaching-label">Why It Matters</div><p>This idea explains why periodic table masses are decimals instead of whole numbers.</p></div>
+  </div></div>
+
+  <div class="chapter" id="t13"><div class="chapter-header" onclick="toggle(this)"><h2>1.3 Elemental Composition of Pure Substances</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <ul class="notes-list"><li>Law of definite proportions: a pure compound has fixed element mass ratios.</li><li>Empirical formula gives lowest whole-number atom ratio.</li><li>Molecular formula is an integer multiple of empirical formula.</li></ul>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Convert each element mass to moles.</li><li>Divide all mole values by the smallest value.</li><li>Scale to whole numbers and write empirical formula.</li></ul></div>
+  </div></div>
+
+  <div class="chapter" id="t14"><div class="chapter-header" onclick="toggle(this)"><h2>1.4 Composition of Mixtures</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <ul class="notes-list"><li>Mixtures have variable composition (unlike pure substances).</li><li>Homogeneous mixtures are uniform; heterogeneous are nonuniform.</li><li>Mass percent can describe mixture composition.</li></ul>
+    <div class="formula-block">\(\text{mass percent} = \frac{\text{mass of component}}{\text{total mass}} \times 100\%\)</div>
+    <div class="callout example">If a 80.0 g solution has 12.0 g NaCl, then mass % NaCl is \(15.0\%\).</div>
+  </div></div>
+
+  <div class="chapter" id="t15"><div class="chapter-header" onclick="toggle(this)"><h2>1.5 Atomic Structure and Electron Configuration</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <ul class="notes-list"><li>Atomic number gives proton count; mass number is protons + neutrons.</li><li>Electron configuration follows Aufbau, Pauli exclusion, and Hund's rule.</li><li>Ground-state configuration can be written in noble-gas shorthand.</li></ul>
+    <div class="why-block"><div class="teaching-label">Why It Matters</div><p>Electron arrangement is the bridge between atomic structure and chemical reactivity.</p></div>
+  </div></div>
+
+  <div class="chapter" id="t16"><div class="chapter-header" onclick="toggle(this)"><h2>1.6 Photoelectron Spectroscopy</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <ul class="notes-list"><li>PES peaks represent electrons in different energy sublevels.</li><li>Higher binding energy means electrons are held more strongly.</li><li>Peak area is proportional to number of electrons in that sublevel.</li></ul>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Confusing peak height with energy. Peak position gives binding energy; area/relative size gives electron count.</p></div>
+  </div></div>
+
+  <div class="chapter" id="t17"><div class="chapter-header" onclick="toggle(this)"><h2>1.7 Periodic Trends</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <ul class="notes-list"><li>Atomic radius decreases across a period and increases down a group.</li><li>Ionization energy generally increases across and decreases down.</li><li>Electronegativity generally increases across and decreases down.</li></ul>
+    <div class="mini-diagram">
+      <svg viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg">
+        <text x="20" y="24" fill="#d4daf0" font-size="12">Across a period: radius decreases, ionization energy increases</text>
+        <line x1="40" y1="40" x2="170" y2="40" stroke="#e06c75" stroke-width="2"/>
+        <polygon points="40,40 48,36 48,44" fill="#e06c75"/>
+        <line x1="220" y1="40" x2="360" y2="40" stroke="#7dd3a8" stroke-width="2"/>
+        <polygon points="360,40 352,36 352,44" fill="#7dd3a8"/>
+        <text x="20" y="78" fill="#d4daf0" font-size="12">Down a group: radius increases, ionization energy decreases</text>
+        <line x1="40" y1="94" x2="170" y2="94" stroke="#7dd3a8" stroke-width="2"/>
+        <polygon points="170,94 162,90 162,98" fill="#7dd3a8"/>
+        <line x1="220" y1="94" x2="360" y2="94" stroke="#e06c75" stroke-width="2"/>
+        <polygon points="220,94 228,90 228,98" fill="#e06c75"/>
+      </svg>
+    </div>
+  </div></div>
+
+  <div class="chapter" id="t18"><div class="chapter-header" onclick="toggle(this)"><h2>1.8 Valence Electrons and Ionic Compounds</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <ul class="notes-list"><li>Main-group valence electrons correlate with periodic table group.</li><li>Metals tend to form cations; nonmetals tend to form anions.</li><li>Ionic compounds are electrically neutral overall.</li></ul>
+  </div></div>
+
+  <div class="chapter" id="unit1-extended"><div class="chapter-header" onclick="toggle(this)"><h2>Unit 1 Extended Notes</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <div class="learn-block"><div class="teaching-label">More Detail By Topic</div><ul class="notes-list"><li><strong>1.1:</strong> Use dimensional analysis for every conversion and keep units visible until the end.</li><li><strong>1.2:</strong> Average atomic mass uses weighted abundance; isotope peaks map to mass-to-charge values.</li><li><strong>1.3:</strong> Empirical formula gives simplest ratio, while molecular formula gives actual atom counts.</li><li><strong>1.4:</strong> Mixtures are physical blends and can often be separated by boiling point, size, or polarity differences.</li><li><strong>1.5-1.6:</strong> Electron structure and PES patterns explain periodic trends and many reactivity patterns.</li><li><strong>1.7-1.8:</strong> Radius, ionization energy, and electronegativity trends help predict ion formation and ionic behavior.</li></ul></div>
+  </div></div>
+
+  <div class="chapter" id="unit1-practice"><div class="chapter-header" onclick="toggle(this)"><h2>Unit 1 Example Questions and Solutions</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <div class="qa-item"><div class="qa-question">Q1: How many moles are in 48.6 g of NaCl?</div><div class="qa-answer">A: \(n=\frac{m}{M}=\frac{48.6}{58.44}=0.832\text{ mol}\).</div></div>
+    <div class="qa-item"><div class="qa-question">Q2: If isotopes are 75% at 24 amu and 25% at 25 amu, what is average mass?</div><div class="qa-answer">A: \(0.75(24)+0.25(25)=24.25\text{ amu}\).</div></div>
+    <div class="qa-item"><div class="qa-question">Q3: Why does ionization energy increase across a period?</div><div class="qa-answer">A: Effective nuclear charge increases, so electrons are held more tightly.</div></div>
+  </div></div>
+</main>
+<script src="../../main.js"></script>
+<script>
+  window.MathJax = { tex: { inlineMath: [["\\(", "\\)"], ["$", "$"]] }, svg: { fontCache: "global" } };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+</html>
