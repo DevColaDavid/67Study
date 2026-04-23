@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP World History Practice</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<main id="main" style="max-width:1100px;margin:0 auto;">
+  <div class="doc-title-block">
+    <h1 class="doc-title subject-title-row"><span class="subject-icon">🧠</span><span>AP World Practice</span></h1>
+    <div class="doc-meta"><span><a class="all-subjects-link" href="index.html">← AP World Hub</a></span></div>
+  </div>
+
+  <div class="learn-block">
+    <div class="teaching-label">Random MCQ Generator</div>
+    <p>Choose a unit/topic filter, answer a random multiple-choice question, and review the detailed explanation. Question data is loaded from <code>questions.csv</code> so you can edit it in Google Sheets or Excel and paste/download back as CSV.</p>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-header" onclick="toggle(this)">
+      <h2>MCQ Maker</h2><span class="chevron">▼</span>
+    </div>
+    <div class="chapter-content">
+      <div class="mcq-controls">
+        <div class="mcq-filter-group">
+          <label for="unit-filter">Unit Filter</label>
+          <div class="mcq-select-wrap">
+            <select id="unit-filter" class="mcq-select">
+              <option value="all">All Units</option>
+              <option value="1">Unit 1</option>
+              <option value="2">Unit 2</option>
+              <option value="3">Unit 3</option>
+              <option value="4">Unit 4</option>
+              <option value="5">Unit 5</option>
+              <option value="6">Unit 6</option>
+              <option value="7">Unit 7</option>
+              <option value="8">Unit 8</option>
+              <option value="9">Unit 9</option>
+            </select>
+            <span class="mcq-select-caret">▼</span>
+          </div>
+        </div>
+        <div class="mcq-filter-group">
+          <label for="topic-filter">Topic Filter</label>
+          <div class="mcq-select-wrap">
+            <select id="topic-filter" class="mcq-select">
+              <option value="all">All Topics</option>
+            </select>
+            <span class="mcq-select-caret">▼</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div id="mcq-topic-meta" class="mcq-topic-meta"></div>
+        <div id="mcq-stimulus" class="mcq-stimulus is-hidden"></div>
+        <div id="mcq-question" class="qa-question"></div>
+        <div id="mcq-options" class="mcq-options"></div>
+        <div id="mcq-result" class="mcq-result"></div>
+        <div id="mcq-explanation" class="qa-answer"></div>
+        <button id="next-question" class="auth-button mcq-next-button is-hidden" type="button">Next Question</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../main.js"></script>
+  <script src="practice.js"></script>
+</main>
+</body>
+</html>
