@@ -13,7 +13,7 @@
   <div class="sidebar-owner"><a class="sidebar-back-link" href="../index.html">Home</a></div>
   <details class="unit-switcher">
     <summary>Unit 3: Differentiation: Composite, Implicit, and Inverse Functions</summary>
-    <div class="toc-section"><a href="unit1.html">Unit 1: </a></div>
+    <div class="toc-section"><a href="unit1.html">Unit 1: Limits and Continuity</a></div>
     <div class="toc-section"><a href="unit2.html">Unit 2: Differentiation: Definition and Fundamental Properties</a></div>
     <div class="toc-section"><a href="unit3.html">Unit 3: Differentiation: Composite, Implicit, and Inverse Functions</a></div>
     <div class="toc-section"><a href="unit4.html">Unit 4: Contextual Applications of Differentiation</a></div>
@@ -44,78 +44,73 @@
 
   <div class="learn-block" id="overview">
     <div class="teaching-label">How To Study This Unit</div>
-    <p>This unit should be studied through three layers: conceptual meaning, symbolic methods, and AP-style communication. Don’t memorize formulas in isolation; connect each tool to the type of question where it is strongest.</p>
-    <p>Practice short sets by subtopic first, then mixed sets that force method selection. In FRQ-style responses, write one brief sentence that interprets your result in context.</p>
-    
+    <p>Unit 3 is where differentiation becomes <strong>structural</strong>: almost every AP expression is a composition, product, quotient, or implicit relation. The chain rule is the spine—if you can spot the “outer” and “inner” function, the rest follows.</p>
+    <p>Train yourself to write \(u=\) inner explicitly on hard problems. For implicit relations, treat \(y\) as \(y(x)\) and collect \(y'\) terms at the end.</p>
   </div>
 
   <div class="chapter" id="t31"><div class="chapter-header" onclick="toggle(this)"><h2>3.1 The Chain Rule</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 3 focuses on the chain rule. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">\(\frac{d}{dx}f(g(x))=f'(g(x))g'(x)\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Forgetting to multiply by the derivative of the inner function.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>If \(y=f(u)\) and \(u=g(x)\), then \(\frac{dy}{dx}=\frac{dy}{du}\cdot\frac{du}{dx}\). In prime notation: \(\frac{d}{dx}f(g(x))=f'(g(x))g'(x)\).</p>
+    <div class="formula-block">\(\frac{d}{dx}\big[f(g(x))\big]=f'(g(x))\,g'(x)\).</div>
+    <div class="mini-diagram">
+      <svg viewBox="0 0 420 100" xmlns="http://www.w3.org/2000/svg" aria-label="Composition chain">
+        <text x="20" y="35" fill="#d4daf0" font-size="12">x</text>
+        <path d="M45,30 L95,30" stroke="#5b8dee" marker-end="url(#ah)"/>
+        <text x="100" y="35" fill="#d4daf0" font-size="12">g(x)=u</text>
+        <path d="M165,30 L215,30" stroke="#5b8dee"/>
+        <text x="220" y="35" fill="#d4daf0" font-size="12">f(u)=y</text>
+        <defs><marker id="ah" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5b8dee"/></marker></defs>
+        <text x="20" y="75" fill="#8892b0" font-size="11">Multiply slopes: outer derivative at inner times inner derivative.</text>
+      </svg>
+    </div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Forgetting \(g'(x)\) or applying the chain rule to a sum of unrelated functions (chain applies to composition, not addition).</p></div>
   </div></div>
 
   <div class="chapter" id="t32"><div class="chapter-header" onclick="toggle(this)"><h2>3.2 Differentiating Composite Functions</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 3 focuses on differentiating composite functions. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">\(\frac{d}{dx}f(g(x))=f'(g(x))g'(x)\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>Nested compositions need repeated chain steps: peel layers from outside in, or substitute \(u\) and \(v\) for clarity.</p>
+    <div class="formula-block">Example: \(\frac{d}{dx}\sqrt{1+\ln(2x+1)}=\frac{1}{2\sqrt{1+\ln(2x+1)}}\cdot\frac{1}{2x+1}\cdot2\).</div>
+    <div class="steps-block"><div class="teaching-label">Layered Chain Routine</div><ul class="notes-list"><li>Name the outermost operation (root, trig, exp, ln).</li><li>Differentiate it, leaving the inner untouched.</li><li>Multiply by derivative of inner; repeat if still composite.</li></ul></div>
+    <div class="callout example">\(\frac{d}{dx}\sin^3(5x)=3\sin^2(5x)\cdot\cos(5x)\cdot5\).</div>
   </div></div>
 
   <div class="chapter" id="t33"><div class="chapter-header" onclick="toggle(this)"><h2>3.3 Differentiating Implicitly</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 3 focuses on differentiating implicitly. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Differentiate both sides with respect to \(x\), then solve for \(\frac{dy}{dx}\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Treating y as a constant; remember y depends on x, so derivatives produce y'.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>When \(y\) is not isolated, differentiate both sides with respect to \(x\), using \(\frac{d}{dx}(y)=y'\) and chain rule on terms like \(y^2\) or \(\sin y\).</p>
+    <div class="formula-block">Example: \(x^2+y^2=25 \Rightarrow 2x+2yy'=0 \Rightarrow y'=-\frac{x}{y}\).</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Treating \(y\) as a constant. Any function of \(y\) picks up a factor of \(y'\) from the chain rule.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Find \(\frac{dy}{dx}\) for \(x^3+xy-y^2=7\) and evaluate \(y'\) at a point \((x,y)\) on the curve.</div></div>
   </div></div>
 
   <div class="chapter" id="t34"><div class="chapter-header" onclick="toggle(this)"><h2>3.4 Differentiating Inverse Functions</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 3 focuses on differentiating inverse functions. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">\(\frac{d}{dx}\left(f^{-1}(x)\right)=\frac{1}{f'(f^{-1}(x))}\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>For inverse trig, memorize core derivatives (e.g. \(\frac{d}{dx}\arcsin x=\frac{1}{\sqrt{1-x^2}}\)) and always combine with chain rule when the argument is not \(x\).</p>
+    <div class="formula-block">\(\frac{d}{dx}\arctan u=\frac{u'}{1+u^2},\quad \frac{d}{dx}\arcsin u=\frac{u'}{\sqrt{1-u^2}}\).</div>
+    <div class="callout example">\(\frac{d}{dx}\arctan(3x)=\frac{3}{1+9x^2}\).</div>
   </div></div>
 
   <div class="chapter" id="t35"><div class="chapter-header" onclick="toggle(this)"><h2>3.5 Selecting Procedures for Calculating Derivatives</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 3 focuses on selecting procedures for calculating derivatives. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Classify the form quickly (composition, quotient, context, or series test).</li><li>Choose the shortest valid method.</li><li>Check assumptions (domain, differentiability, positivity/decreasing, etc.).</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>AP speed comes from recognizing structure: log differentiation can simplify products/quotients; implicit differentiation avoids solving for \(y\); logarithmic identities may shorten work.</p>
+    <div class="steps-block"><div class="teaching-label">Procedure Choice</div><ul class="notes-list"><li>Composition-heavy? chain first.</li><li>Many factors raised to powers? consider \(\ln\) both sides.</li><li>Relation not a function? implicit.</li></ul></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Compare finding \(\frac{d}{dx}\big(x^x\big)\) using \(\ln\) differentiation versus rewriting as \(e^{x\ln x}\).</div></div>
   </div></div>
 
   <div class="chapter" id="t36"><div class="chapter-header" onclick="toggle(this)"><h2>3.6 Calculating Higher-Order Derivatives</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 3 focuses on calculating higher-order derivatives. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>\(f''(x)\) is the derivative of \(f'(x)\); it measures concavity and acceleration in motion contexts. Some patterns repeat (polynomials eventually go to zero).</p>
+    <div class="formula-block">If \(f(x)=e^{2x}\), then \(f^{(n)}(x)=2^n e^{2x}\).</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Confusing notation: \(f''(x)\) is not \((f')^2\).</p></div>
   </div></div>
 
   <div class="chapter" id="t37"><div class="chapter-header" onclick="toggle(this)"><h2>3.7 Derivatives of ln and e With Chain Rule Context</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 3 focuses on derivatives of ln and e with chain rule context. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">\(\frac{d}{dx}f(g(x))=f'(g(x))g'(x)\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Forgetting to multiply by the derivative of the inner function.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>\(\frac{d}{dx}e^{u}=e^u u'\) and \(\frac{d}{dx}\ln u=\frac{u'}{u}\). These pair naturally with growth/decay models and log transforms.</p>
+    <div class="formula-block">\(\frac{d}{dx}\ln|f(x)|=\frac{f'(x)}{f(x)}\) on intervals where \(f(x)\neq0\).</div>
+    <div class="callout example">\(\frac{d}{dx}\ln(\cos x)=\frac{-\sin x}{\cos x}=-\tan x\) on intervals where \(\cos x>0\).</div>
   </div></div>
 
   <div class="chapter" id="t38"><div class="chapter-header" onclick="toggle(this)"><h2>3.8 Multiple Representations of Derivatives</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 3 focuses on multiple representations of derivatives. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>The same derivative appears as slope on a graph, rate in a word problem, sensitivity in a model, or velocity from position. Translate between representations on AP “interpretation” stems.</p>
+    <div class="steps-block"><div class="teaching-label">Interpretation Checklist</div><ul class="notes-list"><li>State units as (output)/(input).</li><li>Sign: increasing vs decreasing.</li><li>Magnitude: steep vs flat.</li></ul></div>
   </div></div>
 
   <div class="chapter" id="practice"><div class="chapter-header" onclick="toggle(this)"><h2>Mixed Practice and FRQ Strategy</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <div class="steps-block"><div class="teaching-label">Timed Routine</div><ul class="notes-list"><li>Classify prompt type in first 15-20 seconds.</li><li>Choose method before doing algebra-heavy work.</li><li>Show symbolic setup clearly so partial credit is preserved.</li><li>End with interpretation sentence and units when context is present.</li></ul></div>
-    <div class="callout example">Use one daily mixed set from this unit: 3 conceptual prompts, 3 computational prompts, and 1 full explanation response.</div>
+    <div class="steps-block"><div class="teaching-label">Timed Routine</div><ul class="notes-list"><li>5 pure chain problems with nested composition.</li><li>3 implicit differentiation curves.</li><li>2 inverse-trig-with-chain problems.</li><li>1 write-up connecting derivative sign to graph behavior.</li></ul></div>
+    <div class="callout example">If you miss a factor, slow down and label \(u\) every time until the habit sticks.</div>
   </div></div>
 </main>
 <script src="../../main.js"></script>

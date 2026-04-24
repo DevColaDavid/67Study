@@ -13,7 +13,7 @@
   <div class="sidebar-owner"><a class="sidebar-back-link" href="../index.html">Home</a></div>
   <details class="unit-switcher">
     <summary>Unit 7: Differential Equations</summary>
-    <div class="toc-section"><a href="unit1.html">Unit 1: </a></div>
+    <div class="toc-section"><a href="unit1.html">Unit 1: Limits and Continuity</a></div>
     <div class="toc-section"><a href="unit2.html">Unit 2: Differentiation: Definition and Fundamental Properties</a></div>
     <div class="toc-section"><a href="unit3.html">Unit 3: Differentiation: Composite, Implicit, and Inverse Functions</a></div>
     <div class="toc-section"><a href="unit4.html">Unit 4: Contextual Applications of Differentiation</a></div>
@@ -45,86 +45,83 @@
 
   <div class="learn-block" id="overview">
     <div class="teaching-label">How To Study This Unit</div>
-    <p>This unit should be studied through three layers: conceptual meaning, symbolic methods, and AP-style communication. Don’t memorize formulas in isolation; connect each tool to the type of question where it is strongest.</p>
-    <p>Practice short sets by subtopic first, then mixed sets that force method selection. In FRQ-style responses, write one brief sentence that interprets your result in context.</p>
-    <div class="mini-diagram"><p><strong>Slope-field intuition:</strong> if many short line segments tilt upward to the right, nearby solutions increase; if they flatten near a line, that line may be an equilibrium solution.</p></div>
+    <p>A differential equation relates a function to its derivatives. AP expects you to <strong>build</strong> models from prose, <strong>verify</strong> proposed solutions by substitution, and <strong>visualize</strong> or <strong>approximate</strong> solutions with slope fields and Euler’s method.</p>
+    <p>Keep separation of variables tidy: divide before integrating, and isolate \(C\) from initial data. Logistic DEs add carrying capacity language—always interpret \(L\) in context.</p>
   </div>
 
   <div class="chapter" id="t71"><div class="chapter-header" onclick="toggle(this)"><h2>7.1 Modeling Situations with Differential Equations</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 7 focuses on modeling situations with differential equations. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>Translate phrases like “proportional to the amount present” into symbols: \(\frac{dy}{dt}=ky\). Constraints (half-life, doubling time, initial population) become constants or initial conditions.</p>
+    <div class="formula-block">Proportionality to both \(y\) and \((L-y)\): \(\dfrac{dy}{dt}=ky(L-y)\) (logistic seed form).</div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Write a DE for the volume \(V\) of water in a tank if water enters at \(3\) L/min and leaves at a rate proportional to \(\sqrt{V}\).</div></div>
   </div></div>
 
   <div class="chapter" id="t72"><div class="chapter-header" onclick="toggle(this)"><h2>7.2 Verifying Solutions for Differential Equations</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 7 focuses on verifying solutions for differential equations. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>Given \(y=f(x)\), compute \(y'\) (and \(y''\) if needed) and substitute into the DE. If the equation becomes an identity on an interval, \(f\) is a solution.</p>
+    <div class="steps-block"><div class="teaching-label">Verification Routine</div><ul class="notes-list"><li>Differentiate the candidate \(y\) carefully (quotient/chain as needed).</li><li>Replace \(y\) and derivatives in the DE.</li><li>Simplify; if true for all \(x\) in the domain, verification succeeds.</li></ul></div>
+    <div class="callout example">Show \(y=Ce^{2x}\) solves \(y'=2y\) for any constant \(C\).</div>
   </div></div>
 
   <div class="chapter" id="t73"><div class="chapter-header" onclick="toggle(this)"><h2>7.3 Sketching Slope Fields</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 7 focuses on sketching slope fields. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Slope at each point is given by \(\frac{dy}{dx}=f(x,y)\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>List critical points and undefined points.</li><li>Use sign of derivatives for monotonicity/concavity.</li><li>Match behavior to the graph with labels.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Use a slope field to estimate behavior and justify whether solutions increase/decrease near a point.</div></div>
+    <p>At each grid point \((x,y)\), draw a short segment with slope \(\frac{dy}{dx}=F(x,y)\) from the DE. Segments show local tangent directions for solution curves.</p>
+    <div class="formula-block">For \(\frac{dy}{dx}=x+y\), at \((1,2)\) the slope is \(3\); draw a small line segment with slope \(3\) through that point.</div>
+    <div class="mini-diagram">
+      <svg viewBox="0 0 320 110" xmlns="http://www.w3.org/2000/svg" aria-label="Schematic slope ticks">
+        <g stroke="#5b8dee" stroke-width="1.5">
+          <line x1="40" y1="55" x2="55" y2="45"/><line x1="80" y1="55" x2="95" y2="42"/><line x1="120" y1="55" x2="138" y2="40"/>
+          <line x1="160" y1="55" x2="182" y2="38"/><line x1="200" y1="55" x2="225" y2="36"/><line x1="240" y1="55" x2="268" y2="35"/>
+        </g>
+        <path d="M35 75 Q160 30 285 70" fill="none" stroke="#c792ea" stroke-width="2"/>
+        <text x="20" y="100" fill="#8892b0" font-size="11">Solution threads follow the tick directions.</text>
+      </svg>
+    </div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Plotting slope using the wrong coordinates (mixing up \(x\) and \(y\) in \(F(x,y)\)).</p></div>
   </div></div>
 
   <div class="chapter" id="t74"><div class="chapter-header" onclick="toggle(this)"><h2>7.4 Reasoning Using Slope Fields</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 7 focuses on reasoning using slope fields. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Slope at each point is given by \(\frac{dy}{dx}=f(x,y)\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Use a slope field to estimate behavior and justify whether solutions increase/decrease near a point.</div></div>
+    <p>Equilibrium solutions occur where \(\frac{dy}{dt}=0\) for all relevant \(y\) (autonomous case: \(y'=g(y)\)). Horizontal lines at those \(y\)-values are solution curves.</p>
+    <div class="formula-block">For \(y'=k(y-L)\) with \(k&lt;0\) and \(y&lt;L\), slopes are positive so solutions increase toward \(L\).</div>
   </div></div>
 
   <div class="chapter" id="t75"><div class="chapter-header" onclick="toggle(this)"><h2>7.5 Approximating Solutions Using Euler's Method</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 7 focuses on approximating solutions using euler's method. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Euler: \(y_{n+1}=y_n+f(x_n,y_n)\Delta x\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Updating x without updating y (or vice versa) each step.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>Euler’s method follows the local slope in discrete steps: \(y_{n+1}=y_n+h\cdot F(x_n,y_n)\) with step size \(h=\Delta x\).</p>
+    <div class="formula-block">Iteration: \(x_{n+1}=x_n+h\), \(y_{n+1}=y_n+h\,F(x_n,y_n)\).</div>
+    <div class="data-table">
+      <table>
+        <thead><tr><th>\(n\)</th><th>\(x_n\)</th><th>\(y_n\)</th><th>\(F(x_n,y_n)\)</th><th>\(y_{n+1}\)</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>\(x_0\)</td><td>\(y_0\)</td><td>\(F_0\)</td><td>\(y_0+hF_0\)</td></tr>
+          <tr><td>1</td><td>\(x_0+h\)</td><td>\(y_1\)</td><td>\(F_1\)</td><td>\(y_1+hF_1\)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Using the <em>next</em> point’s slope before updating \(y\), or adding \(h\) twice to \(x\) per step.</p></div>
   </div></div>
 
   <div class="chapter" id="t76"><div class="chapter-header" onclick="toggle(this)"><h2>7.6 Finding General Solutions Using Separation of Variables</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 7 focuses on finding general solutions using separation of variables. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">For separable ODEs: \(\frac{dy}{dx}=g(x)h(y)\Rightarrow \int \frac{1}{h(y)}dy=\int g(x)dx\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>If \(\frac{dy}{dx}=g(x)h(y)\), write \(\frac{1}{h(y)}\,dy=g(x)\,dx\) and integrate both sides. Constants of integration collapse to one \(C\) on one side.</p>
+    <div class="formula-block">\(\displaystyle \int \frac{1}{h(y)}\,dy = \int g(x)\,dx + C\).</div>
+    <div class="callout example">\(\frac{dy}{dx}=xy \Rightarrow \int\frac{1}{y}\,dy=\int x\,dx \Rightarrow \ln|y|=\frac{x^2}{2}+C \Rightarrow y=Ke^{x^2/2}\).</div>
   </div></div>
 
   <div class="chapter" id="t77"><div class="chapter-header" onclick="toggle(this)"><h2>7.7 Finding Particular Solutions Using Initial Conditions and Separation of Variables</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 7 focuses on finding particular solutions using initial conditions and separation of variables. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">For separable ODEs: \(\frac{dy}{dx}=g(x)h(y)\Rightarrow \int \frac{1}{h(y)}dy=\int g(x)dx\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>After the general solution, substitute \(y(x_0)=y_0\) to solve for \(C\) (or \(K=e^C\) when exponentials appear). Watch domain restrictions (e.g. \(\ln y\) requires \(y>0\)).</p>
+    <div class="steps-block"><div class="teaching-label">IVP Checklist</div><ul class="notes-list"><li>Separate and integrate.</li><li>Solve algebraically for \(y\) if required by the prompt.</li><li>Plug \((x_0,y_0)\); note if solution is unique by standard existence theorems for nice \(F\).</li></ul></div>
   </div></div>
 
   <div class="chapter" id="t78"><div class="chapter-header" onclick="toggle(this)"><h2>7.8 Exponential Models with Differential Equations</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 7 focuses on exponential models with differential equations. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>Unlimited growth/decay: \(\frac{dy}{dt}=ky\) gives \(y=y_0e^{kt}\). The sign of \(k\) determines growth vs decay; \(|k|\) is the relative rate.</p>
+    <div class="formula-block">Half-life \(t_{1/2}\) for \(k&lt;0\): \(t_{1/2}=\dfrac{\ln 2}{|k|}\). Doubling time for \(k&gt;0\): \(t_d=\dfrac{\ln 2}{k}\).</div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">A culture satisfies \(\frac{dP}{dt}=0.05P\). If \(P(0)=200\), find \(P(10)\) and interpret \(0.05\).</div></div>
   </div></div>
 
   <div class="chapter" id="t79"><div class="chapter-header" onclick="toggle(this)"><h2>7.9 Logistic Models with Differential Equations</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 7 focuses on logistic models with differential equations. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Logistic model: \(\frac{dP}{dt}=kP\left(1-\frac{P}{M}\right)\), with carrying capacity \(M\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>Logistic growth adds a ceiling \(L\) (carrying capacity): \(\dfrac{dP}{dt}=kP(L-P)\) with \(k>0\). Solutions rise toward \(L\) when \(0&lt;P&lt;L\).</p>
+    <div class="formula-block">Standard form: \(\dfrac{dP}{dt}=kP\left(1-\frac{P}{L}\right)\). Equilibria: \(P=0\) (unstable) and \(P=L\) (stable) for typical signs.</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Treating logistic curves like exponentials for large \(t\); growth rate \(\frac{dP}{dt}\) shrinks as \(P\to L\).</p></div>
   </div></div>
 
   <div class="chapter" id="practice"><div class="chapter-header" onclick="toggle(this)"><h2>Mixed Practice and FRQ Strategy</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <div class="steps-block"><div class="teaching-label">Timed Routine</div><ul class="notes-list"><li>Classify prompt type in first 15-20 seconds.</li><li>Choose method before doing algebra-heavy work.</li><li>Show symbolic setup clearly so partial credit is preserved.</li><li>End with interpretation sentence and units when context is present.</li></ul></div>
-    <div class="callout example">Use one daily mixed set from this unit: 3 conceptual prompts, 3 computational prompts, and 1 full explanation response.</div>
+    <div class="steps-block"><div class="teaching-label">Timed Routine</div><ul class="notes-list"><li>1 modeling + 1 verification.</li><li>1 slope-field sketch or interpretation.</li><li>2 Euler steps by hand from a table starter.</li><li>2 separation IVPs (one exponential, one logistic-style setup).</li></ul></div>
   </div></div>
 </main>
 <script src="../../main.js"></script>

@@ -13,7 +13,7 @@
   <div class="sidebar-owner"><a class="sidebar-back-link" href="../index.html">Home</a></div>
   <details class="unit-switcher">
     <summary>Unit 4: Contextual Applications of Differentiation</summary>
-    <div class="toc-section"><a href="unit1.html">Unit 1: </a></div>
+    <div class="toc-section"><a href="unit1.html">Unit 1: Limits and Continuity</a></div>
     <div class="toc-section"><a href="unit2.html">Unit 2: Differentiation: Definition and Fundamental Properties</a></div>
     <div class="toc-section"><a href="unit3.html">Unit 3: Differentiation: Composite, Implicit, and Inverse Functions</a></div>
     <div class="toc-section"><a href="unit4.html">Unit 4: Contextual Applications of Differentiation</a></div>
@@ -44,86 +44,70 @@
 
   <div class="learn-block" id="overview">
     <div class="teaching-label">How To Study This Unit</div>
-    <p>This unit should be studied through three layers: conceptual meaning, symbolic methods, and AP-style communication. Don’t memorize formulas in isolation; connect each tool to the type of question where it is strongest.</p>
-    <p>Practice short sets by subtopic first, then mixed sets that force method selection. In FRQ-style responses, write one brief sentence that interprets your result in context.</p>
-    <div class="mini-diagram">
-      <svg viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg" aria-label="Position velocity acceleration relationships">
-        <rect x="20" y="30" width="100" height="56" stroke="#8892b0" fill="none"/><text x="42" y="63" fill="#d4daf0" font-size="12">position</text>
-        <rect x="160" y="30" width="100" height="56" stroke="#8892b0" fill="none"/><text x="188" y="63" fill="#d4daf0" font-size="12">velocity</text>
-        <rect x="300" y="30" width="100" height="56" stroke="#8892b0" fill="none"/><text x="322" y="63" fill="#d4daf0" font-size="12">accel.</text>
-        <line x1="120" y1="58" x2="160" y2="58" stroke="#5b8dee"/><text x="126" y="50" fill="#5b8dee" font-size="11">d/dt</text>
-        <line x1="260" y1="58" x2="300" y2="58" stroke="#5b8dee"/><text x="266" y="50" fill="#5b8dee" font-size="11">d/dt</text>
-      </svg>
-    </div>
+    <p>Unit 4 is about <strong>meaning</strong>: every derivative is a rate with units. AP will ask you to read a model, set up a relationship, and explain behavior (speeding up, concave down, etc.).</p>
+    <p>For related rates, draw a diagram first. For linearization, think “tangent line as local approximation.” BC-only L’Hospital belongs in limit problems with justified indeterminate forms.</p>
   </div>
 
   <div class="chapter" id="t41"><div class="chapter-header" onclick="toggle(this)"><h2>4.1 Interpreting the Meaning of the Derivative in Context</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 4 focuses on interpreting the meaning of the derivative in context. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>If \(C(x)\) is cost to produce \(x\) units, then \(C'(x)\) is <strong>marginal cost</strong> (approximate cost of the next unit). If \(P(t)\) is population, \(P'(t)\) is growth rate in individuals per year.</p>
+    <div class="formula-block">Units of \(f'\): \(\frac{\text{units of }f}{\text{units of }x}\).</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Reporting a derivative value without connecting it to what the variables represent in the story.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">If \(R(p)\) is revenue at price \(p\) and \(R'(12)=-30\) dollars per dollar, interpret the sign and magnitude at \(p=12\).</div></div>
   </div></div>
 
   <div class="chapter" id="t42"><div class="chapter-header" onclick="toggle(this)"><h2>4.2 Straight-Line Motion: Connecting Position, Velocity, and Acceleration</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 4 focuses on straight-line motion: connecting position, velocity, and acceleration. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>For position \(s(t)\), velocity is \(v(t)=s'(t)\) and acceleration is \(a(t)=v'(t)=s''(t)\). Speed is \(|v(t)|\).</p>
+    <div class="formula-block">Particle speeds up when \(v\) and \(a\) have the same sign; slows down when they have opposite signs.</div>
+    <div class="mini-diagram">
+      <svg viewBox="0 0 420 110" xmlns="http://www.w3.org/2000/svg" aria-label="Position to acceleration">
+        <rect x="20" y="28" width="100" height="50" stroke="#8892b0" fill="none"/><text x="38" y="58" fill="#d4daf0" font-size="12">s(t)</text>
+        <text x="130" y="58" fill="#5b8dee" font-size="14">→</text>
+        <rect x="155" y="28" width="100" height="50" stroke="#8892b0" fill="none"/><text x="178" y="58" fill="#d4daf0" font-size="12">v=s'</text>
+        <text x="265" y="58" fill="#5b8dee" font-size="14">→</text>
+        <rect x="290" y="28" width="100" height="50" stroke="#8892b0" fill="none"/><text x="305" y="58" fill="#d4daf0" font-size="12">a=v'</text>
+        <text x="20" y="100" fill="#8892b0" font-size="11">Differentiate once for velocity; twice for acceleration.</text>
+      </svg>
+    </div>
+    <div class="callout example">If \(v(t)=t^2-4t\), then \(a(t)=2t-4\). At \(t=1\), \(v=-3\) and \(a=-2\) (same sign → speeding up in negative direction).</div>
   </div></div>
 
   <div class="chapter" id="t43"><div class="chapter-header" onclick="toggle(this)"><h2>4.3 Rates of Change in Applied Contexts Other Than Motion</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 4 focuses on rates of change in applied contexts other than motion. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>Any quantity \(Q(t)\) changing over time has rate \(Q'(t)\): water height in a tank, angle of a ladder, temperature cooling, etc.</p>
+    <div class="steps-block"><div class="teaching-label">Modeling Routine</div><ul class="notes-list"><li>Identify variables and what is fixed vs changing.</li><li>Write a geometric or physical relation linking variables.</li><li>Differentiate with respect to time when appropriate.</li></ul></div>
   </div></div>
 
   <div class="chapter" id="t44"><div class="chapter-header" onclick="toggle(this)"><h2>4.4 Introduction to Related Rates</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 4 focuses on introduction to related rates. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Draw and label a diagram with variables and units.</li><li>Differentiate with respect to time.</li><li>Substitute known values only after differentiating.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Given changing dimensions of a geometric figure, find the requested rate and include units.</div></div>
+    <p>Related rates link two or more quantities that change together. You differentiate an equation that is true <em>for all time</em> in the situation, then substitute numeric values <em>after</em> differentiating.</p>
+    <div class="formula-block">If \(x^2+y^2=z^2\) for a right triangle with changing legs, then \(2xx'+2yy'=2zz'\).</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Plugging numbers in before differentiating, which freezes variables that should still be changing.</p></div>
   </div></div>
 
   <div class="chapter" id="t45"><div class="chapter-header" onclick="toggle(this)"><h2>4.5 Solving Related Rates Problems</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 4 focuses on solving related rates problems. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Draw and label a diagram with variables and units.</li><li>Differentiate with respect to time.</li><li>Substitute known values only after differentiating.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Given changing dimensions of a geometric figure, find the requested rate and include units.</div></div>
+    <p>Classic templates: expanding circle \(A=\pi r^2\Rightarrow A'=2\pi r r'\); cone or cylinder volume; ladder sliding with Pythagoras.</p>
+    <div class="steps-block"><div class="teaching-label">Problem Setup</div><ul class="notes-list"><li>Draw and label diagram with constants vs variables.</li><li>Write one equation relating the variables.</li><li>Differentiate, substitute known rates and positions, solve for unknown rate.</li></ul></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">A spherical balloon’s radius increases at \(2\) cm/s. Find the rate of change of volume when \(r=5\) cm. Include units.</div></div>
   </div></div>
 
   <div class="chapter" id="t46"><div class="chapter-header" onclick="toggle(this)"><h2>4.6 Local Linearity and Linearization</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 4 focuses on local linearity and linearization. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>Near \(x=a\), a differentiable function is well approximated by its tangent line: \(L(x)=f(a)+f'(a)(x-a)\).</p>
+    <div class="formula-block">\(f(x)\approx f(a)+f'(a)(x-a)\) for \(x\) close to \(a\) (local linearization).</div>
+    <div class="callout example">Linearize \(\sqrt{x}\) at \(a=9\): \(L(x)=3+\frac{1}{6}(x-9)\). Estimate \(\sqrt{9.2}\approx3+\frac{0.2}{6}\approx3.033\).</div>
   </div></div>
 
   <div class="chapter" id="t47"><div class="chapter-header" onclick="toggle(this)"><h2>4.7 Using L'Hospital's Rule for Determining Limits of Indeterminate Forms (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 4 focuses on using l'hospital's rule for determining limits of indeterminate forms. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">If a limit is \(0/0\) or \(\infty/\infty\), then \(\lim\frac{f}{g}=\lim\frac{f'}{g'}\) when conditions are met.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p><strong>BC only.</strong> L’Hospital’s rule applies to limits giving indeterminate forms such as \(0/0\) or \(\infty/\infty\) when numerator and denominator are differentiable near the point (with correct one-sided hypotheses).</p>
+    <div class="formula-block">If \(\lim\frac{f}{g}\) is \(0/0\) or \(\infty/\infty\), then \(\lim\frac{f}{g}=\lim\frac{f'}{g'}\) when the latter limit exists (or is \(\pm\infty\)).</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Applying L’Hospital without verifying indeterminate form, or applying when the limit of ratios of derivatives fails to exist.</p></div>
+    <div class="callout example">\(\lim_{x\to0}\frac{\sin x}{x}=\lim_{x\to0}\frac{\cos x}{1}=1\) after checking \(0/0\).</div>
   </div></div>
 
   <div class="chapter" id="t48"><div class="chapter-header" onclick="toggle(this)"><h2>4.8 Interpreting Differentiability and Continuity in Context</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 4 focuses on interpreting differentiability and continuity in context. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>In models, nondifferentiability can mean a regime change: pricing tiers, piecewise policies, or constraints that create corners. Continuity failure can mean impossible jumps in inventory or height.</p>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Explain in context why a cost function might be continuous but not differentiable at a quantity where a bulk discount kicks in.</div></div>
   </div></div>
 
   <div class="chapter" id="practice"><div class="chapter-header" onclick="toggle(this)"><h2>Mixed Practice and FRQ Strategy</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <div class="steps-block"><div class="teaching-label">Timed Routine</div><ul class="notes-list"><li>Classify prompt type in first 15-20 seconds.</li><li>Choose method before doing algebra-heavy work.</li><li>Show symbolic setup clearly so partial credit is preserved.</li><li>End with interpretation sentence and units when context is present.</li></ul></div>
-    <div class="callout example">Use one daily mixed set from this unit: 3 conceptual prompts, 3 computational prompts, and 1 full explanation response.</div>
+    <div class="steps-block"><div class="teaching-label">Timed Routine</div><ul class="notes-list"><li>2 interpretation-only prompts (units + meaning).</li><li>2 motion problems with speed vs velocity.</li><li>2 related rates with diagram.</li><li>1 linearization estimate.</li><li>BC: 1 L’Hospital limit with justification.</li></ul></div>
   </div></div>
 </main>
 <script src="../../main.js"></script>

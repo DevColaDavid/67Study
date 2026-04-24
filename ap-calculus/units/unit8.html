@@ -13,7 +13,7 @@
   <div class="sidebar-owner"><a class="sidebar-back-link" href="../index.html">Home</a></div>
   <details class="unit-switcher">
     <summary>Unit 8: Applications of Integration</summary>
-    <div class="toc-section"><a href="unit1.html">Unit 1: </a></div>
+    <div class="toc-section"><a href="unit1.html">Unit 1: Limits and Continuity</a></div>
     <div class="toc-section"><a href="unit2.html">Unit 2: Differentiation: Definition and Fundamental Properties</a></div>
     <div class="toc-section"><a href="unit3.html">Unit 3: Differentiation: Composite, Implicit, and Inverse Functions</a></div>
     <div class="toc-section"><a href="unit4.html">Unit 4: Contextual Applications of Differentiation</a></div>
@@ -44,78 +44,66 @@
 
   <div class="learn-block" id="overview">
     <div class="teaching-label">How To Study This Unit</div>
-    <p>This unit should be studied through three layers: conceptual meaning, symbolic methods, and AP-style communication. Don’t memorize formulas in isolation; connect each tool to the type of question where it is strongest.</p>
-    <p>Practice short sets by subtopic first, then mixed sets that force method selection. In FRQ-style responses, write one brief sentence that interprets your result in context.</p>
-    
+    <p>Every application here is a definite integral of a <strong>slice quantity</strong>: average height, net displacement, area strip, volume slice, or arc element \(ds\).</p>
+    <p>Draw the region first. Decide whether to integrate with respect to \(x\) or \(y\) (sometimes one avoids splitting). BC adds shells when revolving around a “wrong” axis for discs.</p>
   </div>
 
   <div class="chapter" id="t81"><div class="chapter-header" onclick="toggle(this)"><h2>8.1 Finding the Average Value of a Function on an Interval</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 8 focuses on finding the average value of a function on an interval. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">\(\text{Average value on }[a,b]=\frac{1}{b-a}\int_a^b f(x)\,dx\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>The average value of \(f\) on \([a,b]\) is the constant height that would give the same signed area over the interval as \(f\) does.</p>
+    <div class="formula-block">\(f_{\text{avg}}=\dfrac{1}{b-a}\displaystyle\int_a^b f(x)\,dx\).</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Forgetting the factor \(\frac{1}{b-a}\) or integrating over the wrong interval from the story.</p></div>
+    <div class="callout example">Average of \(x^2\) on \([0,3]\): \(\frac{1}{3}\int_0^3 x^2\,dx=\frac{1}{3}\cdot 9=3\).</div>
   </div></div>
 
   <div class="chapter" id="t82"><div class="chapter-header" onclick="toggle(this)"><h2>8.2 Connecting Position, Velocity, and Acceleration of Functions Using Integrals</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 8 focuses on connecting position, velocity, and acceleration of functions using integrals. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>Velocity integrates to displacement; speed integrates to distance traveled. Watch absolute value for distance.</p>
+    <div class="formula-block">\(\displaystyle \int_a^b v(t)\,dt=s(b)-s(a)\) (displacement). Distance \(=\int_a^b |v(t)|\,dt\).</div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">If \(v(t)=t^2-1\) on \([0,2]\), compute displacement and total distance traveled.</div></div>
   </div></div>
 
   <div class="chapter" id="t83"><div class="chapter-header" onclick="toggle(this)"><h2>8.3 Using Definite Integrals to Find the Area Between Curves</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 8 focuses on using definite integrals to find the area between curves. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Area between curves: \(\int_a^b(\text{top}-\text{bottom})\,dx\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Using wrong top/bottom or outer/inner function in setup.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>Between \(x=a\) and \(x=b\), if \(f(x)\geq g(x)\), area is \(\int_a^b (f-g)\,dx\). If curves cross, split at intersection points and add absolute areas.</p>
+    <div class="formula-block">Area \(=\displaystyle\int_a^b \bigl|f(x)-g(x)\bigr|\,dx\) when orientation flips.</div>
+    <div class="steps-block"><div class="teaching-label">Intersection Routine</div><ul class="notes-list"><li>Set \(f(x)=g(x)\) to find bounds.</li><li>Pick a test point in each subinterval to see which graph is on top.</li><li>Integrate top minus bottom on each piece.</li></ul></div>
   </div></div>
 
   <div class="chapter" id="t84"><div class="chapter-header" onclick="toggle(this)"><h2>8.4 Finding Volumes of Solids with Cross Sections</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 8 focuses on finding volumes of solids with cross sections. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Use clear setup, a valid theorem/rule, and a one-sentence interpretation to earn AP communication points.</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Using wrong top/bottom or outer/inner function in setup.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>Slice perpendicular to an axis: if cross-sectional area at position \(x\) is \(A(x)\), then \(V=\int_a^b A(x)\,dx\).</p>
+    <div class="formula-block">Square cross sections side \(s(x)\): \(A=s^2\). Equilateral triangles side \(s(x)\): \(A=\frac{\sqrt3}{4}s^2\).</div>
+    <div class="mini-diagram">
+      <svg viewBox="0 0 380 100" xmlns="http://www.w3.org/2000/svg" aria-label="Slices along x">
+        <line x1="40" y1="80" x2="320" y2="80" stroke="#8892b0"/>
+        <rect x="100" y="45" width="40" height="35" fill="none" stroke="#5b8dee"/><rect x="180" y="50" width="40" height="30" fill="none" stroke="#5b8dee"/><rect x="260" y="55" width="40" height="25" fill="none" stroke="#5b8dee"/>
+        <text x="20" y="25" fill="#d4daf0" font-size="12">A(x) changes with x → ∫ A(x) dx</text>
+      </svg>
+    </div>
   </div></div>
 
   <div class="chapter" id="t85"><div class="chapter-header" onclick="toggle(this)"><h2>8.5 Finding Volume with Disc Method</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 8 focuses on finding volume with disc method. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Washer/disc volume: \(V=\pi\int_a^b\big(R(x)^2-r(x)^2\big)\,dx\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Using wrong top/bottom or outer/inner function in setup.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>Revolving a region around an axis: circular slices have area \(\pi R^2\). The radius \(R(x)\) is the distance from the axis of revolution to the outer curve.</p>
+    <div class="formula-block">Discs about the \(x\)-axis: \(V=\pi\int_a^b [R(x)]^2\,dx\).</div>
   </div></div>
 
   <div class="chapter" id="t86"><div class="chapter-header" onclick="toggle(this)"><h2>8.6 Finding Volume with Washer Method</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 8 focuses on finding volume with washer method. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Washer/disc volume: \(V=\pi\int_a^b\big(R(x)^2-r(x)^2\big)\,dx\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Using wrong top/bottom or outer/inner function in setup.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>When a hole remains through the solid, subtract inner disc area: washers use \(\pi(R_{\text{out}}^2-R_{\text{in}}^2)\).</p>
+    <div class="formula-block">\(V=\pi\int_a^b \bigl([R_{\text{out}}(x)]^2-[R_{\text{in}}(x)]^2\bigr)\,dx\).</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Squaring before subtracting \((R_{\text{out}}-R_{\text{in}})^2\) instead of subtracting squares—those are different solids.</p></div>
   </div></div>
 
   <div class="chapter" id="t87"><div class="chapter-header" onclick="toggle(this)"><h2>8.7 Finding Volume with Cylindrical Shell Method (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 8 focuses on finding volume with cylindrical shell method. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">Shell volume: \(V=2\pi\int_a^b(\text{radius})(\text{height})\,dx\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Using wrong top/bottom or outer/inner function in setup.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p><strong>BC only.</strong> Shells wrap around an axis parallel to the missing dimension of the thin cylinder: circumference \(2\pi r\), height \(h\), thickness \(dx\) or \(dy\).</p>
+    <div class="formula-block">Vertical shells revolving about a vertical axis: \(V=2\pi\int_a^b (\text{radius})(\text{height})\,dx\).</div>
+    <div class="callout example">Region between \(y=0\) and \(y=\sqrt{x}\) from \(x=0\) to \(4\), revolved about \(x=-1\): radius \(x+1\), height \(\sqrt{x}\), \(V=2\pi\int_0^4 (x+1)\sqrt{x}\,dx\).</div>
   </div></div>
 
   <div class="chapter" id="t88"><div class="chapter-header" onclick="toggle(this)"><h2>8.8 Finding Arc Length of Curves Defined by Functions</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <p>This subtopic in Unit 8 focuses on finding arc length of curves defined by functions. Build your notes around meaning first, then mechanics: what quantity is being measured, why the procedure works, and how to interpret the result in context.</p>
-    <div class="formula-block">For \(y=f(x)\): \(L=\int_a^b \sqrt{1+\left(f'(x)\right)^2}\,dx\).</div>
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Identify knowns, unknown, and units.</li><li>Apply the core rule/theorem for this topic.</li><li>Write a one-sentence interpretation or conclusion.</li></ul></div>
-    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping explanation language; AP scoring rewards justified method and interpretation, not just numeric output.</p></div>
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve one AP-style problem and include one sentence explaining what your result means.</div></div>
+    <p>Infinitesimal hypotenuse: \(ds=\sqrt{1+[f'(x)]^2}\,dx\). Total length is the integral of \(ds\).</p>
+    <div class="formula-block">Arc length: \(L=\displaystyle\int_a^b \sqrt{1+\left(\frac{dy}{dx}\right)^2}\,dx\).</div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Set up (do not evaluate) the arc length integral for \(y=\ln(\cos x)\) from \(x=0\) to \(\pi/4\).</div></div>
   </div></div>
 
   <div class="chapter" id="practice"><div class="chapter-header" onclick="toggle(this)"><h2>Mixed Practice and FRQ Strategy</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <div class="steps-block"><div class="teaching-label">Timed Routine</div><ul class="notes-list"><li>Classify prompt type in first 15-20 seconds.</li><li>Choose method before doing algebra-heavy work.</li><li>Show symbolic setup clearly so partial credit is preserved.</li><li>End with interpretation sentence and units when context is present.</li></ul></div>
-    <div class="callout example">Use one daily mixed set from this unit: 3 conceptual prompts, 3 computational prompts, and 1 full explanation response.</div>
+    <div class="steps-block"><div class="teaching-label">Timed Routine</div><ul class="notes-list"><li>1 average value with units in context.</li><li>1 displacement/distance split.</li><li>2 area-between (possibly with \(dy\) setup).</li><li>2 volumes (one cross section, one disc/washer or BC shell).</li><li>1 arc length setup.</li></ul></div>
   </div></div>
 </main>
 <script src="../../main.js"></script>
