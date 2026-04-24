@@ -42,9 +42,13 @@ function expandChapterForTts(chapterEl: Element) {
 type Segment = { text: string; chapterEl: Element | null };
 
 export function ReadAloudDock() {
-  const [collapsed, setCollapsed] = useState(
-    () => localStorage.getItem(TTS_COLLAPSED_KEY) === "1",
-  );
+  const [collapsed, setCollapsed] = useState(() => {
+    const saved = localStorage.getItem(TTS_COLLAPSED_KEY);
+    if (saved === null) {
+      return true;
+    }
+    return saved === "1";
+  });
 
   const segmentQueueRef = useRef<Segment[]>([]);
   const segmentIndexRef = useRef(0);
