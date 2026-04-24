@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import type { ReactNode } from "react";
 import type { TocItem } from "../data/toc";
 
-export type UnitSwitcherLink = { to: string; label: string };
+export type UnitSwitcherLink = { to: string; label: string; bcOnly?: boolean };
 
 type UnitLayoutProps = {
   sidebarHeader: string;
@@ -36,7 +36,17 @@ export function UnitLayout({
           <summary>{unitSwitcherSummary}</summary>
           {switcherLinks.map((item) => (
             <div className="toc-section" key={item.to}>
-              <Link to={item.to}>{item.label}</Link>
+              <Link to={item.to}>
+                {item.label}
+                {item.bcOnly ? (
+                  <>
+                    {" "}
+                    <span className="bc-badge" aria-label="BC only unit">
+                      BC
+                    </span>
+                  </>
+                ) : null}
+              </Link>
             </div>
           ))}
         </details>

@@ -24,7 +24,17 @@ export function CalculusHubPage() {
           const desc = m?.[2] ?? u.label;
           return (
             <Link key={u.to} className="card" to={u.to}>
-              <div className="card-title">Unit {unitNum}</div>
+              <div className="card-title">
+                Unit {unitNum}
+                {u.bcOnly ? (
+                  <>
+                    {" "}
+                    <span className="bc-badge" aria-label="BC only unit">
+                      BC
+                    </span>
+                  </>
+                ) : null}
+              </div>
               <p>{desc}</p>
             </Link>
           );

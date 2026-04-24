@@ -1168,9 +1168,9 @@ body.has-tts-dock:has(.apstudy-tts-dock.is-collapsed) {
 .apstudy-tts-show-btn {
   display: none;
   position: absolute;
-  left: 50%;
+  right: 16px;
   bottom: calc(10px + env(safe-area-inset-bottom, 0px));
-  transform: translateX(-50%);
+  transform: none;
   align-items: center;
   gap: 8px;
   padding: 10px 20px 10px 18px;
@@ -1196,12 +1196,56 @@ body.has-tts-dock:has(.apstudy-tts-dock.is-collapsed) {
   box-shadow:
     0 6px 28px rgba(0, 0, 0, 0.5),
     0 0 24px rgba(91, 141, 238, 0.15);
-  transform: translateX(-50%) translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .apstudy-tts-show-btn:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+.bc-guidance-note {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: 1px solid rgba(91, 141, 238, 0.4);
+  border-radius: 8px;
+  background: rgba(30, 45, 74, 0.35);
+  color: var(--text);
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.chapter-tag-bc {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 160, 75, 0.55);
+  background: rgba(240, 160, 75, 0.16);
+  color: var(--accent3);
+  font-family: "Outfit", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.bc-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 7px;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 160, 75, 0.55);
+  background: rgba(240, 160, 75, 0.16);
+  color: var(--accent3);
+  font-family: "Outfit", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: middle;
 }
 
 .apstudy-tts-dock.is-collapsed .apstudy-tts-show-btn {
