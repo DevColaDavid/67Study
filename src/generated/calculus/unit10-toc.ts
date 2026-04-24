@@ -1,6 +1,20 @@
 /* generated from ap-calculus/units/unit10.html */
 export const calcUnit10Toc = [
-  { id: "overview", label: "Overview" },
-  { id: "workflow", label: "Problem Workflow" },
-  { id: "practice", label: "Practice Prompt" },
+  { id: "overview", label: "How To Study This Unit" },
+  { id: "t101", label: "10.1 Defining Convergent and Divergent Infinite Series (BC)" },
+  { id: "t102", label: "10.2 Working with Geometric Series (BC)" },
+  { id: "t103", label: "10.3 The nth Term Test for Divergence (BC)" },
+  { id: "t104", label: "10.4 Integral Test for Convergence (BC)" },
+  { id: "t105", label: "10.5 Harmonic Series and p-Series (BC)" },
+  { id: "t106", label: "10.6 Comparison Tests for Convergence (BC)" },
+  { id: "t107", label: "10.7 Alternating Series Test for Convergence (BC)" },
+  { id: "t108", label: "10.8 Ratio Test for Convergence (BC)" },
+  { id: "t109", label: "10.9 Determining Absolute or Conditional Convergence (BC)" },
+  { id: "t1010", label: "10.10 Alternating Series Error Bound (BC)" },
+  { id: "t1011", label: "10.11 Finding Taylor Polynomial Approximations of Functions (BC)" },
+  { id: "t1012", label: "10.12 Lagrange Error Bound (BC)" },
+  { id: "t1013", label: "10.13 Radius and Interval of Convergence of Power Series (BC)" },
+  { id: "t1014", label: "10.14 Finding Taylor or Maclaurin Series for a Function (BC)" },
+  { id: "t1015", label: "10.15 Representing Functions as Power Series (BC)" },
+  { id: "practice", label: "Mixed Practice and FRQ Strategy" },
 ] as const;

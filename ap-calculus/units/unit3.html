@@ -22,28 +22,99 @@
     <div class="toc-section"><a href="unit7.html">Unit 7: Differential Equations</a></div>
     <div class="toc-section"><a href="unit8.html">Unit 8: Applications of Integration</a></div>
     <div class="toc-section"><a href="unit9.html">Unit 9: Parametric, Polar, and Vector-Valued Functions</a></div>
-    <div class="toc-section"><a href="unit10.html">Unit 10: Infinite Sequences and Series</a></div>  </details>
+    <div class="toc-section"><a href="unit10.html">Unit 10: Infinite Sequences and Series</a></div>
+  </details>
   <div class="toc-section"><a href="#overview">Overview</a></div>
-  <div class="toc-section"><a href="#workflow">Problem Workflow</a></div>
-  <div class="toc-section"><a href="#practice">Practice Prompt</a></div>
+  <div class="toc-section"><a href="#t31">3.1 The Chain Rule</a></div>
+  <div class="toc-section"><a href="#t32">3.2 Differentiating Composite Functions</a></div>
+  <div class="toc-section"><a href="#t33">3.3 Differentiating Implicitly</a></div>
+  <div class="toc-section"><a href="#t34">3.4 Differentiating Inverse Functions</a></div>
+  <div class="toc-section"><a href="#t35">3.5 Selecting Procedures for Calculating Derivatives</a></div>
+  <div class="toc-section"><a href="#t36">3.6 Calculating Higher-Order Derivatives</a></div>
+  <div class="toc-section"><a href="#t37">3.7 Derivatives of ln and e With Chain Rule Context</a></div>
+  <div class="toc-section"><a href="#t38">3.8 Multiple Representations of Derivatives</a></div>
+  <div class="toc-section"><a href="#practice">Mixed Practice and FRQ Strategy</a></div>
 </nav>
 <main id="main">
   <div class="doc-title-block">
-    <div class="doc-label">AB Core</div>
+    <div class="doc-label">AP Calculus (AB + BC)</div>
     <h1 class="doc-title">Unit 3: Differentiation: Composite, Implicit, and Inverse Functions</h1>
+    <div class="doc-meta"><span><a class="all-subjects-link" href="../index.html">← AP Calculus</a></span><span>AB/BC Exam Weight: 9%-13%</span></div>
   </div>
 
-  <div class="chapter" id="overview"><div class="chapter-header" onclick="toggle(this)"><h2>Overview</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <div class="learn-block"><div class="teaching-label">Core Idea</div><p>This unit extends derivatives using chain rule, implicit differentiation, and inverse function ideas.</p></div>
-    
+  <div class="learn-block" id="overview">
+    <div class="teaching-label">How To Study This Unit</div>
+    <p>Move topic by topic and connect ideas across representations. For every problem, explain what the quantity means before computing it. This improves both speed and accuracy on timed AP multiple-choice and free-response work.</p>
+    <p>Use a three-pass routine: concept check, worked examples, then timed mixed practice. Keep an error log by topic ID to detect weak patterns quickly.</p>
+  </div>
+
+  <div class="chapter" id="t31"><div class="chapter-header" onclick="toggle(this)"><h2>3.1 The Chain Rule</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">Show setup first, then execute algebra, then justify with theorem language expected by AP scorers.</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
   </div></div>
 
-  <div class="chapter" id="workflow"><div class="chapter-header" onclick="toggle(this)"><h2>Problem Workflow</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Write known information and target quantity.</li><li>Select the main theorem or rule for the unit.</li><li>Simplify algebra and verify context.</li></ul></div>
+  <div class="chapter" id="t32"><div class="chapter-header" onclick="toggle(this)"><h2>3.2 Differentiating Composite Functions</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\), and interpret units as \(\frac{\text{output}}{\text{input}}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
   </div></div>
 
-  <div class="chapter" id="practice"><div class="chapter-header" onclick="toggle(this)"><h2>Practice Prompt</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Find \(dy/dx\) for \(x^2 + y^2 = 25\) and evaluate at point \((3,4)\).</div></div>
+  <div class="chapter" id="t33"><div class="chapter-header" onclick="toggle(this)"><h2>3.3 Differentiating Implicitly</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\), and interpret units as \(\frac{\text{output}}{\text{input}}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t34"><div class="chapter-header" onclick="toggle(this)"><h2>3.4 Differentiating Inverse Functions</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\), and interpret units as \(\frac{\text{output}}{\text{input}}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t35"><div class="chapter-header" onclick="toggle(this)"><h2>3.5 Selecting Procedures for Calculating Derivatives</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\), and interpret units as \(\frac{\text{output}}{\text{input}}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t36"><div class="chapter-header" onclick="toggle(this)"><h2>3.6 Calculating Higher-Order Derivatives</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\), and interpret units as \(\frac{\text{output}}{\text{input}}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t37"><div class="chapter-header" onclick="toggle(this)"><h2>3.7 Derivatives of ln and e With Chain Rule Context</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\), and interpret units as \(\frac{\text{output}}{\text{input}}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t38"><div class="chapter-header" onclick="toggle(this)"><h2>3.8 Multiple Representations of Derivatives</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\), and interpret units as \(\frac{\text{output}}{\text{input}}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="practice"><div class="chapter-header" onclick="toggle(this)"><h2>Mixed Practice and FRQ Strategy</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <div class="steps-block"><div class="teaching-label">Timed Routine</div><ul class="notes-list"><li>Spend first 20 seconds identifying unit/topic and likely theorem.</li><li>Write setup with notation and units before arithmetic.</li><li>Circle interpretation statements for contextual prompts.</li><li>On calculator-active parts, report rounded values and keep symbolic setup visible.</li></ul></div>
+    <div class="callout example">Build one short mixed set from this unit every day: 3 conceptual checks, 3 computational prompts, and 1 full FRQ-style response with rubric-based self-scoring.</div>
   </div></div>
 </main>
 <script src="../../main.js"></script>

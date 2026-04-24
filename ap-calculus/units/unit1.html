@@ -22,28 +22,171 @@
     <div class="toc-section"><a href="unit7.html">Unit 7: Differential Equations</a></div>
     <div class="toc-section"><a href="unit8.html">Unit 8: Applications of Integration</a></div>
     <div class="toc-section"><a href="unit9.html">Unit 9: Parametric, Polar, and Vector-Valued Functions</a></div>
-    <div class="toc-section"><a href="unit10.html">Unit 10: Infinite Sequences and Series</a></div>  </details>
+    <div class="toc-section"><a href="unit10.html">Unit 10: Infinite Sequences and Series</a></div>
+  </details>
   <div class="toc-section"><a href="#overview">Overview</a></div>
-  <div class="toc-section"><a href="#workflow">Problem Workflow</a></div>
-  <div class="toc-section"><a href="#practice">Practice Prompt</a></div>
+  <div class="toc-section"><a href="#t11">1.1 Introducing Calculus: Can Change Occur at an Instant?</a></div>
+  <div class="toc-section"><a href="#t12">1.2 Defining Limits and Using Limit Notation</a></div>
+  <div class="toc-section"><a href="#t13">1.3 Estimating Limit Values from Graphs</a></div>
+  <div class="toc-section"><a href="#t14">1.4 Estimating Limit Values from Tables</a></div>
+  <div class="toc-section"><a href="#t15">1.5 Determining Limits Using Algebraic Properties of Limits</a></div>
+  <div class="toc-section"><a href="#t16">1.6 Determining Limits Using Algebraic Manipulation</a></div>
+  <div class="toc-section"><a href="#t17">1.7 Selecting Procedures for Determining Limits</a></div>
+  <div class="toc-section"><a href="#t18">1.8 Determining Limits Using the Squeeze Theorem</a></div>
+  <div class="toc-section"><a href="#t19">1.9 Connecting Multiple Representations of Limits</a></div>
+  <div class="toc-section"><a href="#t110">1.10 Exploring Types of Discontinuities</a></div>
+  <div class="toc-section"><a href="#t111">1.11 Defining Continuity at a Point</a></div>
+  <div class="toc-section"><a href="#t112">1.12 Confirming Continuity over an Interval</a></div>
+  <div class="toc-section"><a href="#t113">1.13 Removing Discontinuities</a></div>
+  <div class="toc-section"><a href="#t114">1.14 Connecting Infinite Limits and Vertical Asymptotes</a></div>
+  <div class="toc-section"><a href="#t115">1.15 Connecting Limits at Infinity and Horizontal Asymptotes</a></div>
+  <div class="toc-section"><a href="#t116">1.16 Working with the Intermediate Value Theorem (IVT)</a></div>
+  <div class="toc-section"><a href="#practice">Mixed Practice and FRQ Strategy</a></div>
 </nav>
 <main id="main">
   <div class="doc-title-block">
-    <div class="doc-label">AB Core</div>
+    <div class="doc-label">AP Calculus (AB + BC)</div>
     <h1 class="doc-title">Unit 1: Limits and Continuity</h1>
+    <div class="doc-meta"><span><a class="all-subjects-link" href="../index.html">← AP Calculus</a></span><span>AB/BC Exam Weight: 10%-12%</span></div>
   </div>
 
-  <div class="chapter" id="overview"><div class="chapter-header" onclick="toggle(this)"><h2>Overview</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <div class="learn-block"><div class="teaching-label">Core Idea</div><p>Limits describe behavior as x approaches a value, and continuity checks whether a function has breaks.</p></div>
-    
+  <div class="learn-block" id="overview">
+    <div class="teaching-label">How To Study This Unit</div>
+    <p>Move topic by topic and connect ideas across representations. For every problem, explain what the quantity means before computing it. This improves both speed and accuracy on timed AP multiple-choice and free-response work.</p>
+    <p>Use a three-pass routine: concept check, worked examples, then timed mixed practice. Keep an error log by topic ID to detect weak patterns quickly.</p>
+  </div>
+
+  <div class="chapter" id="t11"><div class="chapter-header" onclick="toggle(this)"><h2>1.1 Introducing Calculus: Can Change Occur at an Instant?</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">Show setup first, then execute algebra, then justify with theorem language expected by AP scorers.</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
   </div></div>
 
-  <div class="chapter" id="workflow"><div class="chapter-header" onclick="toggle(this)"><h2>Problem Workflow</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Write known information and target quantity.</li><li>Select the main theorem or rule for the unit.</li><li>Simplify algebra and verify context.</li></ul></div>
+  <div class="chapter" id="t12"><div class="chapter-header" onclick="toggle(this)"><h2>1.2 Defining Limits and Using Limit Notation</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(\lim_{x\to a}f(x)=L\) means values of \(f(x)\) get arbitrarily close to \(L\) as \(x\) gets close to \(a\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Evaluate a limit that first gives \(0/0\), show the algebraic step you chose, and state why that method is valid.</div></div>
   </div></div>
 
-  <div class="chapter" id="practice"><div class="chapter-header" onclick="toggle(this)"><h2>Practice Prompt</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Evaluate \(\lim_{x\to2} \frac{x^2-4}{x-2}\) and explain why direct substitution fails.</div></div>
+  <div class="chapter" id="t13"><div class="chapter-header" onclick="toggle(this)"><h2>1.3 Estimating Limit Values from Graphs</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(\lim_{x\to a}f(x)=L\) means values of \(f(x)\) get arbitrarily close to \(L\) as \(x\) gets close to \(a\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Evaluate a limit that first gives \(0/0\), show the algebraic step you chose, and state why that method is valid.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t14"><div class="chapter-header" onclick="toggle(this)"><h2>1.4 Estimating Limit Values from Tables</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(\lim_{x\to a}f(x)=L\) means values of \(f(x)\) get arbitrarily close to \(L\) as \(x\) gets close to \(a\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Evaluate a limit that first gives \(0/0\), show the algebraic step you chose, and state why that method is valid.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t15"><div class="chapter-header" onclick="toggle(this)"><h2>1.5 Determining Limits Using Algebraic Properties of Limits</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(\lim_{x\to a}f(x)=L\) means values of \(f(x)\) get arbitrarily close to \(L\) as \(x\) gets close to \(a\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Evaluate a limit that first gives \(0/0\), show the algebraic step you chose, and state why that method is valid.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t16"><div class="chapter-header" onclick="toggle(this)"><h2>1.6 Determining Limits Using Algebraic Manipulation</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(\lim_{x\to a}f(x)=L\) means values of \(f(x)\) get arbitrarily close to \(L\) as \(x\) gets close to \(a\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Evaluate a limit that first gives \(0/0\), show the algebraic step you chose, and state why that method is valid.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t17"><div class="chapter-header" onclick="toggle(this)"><h2>1.7 Selecting Procedures for Determining Limits</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(\lim_{x\to a}f(x)=L\) means values of \(f(x)\) get arbitrarily close to \(L\) as \(x\) gets close to \(a\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Evaluate a limit that first gives \(0/0\), show the algebraic step you chose, and state why that method is valid.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t18"><div class="chapter-header" onclick="toggle(this)"><h2>1.8 Determining Limits Using the Squeeze Theorem</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(\lim_{x\to a}f(x)=L\) means values of \(f(x)\) get arbitrarily close to \(L\) as \(x\) gets close to \(a\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Evaluate a limit that first gives \(0/0\), show the algebraic step you chose, and state why that method is valid.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t19"><div class="chapter-header" onclick="toggle(this)"><h2>1.9 Connecting Multiple Representations of Limits</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(\lim_{x\to a}f(x)=L\) means values of \(f(x)\) get arbitrarily close to \(L\) as \(x\) gets close to \(a\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Evaluate a limit that first gives \(0/0\), show the algebraic step you chose, and state why that method is valid.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t110"><div class="chapter-header" onclick="toggle(this)"><h2>1.10 Exploring Types of Discontinuities</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">Show setup first, then execute algebra, then justify with theorem language expected by AP scorers.</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t111"><div class="chapter-header" onclick="toggle(this)"><h2>1.11 Defining Continuity at a Point</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">Show setup first, then execute algebra, then justify with theorem language expected by AP scorers.</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t112"><div class="chapter-header" onclick="toggle(this)"><h2>1.12 Confirming Continuity over an Interval</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">Show setup first, then execute algebra, then justify with theorem language expected by AP scorers.</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t113"><div class="chapter-header" onclick="toggle(this)"><h2>1.13 Removing Discontinuities</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">Show setup first, then execute algebra, then justify with theorem language expected by AP scorers.</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t114"><div class="chapter-header" onclick="toggle(this)"><h2>1.14 Connecting Infinite Limits and Vertical Asymptotes</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(\lim_{x\to a}f(x)=L\) means values of \(f(x)\) get arbitrarily close to \(L\) as \(x\) gets close to \(a\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Evaluate a limit that first gives \(0/0\), show the algebraic step you chose, and state why that method is valid.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t115"><div class="chapter-header" onclick="toggle(this)"><h2>1.15 Connecting Limits at Infinity and Horizontal Asymptotes</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(\lim_{x\to a}f(x)=L\) means values of \(f(x)\) get arbitrarily close to \(L\) as \(x\) gets close to \(a\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Evaluate a limit that first gives \(0/0\), show the algebraic step you chose, and state why that method is valid.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t116"><div class="chapter-header" onclick="toggle(this)"><h2>1.16 Working with the Intermediate Value Theorem (IVT)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">Show setup first, then execute algebra, then justify with theorem language expected by AP scorers.</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="practice"><div class="chapter-header" onclick="toggle(this)"><h2>Mixed Practice and FRQ Strategy</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <div class="steps-block"><div class="teaching-label">Timed Routine</div><ul class="notes-list"><li>Spend first 20 seconds identifying unit/topic and likely theorem.</li><li>Write setup with notation and units before arithmetic.</li><li>Circle interpretation statements for contextual prompts.</li><li>On calculator-active parts, report rounded values and keep symbolic setup visible.</li></ul></div>
+    <div class="callout example">Build one short mixed set from this unit every day: 3 conceptual checks, 3 computational prompts, and 1 full FRQ-style response with rubric-based self-scoring.</div>
   </div></div>
 </main>
 <script src="../../main.js"></script>

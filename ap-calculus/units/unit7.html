@@ -22,28 +22,108 @@
     <div class="toc-section"><a href="unit7.html">Unit 7: Differential Equations</a></div>
     <div class="toc-section"><a href="unit8.html">Unit 8: Applications of Integration</a></div>
     <div class="toc-section"><a href="unit9.html">Unit 9: Parametric, Polar, and Vector-Valued Functions</a></div>
-    <div class="toc-section"><a href="unit10.html">Unit 10: Infinite Sequences and Series</a></div>  </details>
+    <div class="toc-section"><a href="unit10.html">Unit 10: Infinite Sequences and Series</a></div>
+  </details>
   <div class="toc-section"><a href="#overview">Overview</a></div>
-  <div class="toc-section"><a href="#workflow">Problem Workflow</a></div>
-  <div class="toc-section"><a href="#practice">Practice Prompt</a></div>
+  <div class="toc-section"><a href="#t71">7.1 Modeling Situations with Differential Equations</a></div>
+  <div class="toc-section"><a href="#t72">7.2 Verifying Solutions for Differential Equations</a></div>
+  <div class="toc-section"><a href="#t73">7.3 Sketching Slope Fields</a></div>
+  <div class="toc-section"><a href="#t74">7.4 Reasoning Using Slope Fields</a></div>
+  <div class="toc-section"><a href="#t75">7.5 Approximating Solutions Using Euler's Method</a></div>
+  <div class="toc-section"><a href="#t76">7.6 Finding General Solutions Using Separation of Variables</a></div>
+  <div class="toc-section"><a href="#t77">7.7 Finding Particular Solutions Using Initial Conditions and Separation of Variables</a></div>
+  <div class="toc-section"><a href="#t78">7.8 Exponential Models with Differential Equations</a></div>
+  <div class="toc-section"><a href="#t79">7.9 Logistic Models with Differential Equations</a></div>
+  <div class="toc-section"><a href="#practice">Mixed Practice and FRQ Strategy</a></div>
 </nav>
 <main id="main">
   <div class="doc-title-block">
-    <div class="doc-label">AB Core</div>
+    <div class="doc-label">AP Calculus (AB + BC)</div>
     <h1 class="doc-title">Unit 7: Differential Equations</h1>
+    <div class="doc-meta"><span><a class="all-subjects-link" href="../index.html">← AP Calculus</a></span><span>AB/BC Exam Weight: 6%-12%</span></div>
   </div>
 
-  <div class="chapter" id="overview"><div class="chapter-header" onclick="toggle(this)"><h2>Overview</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <div class="learn-block"><div class="teaching-label">Core Idea</div><p>Model changing systems with differential equations, slope fields, and separable forms.</p></div>
-    
+  <div class="learn-block" id="overview">
+    <div class="teaching-label">How To Study This Unit</div>
+    <p>Move topic by topic and connect ideas across representations. For every problem, explain what the quantity means before computing it. This improves both speed and accuracy on timed AP multiple-choice and free-response work.</p>
+    <p>Use a three-pass routine: concept check, worked examples, then timed mixed practice. Keep an error log by topic ID to detect weak patterns quickly.</p>
+  </div>
+
+  <div class="chapter" id="t71"><div class="chapter-header" onclick="toggle(this)"><h2>7.1 Modeling Situations with Differential Equations</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\), and interpret units as \(\frac{\text{output}}{\text{input}}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Given \(dy/dx=f(x,y)\), sketch slope behavior and estimate \(y\) after one Euler step.</div></div>
   </div></div>
 
-  <div class="chapter" id="workflow"><div class="chapter-header" onclick="toggle(this)"><h2>Problem Workflow</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Write known information and target quantity.</li><li>Select the main theorem or rule for the unit.</li><li>Simplify algebra and verify context.</li></ul></div>
+  <div class="chapter" id="t72"><div class="chapter-header" onclick="toggle(this)"><h2>7.2 Verifying Solutions for Differential Equations</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\), and interpret units as \(\frac{\text{output}}{\text{input}}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Given \(dy/dx=f(x,y)\), sketch slope behavior and estimate \(y\) after one Euler step.</div></div>
   </div></div>
 
-  <div class="chapter" id="practice"><div class="chapter-header" onclick="toggle(this)"><h2>Practice Prompt</h2><span class="chevron">▼</span></div><div class="chapter-content">
-    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve \(dy/dx = 2y\) with \(y(0)=3\).</div></div>
+  <div class="chapter" id="t73"><div class="chapter-header" onclick="toggle(this)"><h2>7.3 Sketching Slope Fields</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">For \(\frac{dy}{dx}=ky\), separation gives \(\int\frac{1}{y}dy=\int k\,dx\Rightarrow y=Ce^{kx}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Given \(dy/dx=f(x,y)\), sketch slope behavior and estimate \(y\) after one Euler step.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t74"><div class="chapter-header" onclick="toggle(this)"><h2>7.4 Reasoning Using Slope Fields</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">For \(\frac{dy}{dx}=ky\), separation gives \(\int\frac{1}{y}dy=\int k\,dx\Rightarrow y=Ce^{kx}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Given \(dy/dx=f(x,y)\), sketch slope behavior and estimate \(y\) after one Euler step.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t75"><div class="chapter-header" onclick="toggle(this)"><h2>7.5 Approximating Solutions Using Euler's Method</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">For \(\frac{dy}{dx}=ky\), separation gives \(\int\frac{1}{y}dy=\int k\,dx\Rightarrow y=Ce^{kx}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t76"><div class="chapter-header" onclick="toggle(this)"><h2>7.6 Finding General Solutions Using Separation of Variables</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">For \(\frac{dy}{dx}=ky\), separation gives \(\int\frac{1}{y}dy=\int k\,dx\Rightarrow y=Ce^{kx}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t77"><div class="chapter-header" onclick="toggle(this)"><h2>7.7 Finding Particular Solutions Using Initial Conditions and Separation of Variables</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">For \(\frac{dy}{dx}=ky\), separation gives \(\int\frac{1}{y}dy=\int k\,dx\Rightarrow y=Ce^{kx}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Solve an AP-style prompt and write one sentence interpreting the result in context.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t78"><div class="chapter-header" onclick="toggle(this)"><h2>7.8 Exponential Models with Differential Equations</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\), and interpret units as \(\frac{\text{output}}{\text{input}}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Given \(dy/dx=f(x,y)\), sketch slope behavior and estimate \(y\) after one Euler step.</div></div>
+  </div></div>
+
+  <div class="chapter" id="t79"><div class="chapter-header" onclick="toggle(this)"><h2>7.9 Logistic Models with Differential Equations</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This section builds exam-ready habits: identify the representation (graph/table/formula/context), pick the theorem or rule, then justify each major step. Keep your writing concise but explicit, because AP rubric points are earned by correct reasoning and interpretation, not only final answers.</p>
+    <div class="formula-block">\(f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\), and interpret units as \(\frac{\text{output}}{\text{input}}\).</div>
+    <div class="steps-block"><div class="teaching-label">How To Solve</div><ul class="notes-list"><li>Start with known quantities, target quantity, and units.</li><li>Choose the procedure that matches the structure of the problem.</li><li>Check domain conditions/endpoints and state a brief interpretation sentence.</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Skipping justification language (for example, writing an answer without naming the theorem or condition). On AP FRQs, that often loses communication points even when algebra is correct.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">Given \(dy/dx=f(x,y)\), sketch slope behavior and estimate \(y\) after one Euler step.</div></div>
+  </div></div>
+
+  <div class="chapter" id="practice"><div class="chapter-header" onclick="toggle(this)"><h2>Mixed Practice and FRQ Strategy</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <div class="steps-block"><div class="teaching-label">Timed Routine</div><ul class="notes-list"><li>Spend first 20 seconds identifying unit/topic and likely theorem.</li><li>Write setup with notation and units before arithmetic.</li><li>Circle interpretation statements for contextual prompts.</li><li>On calculator-active parts, report rounded values and keep symbolic setup visible.</li></ul></div>
+    <div class="callout example">Build one short mixed set from this unit every day: 3 conceptual checks, 3 computational prompts, and 1 full FRQ-style response with rubric-based self-scoring.</div>
   </div></div>
 </main>
 <script src="../../main.js"></script>
