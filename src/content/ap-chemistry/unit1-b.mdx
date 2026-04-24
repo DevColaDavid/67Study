@@ -1,0 +1,124 @@
+import {
+  Chapter,
+  Callout,
+  MistakeBlock,
+  StepsBlock,
+  WhyBlock,
+  MiniDiagram,
+} from "../../components/notes";
+
+<Chapter id="t15" title="1.5 Atomic Structure and Electron Configuration">
+
+**Atomic number** $Z$: protons; defines the element. In a neutral atom, electrons = protons. **Mass number** $A$:
+protons + neutrons. **Isotopes** differ in neutron count, so their masses differ, not $Z$.
+
+Electrons are ordered by the **Aufbau** (build-up) principle (fill lowest energy orbitals first), **Pauli exclusion**
+(max two electrons per orbital with opposite spin), and **Hund's rule** (degenerate orbitals: single occupancies
+first with parallel spins). The periodic table's block structure (s, p, d, f) matches orbital filling order
+(approximate: $1s \rightarrow 2s \rightarrow 2p \rightarrow 3s \rightarrow 3p \rightarrow 4s \rightarrow 3d \rightarrow \ldots$).
+
+Noble-gas shorthand: $[\mathrm{Ar}]$ represents the electron configuration of argon, then add valence electrons (e.g.
+$[\mathrm{Ar}]\,4s^2 3d^5$ for $\mathrm{Mn}$).
+
+<StepsBlock title="How To Write a Ground-State Configuration">
+
+<ul className="notes-list">
+  <li>Count total electrons (ion charge adjusts: cation = fewer $e^-$).</li>
+  <li>Fill subshells in order; d-block often follows $(n-1)d$ after $ns$ for the first row of transition metals.</li>
+  <li>Check for exceptions (Cr, Cu) only if a question supplies unusual stability reasoning.</li>
+</ul>
+
+</StepsBlock>
+
+<Callout variant="example">
+  Sulfur ($Z=16$): $1s^2 2s^2 2p^6 3s^2 3p^4$, or $[\mathrm{Ne}]\,3s^2 3p^4$. Valence (highest n): 6 $e^-$ in
+  $3s/3p$.
+</Callout>
+
+<WhyBlock>
+  <p>
+    Valence configuration predicts bonding, ion charges, and trends in size and reactivity—the rest of the course
+    depends on it.
+  </p>
+</WhyBlock>
+
+</Chapter>
+
+<Chapter id="t16" title="1.6 Photoelectron Spectroscopy (PES)">
+
+PES (photoelectric effect on gaseous atoms) measures **binding energy** (BE) of electrons: the minimum photon energy
+needed to eject an electron from a sublevel, corrected for the electron's measured kinetic energy. Higher BE means the
+electron is held _tighter_ (closer to nucleus, or in a more strongly attracted subshell in the same shell).
+
+Each **peak** corresponds to a sublevel; peak **area** (relative) is proportional to the number of electrons in that
+sublevel (e.g. $1s$ area : $2p$ area $=2:6$ for neon's full $2p$).
+
+<StepsBlock title="How To Read a PES Plot">
+
+<ul className="notes-list">
+  <li>Horizontal: binding energy (high BE at right or left—track your axis; AP often higher BE to the <em>left</em>).</li>
+  <li>Vertical: signal intensity—compare relative areas, not “which peak is higher on the y-axis” for energy.</li>
+  <li>Match known shell structure: 1s, 2s, 2p groups for the first two periods; transition metals add 3d under 4s, etc.</li>
+</ul>
+
+</StepsBlock>
+
+<Callout variant="example">
+  Sodium has a small $3s^1$ peak and filled inner shells; magnesium adds one more electron in $3s$, so the $3s$ peak
+  has roughly double the $3s$ area of Na relative to other subshells when normalized.
+</Callout>
+
+<MistakeBlock>
+  <p>
+    Using peak <em>height</em> as “more binding energy”. Position on the <em>binding energy</em> axis gives energy.
+    Area reflects electron count, not how tightly a single average electron is held in that label.
+  </p>
+</MistakeBlock>
+
+</Chapter>
+
+<Chapter id="t17" title="1.7 Periodic Trends">
+
+**Effective nuclear charge** ($Z_{\mathrm{eff}}$): the net positive charge “felt” by valence electrons after shielding
+from inner shells. It increases _across a period_ (more protons, similar shielding) and is the main reason radius shrinks
+and ionization energy and electronegativity generally rise across a period.
+
+**Down a group**, new shells add distance and shielding: atomic radius _increases_; first ionization energy and
+electronegativity generally _decrease_. (Small exceptions, e.g. O/S IE, are rare on AP—cite shielding and pairing if
+asked.)
+
+| Trend             | Across period ($\rightarrow$) | Down group ($\downarrow$) |
+| ----------------- | ----------------------------- | ------------------------- |
+| Atomic radius     | decreases                     | increases                 |
+| First IE          | increases (general)           | decreases (general)       |
+| Electronegativity | increases                     | decreases                 |
+
+<MiniDiagram>
+  <svg viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg" aria-label="Arrows for periodic trends along period and down group">
+    <text x="20" y="24" fill="#d4daf0" fontSize="12">
+      Across a period: radius ↓ , IE ↑
+    </text>
+    <line x1="40" y1="40" x2="170" y2="40" stroke="#e06c75" strokeWidth="2" />
+    <polygon points="40,40 48,36 48,44" fill="#e06c75" />
+    <line x1="220" y1="40" x2="360" y2="40" stroke="#7dd3a8" strokeWidth="2" />
+    <polygon points="360,40 352,36 352,44" fill="#7dd3a8" />
+    <text x="20" y="78" fill="#d4daf0" fontSize="12">
+      Down a group: radius ↑ , IE ↓
+    </text>
+    <line x1="40" y1="94" x2="170" y2="94" stroke="#7dd3a8" strokeWidth="2" />
+    <polygon points="170,94 162,90 162,98" fill="#7dd3a8" />
+    <line x1="220" y1="94" x2="360" y2="94" stroke="#e06c75" strokeWidth="2" />
+    <polygon points="220,94 228,90 228,98" fill="#e06c75" />
+  </svg>
+</MiniDiagram>
+
+Ionic radius: cations are smaller than parent atoms; anions are larger—compare to the same isoelectronic series when
+possible.
+
+<Callout variant="example">
+  Ionic <em>size</em> in an isoelectronic series: compare $\mathrm{Na^+}$, $\mathrm{Mg^{2+}}$, $\mathrm{F^-}$ (all
+  Ne-like). The highest nuclear charge pulls electrons most tightly—small radii. Order:
+  $r(\mathrm{Mg^{2+}}) \lt r(\mathrm{Na^+}) \lt r(\mathrm{F^-})$.
+</Callout>
+
+</Chapter>

@@ -1,0 +1,107 @@
+import {
+  Chapter,
+  LearnBlock,
+  Callout,
+  MistakeBlock,
+  StepsBlock,
+} from "../../components/notes";
+
+<LearnBlock>
+  <p>
+    This unit connects electron behavior to real properties. The core AP workflow is: determine bonding and
+    structure first, then predict polarity, intermolecular behavior, and material properties.
+  </p>
+</LearnBlock>
+
+<Chapter id="t21" title="2.1 Types of Chemical Bonds">
+
+Bonding models answer: _where are the valence electrons_ and _how is charge distributed_. That in turn explains melting point, hardness, malleability, and conductivity—topics AP links to **structure** in MCQ and particulate items.
+
+**Ionic:** transfer of electrons (metal → nonmetal) gives ions in a 3D lattice. Forces are **electrostatic** (Coulomb) between cations and anions; the solid has no discrete “molecules” in the lattice (formula unit = smallest ratio).
+
+**Covalent (molecular and network):** valence pairs are **shared** between nonmetals (molecular) or in an extended network (diamond, quartz). **Nonpolar** covalent: equal pull on shared pairs; **polar** covalent: shift toward the more electronegative atom (partial $\delta^+$ / $\delta^-$).
+
+**Metallic:** cations in a **sea of delocalized** valence electrons; it explains luster, conductivity, and malleability (slip planes without shattering covalent networks).
+
+| Bond class | What holds the structure | AP-style property |
+| ---------- | ------------------------ | ----------------- |
+| Ionic | Ion-ion attraction in a lattice | High melting point, brittle, conducts molten or aqueous |
+| Covalent (molecular) | Shared pairs within each molecule; IMFs between molecules | Often lower MP than network covalent |
+| Metallic | Delocalized $e^-$ among cations | Conducts, malleable, metallic luster |
+
+<Callout>
+  Example: $\mathrm{NaCl}$ is ionic; $\mathrm{H_2O}$ is covalent molecular; $\mathrm{Fe}$ is metallic. $\mathrm{SiO_2}$
+  (quartz) is covalent _network_—very high MP because many strong bonds must be broken to separate atoms.
+</Callout>
+
+<MistakeBlock>
+  <p>
+    Labeling a compound “ionic” or “covalent” as all-or-nothing. Many bonds are _polar covalent_—the percent
+    ionic character depends on $\Delta\chi$ (see Unit 3 and electronegativity). Also: giant covalent network vs
+    small molecules—both are “covalent” but properties differ enormously.
+  </p>
+</MistakeBlock>
+
+</Chapter>
+
+<Chapter id="t22" title="2.2 Intramolecular Force and Potential Energy">
+
+Between two bound atoms, **potential energy** (stored in the bond) is lowest at the **equilibrium bond length** $r_e$. Long distance: little attraction, high $U$. Closer: nucleus-electron attractions dominate and $U$ drops. Very short distance: repulsion between closed shells and between nuclei sends $U$ up steeply—the curve is a Morse-like well; AP shows simplified curves with a single minimum.
+
+**Bond dissociation energy (BDE):** energy required to break one mole of bonds in the gas phase homolytically (often to radicals). A deep well with a long bond or strong BDE: stronger bond; the depth is related to how much must be put in to reach separated atoms. Do not confuse **bond energy with IMF energy**—IMFs in Unit 3 are much smaller in magnitude (often a few percent or less) than of a typical covalent bond.
+
+<StepsBlock title="How To Read a Bond-Energy vs Separation Diagram">
+
+- Horizontal axis: internuclear distance; minimum = equilibrium bond length.
+- Vertical: potential energy. Lower = more stable bound state (relative to separated atoms, depending on the diagram’s reference).
+- Steeper right wall: short-range repulsion; shallow outer curve: long-range attractions.
+
+</StepsBlock>
+
+<Callout>
+  A shorter bond in $\mathrm{N_2}$ (triple) vs $\mathrm{F_2}$ (single) correlates with higher BDE and the triple
+  bond’s stronger net attraction—compare bond orders after Lewis/VSEPR work.
+</Callout>
+
+</Chapter>
+
+<Chapter id="t23" title="2.3 Structure of Ionic Solids">
+
+Ionic substances crystallize in repeating 3D **lattices** (e.g. rock salt NaCl structure). A **formula unit** is the smallest whole-number charge-neutral ratio—not a “molecule” drifting alone.
+
+**Lattice enthalpy** (treated quantitatively in some courses): more negative (more exothermically stable lattice) for higher charges and smaller radii—ions can pack closer, and $\mathrm{F} \propto q_+ q_- / r^2$ in a simplified picture. In AP, predict _trends_: higher charge ($\pm 2, \mp 1$ etc.) and smaller ions mean stronger lattices and often higher melting points than comparable $\pm 1$ cases.
+
+**Conductivity:** fixed ions in a solid cannot migrate; in molten or dissolved form they move—hence conduction. Brittle: layers slip so like charges align and repel (cleavage, shattering) unlike metals.
+
+<StepsBlock title="How To Predict or Explain Ionic Properties">
+
+- Identify cation/anion charges and their sizes (trends: smaller ion = stronger field).
+- Link lattice strength to MP and hardness qualitatively.
+- Distinguish solid vs solution vs molten for conductivity in FRQ “particulate reasoning.”
+
+</StepsBlock>
+
+<MistakeBlock>
+  <p>
+    Saying ionic bonds “form molecules of NaCl” in the solid—use “formula units” and lattice. Also, melting
+    ionic _does_ break interionic associations but does not “break covalent bonds” in NaCl—there are no covalent
+    bonds in NaCl.
+  </p>
+</MistakeBlock>
+
+</Chapter>
+
+<Chapter id="t24" title="2.4 Structure of Metals and Alloys">
+
+Metals pack in lattices (e.g. cubic close-packed) with valence delocalized over the whole crystal. **Substitutional alloy:** a host metal atom is replaced by another with similar size (e.g. some brass, bronze)—strength and malleability change with defect pattern. **Interstitial alloy:** small atoms (C in steel) sit in voids, blocking slip and increasing the material’s **hardness**.
+
+Compared to pure metal, an alloy’s **electrical conductivity can decrease** slightly (electron scattering at defects) while **mechanical strength can increase**—AP may ask to justify both for the same material.
+
+| Type | Structural idea | Example effect |
+| ---- | --------------- | -------------- |
+| Substitutional | Same lattice sites, different atom | Solid-solution hardening, varied corrosion |
+| Interstitial | Small atom in a hole in the host lattice | Steel: C in Fe improves hardness |
+
+<Callout>Carbon steel: interstitial C impedes dislocation motion—harder, less malleable than pure Fe in many compositions.</Callout>
+
+</Chapter>

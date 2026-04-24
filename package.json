@@ -1,0 +1,38 @@
+{
+  "name": "apstudy",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "generate:chem-chapters": "node scripts/generate-subject-chapters.mjs chemistry",
+    "generate:calc-chapters": "node scripts/generate-subject-chapters.mjs calculus",
+    "generate:wh-chapters": "node scripts/generate-subject-chapters.mjs worldHistory",
+    "generate:all-chapters": "node scripts/generate-subject-chapters.mjs",
+    "scaffold:calc-wh-pages": "node scripts/scaffold-calculus-world-pages.mjs",
+    "fix:world-chapter-html": "node scripts/fix-world-history-chapter-html.mjs"
+  },
+  "dependencies": {
+    "@mdx-js/react": "^3.1.0",
+    "katex": "^0.16.21",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-katex": "^3.0.1",
+    "react-router-dom": "^7.6.0",
+    "rehype-katex": "^7.0.1",
+    "remark-gfm": "^4.0.0",
+    "remark-math": "^6.0.0"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0",
+    "@mdx-js/rollup": "^3.1.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.3"
+  }
+}

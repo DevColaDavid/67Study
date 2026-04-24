@@ -1,0 +1,88 @@
+import { Chapter, Callout, MistakeBlock, StepsBlock, LearnBlock, QaItem } from "../../components/notes";
+
+<Chapter id="t18" title="1.8 Valence Electrons and Ionic Compounds">
+
+**Valence electrons** (main-group) often equal the **group number** (old US A/AA notation: 1–2, 13–18) for the s and p
+valence set. They drive bonding and common ion charge patterns. Metals (left/bottom) tend to _lose_ electrons to form
+cations; nonmetals (right/top) tend to _gain_ electrons to form anions—to reach a noble-gas valence or a stable half/full
+subshell in transition metals (special cases).
+
+**Electroneutrality**: the sum of positive and negative charge in a formula unit is zero. The “criss-cross” method
+(charge magnitudes as subscripts) is a shortcut for ionic charge balance: $\mathrm{Ca^{2+}}$ and $\mathrm{O^{2-}}$
+give $\mathrm{CaO}$; $\mathrm{Al^{3+}}$ and $\mathrm{O^{2-}}$ need $\mathrm{Al_2O_3}$.
+
+<StepsBlock title="How To Write a Binary Ionic Formula">
+
+<ul className="notes-list">
+  <li>Write ion symbols with charges from group trend (or a table).</li>
+  <li>Find the smallest whole numbers $a,b$ so $|a \times c_+| = |b \times c_-|$ for total charge zero.</li>
+  <li>Parentheses for polyatomic ions: $\mathrm{Ca(OH)_2}$, not $\mathrm{CaOH_2}$.</li>
+</ul>
+
+</StepsBlock>
+
+<Callout variant="example">
+  $\mathrm{Na^+ + Cl^-} \rightarrow \mathrm{NaCl}$. For $\mathrm{Fe^{3+}}$ and $(\mathrm{SO_4})^{2-}$, cross ratios
+  give $\mathrm{Fe_2(SO_4)_3}$.
+</Callout>
+
+<MistakeBlock>
+  <p>
+    Treating covalent molecular formulas (e.g. $\mathrm{P_4O_{10}}$) as if they were simple ionic charge
+    balance—identify whether the problem states ionic lattice vs molecular covalent.
+  </p>
+</MistakeBlock>
+
+</Chapter>
+
+<Chapter id="unit1-extended" title="Unit 1 Synthesis and Exam Framing">
+
+Unit 1 links **counting** (moles, mass, spectrum) to **structure** (configuration, PES) to **pattern** (trends) to
+**ions** (charge, formula). On FRQ and MC: always state the particle model (what is being counted or attracted), then
+support with a number, formula, or trend direction with one sentence of _why_ ($Z_{\mathrm{eff}}$, shielding,
+charge).
+
+</Chapter>
+
+<Chapter id="unit1-practice" title="Unit 1: Practice (AP-Style)">
+
+<LearnBlock label="How these are written">
+  <p>
+    Short-answer and multi-step prompts in the spirit of the AP Chemistry exam: show work, justify with evidence, watch
+    significant figures. Original items (not copied from released exams).
+  </p>
+</LearnBlock>
+
+<QaItem question="1. (Stoichiometry) A sample of dry ice contains $4.40\ \mathrm{g}$ of $\mathrm{CO_2}$. (a) Calculate the amount of $\mathrm{CO_2}$ in moles. (b) How many C atoms are in the sample? Show setup using Avogadro's number.">
+
+(a) $n = 4.40\ \mathrm{g} / 44.01\ \mathrm{g/mol} = 0.100\ \mathrm{mol}\ \mathrm{CO_2}$ (3 sig figs). (b) 1 formula unit
+of $\mathrm{CO_2}$ has 1 C, so C atoms $= 0.100\ \mathrm{mol} \times 6.022 \times 10^{23}\ \mathrm{mol^{-1}} = 6.02
+\times 10^{22}$ (3 s.f.).
+
+</QaItem>
+
+<QaItem question="2. (Isotopes) An element has two isotopes: mass $63.0\ \mathrm{amu}$ with abundance $0.690$ and mass $65.0\ \mathrm{amu}$ with abundance $0.310$. (a) Calculate the weighted average atomic mass. (b) A student used $63 \times 69 + 65 \times 31$. What error did they make?">
+
+(a) Use <em>decimal</em> abundances: $0.690(63.0) + 0.310(65.0) = 43.47 + 20.15 = 63.62\ \mathrm{amu}$ (report 63.6 if
+limited by data). (b) They treated percentages as if they were not divided by 100, and they omitted adding the two
+terms correctly—always convert % to fraction first.
+
+</QaItem>
+
+<QaItem question="3. (PES) The PES of a gaseous atom shows a peak labeled $1s$ to the _right_ of a peak labeled $2p$ (higher BE on the right on this axis). (a) Which subshell's electrons require more energy to remove? (b) In one sentence, relate that to effective nuclear charge and distance from the nucleus.">
+
+(a) The $1s$ subshell. (b) The $1s$ electrons are closer to the nucleus and less shielded, so they experience a larger
+effective nuclear charge and a higher first ionization energy for that sublevel, matching the higher binding energy on
+the spectrum.
+
+</QaItem>
+
+<QaItem question="4. (Trends) Which of the following has the _greatest_ first ionization energy: $\mathrm{K}$, $\mathrm{Ca}$, or $\mathrm{Br}$? Justify _across a period_ in terms of $Z_{\mathrm{eff}}$ and valence energy.">
+
+$\mathrm{Br}$ has the greatest first IE: all are in period 4; as atomic number increases across the period, valence
+$Z_{\mathrm{eff}}$ increases with similar shielding, so valence electrons are bound more tightly. Order:
+$IE(\mathrm{K}) \lt IE(\mathrm{Ca}) \lt IE(\mathrm{Br})$; $\mathrm{Br}$ is rightmost, so it wins.
+
+</QaItem>
+
+</Chapter>
