@@ -10,11 +10,11 @@ import {
   type ReactNode,
 } from "react";
 
-const SITE_PASSWORD = "team4270";
+const SITE_PASSWORD = "67";
 const AUTH_KEY = "apstudy_auth_ok";
 const LAST_ACTIVE_KEY = "apstudy_last_active_ms";
 const INACTIVITY_MS = 45 * 60 * 1000;
-const MAX_ATTEMPTS = 3;
+const MAX_ATTEMPTS = 5;
 const ACTIVITY_EVENTS = ["click", "keydown", "touchstart", "scroll"] as const;
 
 type AuthContextValue = {

@@ -1,8 +1,8 @@
 import { UnitLayout } from "../../layouts/UnitLayout";
 import { CHEMISTRY_UNIT_SWITCHER, getChemistryUnitToc } from "../../data/chemistry";
-import Unit1PartA from "../../content/ap-chemistry/unit1-a.mdx";
-import Unit1PartB from "../../content/ap-chemistry/unit1-b.mdx";
-import Unit1PartC from "../../content/ap-chemistry/unit1-c.mdx";
+import Unit1PartA from "../../content/ap-chemistry/unit1-a";
+import Unit1PartB from "../../content/ap-chemistry/unit1-b";
+import Unit1PartC from "../../content/ap-chemistry/unit1-c";
 
 export default function ChemistryUnit1Page() {
   return (

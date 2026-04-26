@@ -1,4 +1,4 @@
-import { BlockMath } from "react-katex";
+import { BlockMath, InlineMath } from "react-katex";
 import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react";
 
 type ChapterProps = {
@@ -132,10 +132,59 @@ export function FormulaBlock({ math }: { math: string }) {
 
 type QaItemProps = { question: ReactNode; children: ReactNode };
 
+function renderQuestionString(questionText: string): ReactNode {
+  const outputNodes: ReactNode[] = [];
+  const mathPattern = /(\$[^$]+\$|\\\([^)]+\\\))/g;
+  let cursorIndex = 0;
+  let nodeIndex = 0;
+
+  const pushTextWithEmphasis = (textValue: string) => {
+    const emphasisPattern = /_([^_]+)_/g;
+    let textCursor = 0;
+    let emphasisMatch: RegExpExecArray | null;
+    while ((emphasisMatch = emphasisPattern.exec(textValue)) !== null) {
+      if (emphasisMatch.index > textCursor) {
+        outputNodes.push(textValue.slice(textCursor, emphasisMatch.index));
+      }
+      outputNodes.push(<em key={`q-em-${nodeIndex++}`}>{emphasisMatch[1]}</em>);
+      textCursor = emphasisMatch.index + emphasisMatch[0].length;
+    }
+    if (textCursor < textValue.length) {
+      outputNodes.push(textValue.slice(textCursor));
+    }
+  };
+
+  let mathMatch: RegExpExecArray | null;
+  while ((mathMatch = mathPattern.exec(questionText)) !== null) {
+    if (mathMatch.index > cursorIndex) {
+      pushTextWithEmphasis(questionText.slice(cursorIndex, mathMatch.index));
+    }
+    const rawMathToken = mathMatch[0];
+    const mathContent = rawMathToken.startsWith("\\(")
+      ? rawMathToken.slice(2, -2)
+      : rawMathToken.slice(1, -1);
+    outputNodes.push(
+      <InlineMath
+        key={`q-math-${nodeIndex++}`}
+        math={mathContent}
+        renderError={() => <code>{rawMathToken}</code>}
+      />,
+    );
+    cursorIndex = mathMatch.index + rawMathToken.length;
+  }
+
+  if (cursorIndex < questionText.length) {
+    pushTextWithEmphasis(questionText.slice(cursorIndex));
+  }
+
+  return outputNodes;
+}
+
 export function QaItem({ question, children }: QaItemProps) {
+  const renderedQuestion = typeof question === "string" ? renderQuestionString(question) : question;
   return (
     <div className="qa-item">
-      <div className="qa-question">{question}</div>
+      <div className="qa-question">{renderedQuestion}</div>
       <div className="qa-answer">{children}</div>
     </div>
   );

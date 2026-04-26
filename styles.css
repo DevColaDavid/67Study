@@ -328,6 +328,18 @@ body {
 .notes-list.sub { padding-left: 20px; }
 .notes-list.sub2 { padding-left: 40px; }
 
+/* Fallback for migrated TSX content where lists are plain <ul> without .notes-list */
+.chapter-content ul:not(.notes-list) {
+  margin: 0 0 10px 0;
+  padding-left: 22px;
+  list-style-position: outside;
+}
+
+.chapter-content ul:not(.notes-list) li {
+  margin: 4px 0;
+  padding-left: 0;
+}
+
 /* FORMULA / CODE BLOCKS */
 .formula {
   font-family: "DM Mono", monospace;
@@ -456,6 +468,40 @@ body {
   font-size: 12.5px;
   color: var(--formula);
 }
+
+/* Fallback styling for migrated TSX content tables without .data-table class */
+.chapter-content table:not(.data-table) {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Outfit", sans-serif;
+  font-size: 13.5px;
+  margin: 16px 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.chapter-content table:not(.data-table) th {
+  background: var(--surface2);
+  color: var(--heading);
+  font-weight: 600;
+  padding: 9px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+}
+
+.chapter-content table:not(.data-table) td {
+  padding: 8px 14px;
+  border-bottom: 1px solid rgba(42, 49, 72, 0.6);
+  color: var(--text);
+  vertical-align: top;
+  word-break: break-word;
+}
+
+.chapter-content table:not(.data-table) tr:last-child td { border-bottom: none; }
+.chapter-content table:not(.data-table) tr:nth-child(even) td { background: rgba(255, 255, 255, 0.02); }
 
 /* BADGES */
 .badge {

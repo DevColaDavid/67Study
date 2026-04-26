@@ -1,48 +1,73 @@
-import { lazy, Suspense } from "react";
+import { Component, lazy, Suspense, type ReactNode } from "react";
 import { BrowserRouter, Navigate, Route, Routes, useParams } from "react-router-dom";
-import { MDXProvider } from "@mdx-js/react";
 import { AuthProvider, useAuth } from "./auth/AuthContext";
-import { mdxComponents } from "./mdx/mdxComponents";
 import { CalculusHubPage } from "./pages/CalculusHubPage";
 import { ChemistryHubPage } from "./pages/ChemistryHubPage";
 import { HomePage } from "./pages/HomePage";
 import { WorldHistoryHubPage } from "./pages/WorldHistoryHubPage";
 import { ChemistryUnit2Page } from "./pages/chemistry/ChemistryUnit2Page";
+import { CalculusUnitContentPage } from "./pages/calculus/CalculusUnitContentPage";
+import { ChemistryGeneratedUnitContentPage } from "./pages/chemistry/ChemistryGeneratedUnitContentPage";
+import { WorldHistoryUnitContentPage } from "./pages/world-history/WorldHistoryUnitContentPage";
 import { ReadAloudDock } from "./readAloud/ReadAloudDock";
 
-const ChemistryUnit1Lazy = lazy(() => import("./pages/chemistry/ChemistryUnit1Page"));
-const ChemistryUnit3Lazy = lazy(() => import("./pages/chemistry/ChemistryUnit3Page"));
-const ChemistryUnit4Lazy = lazy(() => import("./pages/chemistry/ChemistryUnit4Page"));
-const ChemistryUnit5Lazy = lazy(() => import("./pages/chemistry/ChemistryUnit5Page"));
-const ChemistryUnit6Lazy = lazy(() => import("./pages/chemistry/ChemistryUnit6Page"));
-const ChemistryUnit7Lazy = lazy(() => import("./pages/chemistry/ChemistryUnit7Page"));
-const ChemistryUnit8Lazy = lazy(() => import("./pages/chemistry/ChemistryUnit8Page"));
-const ChemistryUnit9Lazy = lazy(() => import("./pages/chemistry/ChemistryUnit9Page"));
+const CHUNK_RELOAD_MARKER = "apstudy:chunk-reload-attempted";
 
-const calculusUnitLazy = {
-  1: lazy(() => import("./pages/calculus/CalculusUnit1Page")),
-  2: lazy(() => import("./pages/calculus/CalculusUnit2Page")),
-  3: lazy(() => import("./pages/calculus/CalculusUnit3Page")),
-  4: lazy(() => import("./pages/calculus/CalculusUnit4Page")),
-  5: lazy(() => import("./pages/calculus/CalculusUnit5Page")),
-  6: lazy(() => import("./pages/calculus/CalculusUnit6Page")),
-  7: lazy(() => import("./pages/calculus/CalculusUnit7Page")),
-  8: lazy(() => import("./pages/calculus/CalculusUnit8Page")),
-  9: lazy(() => import("./pages/calculus/CalculusUnit9Page")),
-  10: lazy(() => import("./pages/calculus/CalculusUnit10Page")),
-} as const;
+function lazyWithRetry(factory: () => Promise<{ default: () => ReactNode }>) {
+  return lazy(async () => {
+    try {
+      const module = await factory();
+      sessionStorage.removeItem(CHUNK_RELOAD_MARKER);
+      return module;
+    } catch (error) {
+      const hasRetried = sessionStorage.getItem(CHUNK_RELOAD_MARKER) === "true";
+      if (!hasRetried) {
+        sessionStorage.setItem(CHUNK_RELOAD_MARKER, "true");
+        window.location.reload();
+      }
+      throw error;
+    }
+  });
+}
 
-const worldHistoryUnitLazy = {
-  1: lazy(() => import("./pages/world-history/WorldHistoryUnit1Page")),
-  2: lazy(() => import("./pages/world-history/WorldHistoryUnit2Page")),
-  3: lazy(() => import("./pages/world-history/WorldHistoryUnit3Page")),
-  4: lazy(() => import("./pages/world-history/WorldHistoryUnit4Page")),
-  5: lazy(() => import("./pages/world-history/WorldHistoryUnit5Page")),
-  6: lazy(() => import("./pages/world-history/WorldHistoryUnit6Page")),
-  7: lazy(() => import("./pages/world-history/WorldHistoryUnit7Page")),
-  8: lazy(() => import("./pages/world-history/WorldHistoryUnit8Page")),
-  9: lazy(() => import("./pages/world-history/WorldHistoryUnit9Page")),
-} as const;
+type UnitRouteErrorBoundaryProps = { children: ReactNode };
+type UnitRouteErrorBoundaryState = { hasError: boolean };
+
+class UnitRouteErrorBoundary extends Component<
+  UnitRouteErrorBoundaryProps,
+  UnitRouteErrorBoundaryState
+> {
+  public constructor(props: UnitRouteErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  public static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  public override render() {
+    if (this.state.hasError) {
+      return (
+        <main id="main" style={{ maxWidth: 1100, margin: "0 auto", padding: "2rem" }}>
+          <p className="doc-label">This page failed to load.</p>
+          <button
+            type="button"
+            onClick={() => {
+              sessionStorage.removeItem(CHUNK_RELOAD_MARKER);
+              window.location.reload();
+            }}
+          >
+            Reload page
+          </button>
+        </main>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+const ChemistryUnit1Lazy = lazyWithRetry(() => import("./pages/chemistry/ChemistryUnit1Page"));
 
 const unitLoadingFallback = (
   <main id="main" style={{ maxWidth: 1100, margin: "0 auto", padding: "2rem" }}>
@@ -59,25 +84,12 @@ function ChemistryUnitRoute() {
   if (n === 2) {
     return <ChemistryUnit2Page />;
   }
-  const LazyPage =
-    n === 1
-      ? ChemistryUnit1Lazy
-      : n === 3
-        ? ChemistryUnit3Lazy
-        : n === 4
-          ? ChemistryUnit4Lazy
-          : n === 5
-            ? ChemistryUnit5Lazy
-            : n === 6
-              ? ChemistryUnit6Lazy
-              : n === 7
-                ? ChemistryUnit7Lazy
-                : n === 8
-                  ? ChemistryUnit8Lazy
-                  : ChemistryUnit9Lazy;
+  if (n >= 3 && n <= 9) {
+    return <ChemistryGeneratedUnitContentPage unitNumber={n} />;
+  }
   return (
     <Suspense fallback={unitLoadingFallback}>
-      <LazyPage />
+      <ChemistryUnit1Lazy />
     </Suspense>
   );
 }
@@ -88,12 +100,7 @@ function CalculusUnitRoute() {
   if (!Number.isFinite(n) || n < 1 || n > 10) {
     return <Navigate to="/ap-calculus" replace />;
   }
-  const LazyPage = calculusUnitLazy[n as keyof typeof calculusUnitLazy];
-  return (
-    <Suspense fallback={unitLoadingFallback}>
-      <LazyPage />
-    </Suspense>
-  );
+  return <CalculusUnitContentPage unitNumber={n} />;
 }
 
 function WorldHistoryUnitRoute() {
@@ -102,30 +109,27 @@ function WorldHistoryUnitRoute() {
   if (!Number.isFinite(n) || n < 1 || n > 9) {
     return <Navigate to="/ap-world-history" replace />;
   }
-  const LazyPage = worldHistoryUnitLazy[n as keyof typeof worldHistoryUnitLazy];
-  return (
-    <Suspense fallback={unitLoadingFallback}>
-      <LazyPage />
-    </Suspense>
-  );
+  return <WorldHistoryUnitContentPage unitNumber={n} />;
 }
 
 function Shell() {
   const { unlocked } = useAuth();
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/ap-chemistry" element={<ChemistryHubPage />} />
-          <Route path="/ap-chemistry/units/:unitId" element={<ChemistryUnitRoute />} />
-          <Route path="/ap-calculus" element={<CalculusHubPage />} />
-          <Route path="/ap-calculus/units/:unitId" element={<CalculusUnitRoute />} />
-          <Route path="/ap-world-history" element={<WorldHistoryHubPage />} />
-          <Route path="/ap-world-history/units/:unitId" element={<WorldHistoryUnitRoute />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </BrowserRouter>
+      <UnitRouteErrorBoundary>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/ap-chemistry" element={<ChemistryHubPage />} />
+            <Route path="/ap-chemistry/units/:unitId" element={<ChemistryUnitRoute />} />
+            <Route path="/ap-calculus" element={<CalculusHubPage />} />
+            <Route path="/ap-calculus/units/:unitId" element={<CalculusUnitRoute />} />
+            <Route path="/ap-world-history" element={<WorldHistoryHubPage />} />
+            <Route path="/ap-world-history/units/:unitId" element={<WorldHistoryUnitRoute />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </BrowserRouter>
+      </UnitRouteErrorBoundary>
       {unlocked ? <ReadAloudDock /> : null}
     </>
   );
@@ -134,9 +138,7 @@ function Shell() {
 export default function App() {
   return (
     <AuthProvider>
-      <MDXProvider components={mdxComponents}>
-        <Shell />
-      </MDXProvider>
+      <Shell />
     </AuthProvider>
   );
 }

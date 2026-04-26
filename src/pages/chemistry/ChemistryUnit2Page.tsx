@@ -1,7 +1,7 @@
 import { UnitLayout } from "../../layouts/UnitLayout";
 import { CHEMISTRY_UNIT_SWITCHER, getChemistryUnitToc } from "../../data/chemistry";
-import Unit2PartA from "../../content/ap-chemistry/unit2-a.mdx";
-import Unit2PartB from "../../content/ap-chemistry/unit2-b.mdx";
+import Unit2PartA from "../../content/ap-chemistry/unit2-a";
+import Unit2PartB from "../../content/ap-chemistry/unit2-b";
 
 export function ChemistryUnit2Page() {
   return (
