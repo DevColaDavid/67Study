@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP Calculus Unit 10</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+<nav id="sidebar">
+  <div class="sidebar-header">Calculus Unit 10</div>
+  <div class="sidebar-owner"><a class="sidebar-back-link" href="../index.html">Home</a></div>
+  <details class="unit-switcher">
+    <summary>Unit 10: Infinite Sequences and Series</summary>
+    <div class="toc-section"><a href="unit1.html">Unit 1: Limits and Continuity</a></div>
+    <div class="toc-section"><a href="unit2.html">Unit 2: Differentiation: Definition and Fundamental Properties</a></div>
+    <div class="toc-section"><a href="unit3.html">Unit 3: Differentiation: Composite, Implicit, and Inverse Functions</a></div>
+    <div class="toc-section"><a href="unit4.html">Unit 4: Contextual Applications of Differentiation</a></div>
+    <div class="toc-section"><a href="unit5.html">Unit 5: Analytical Applications of Differentiation</a></div>
+    <div class="toc-section"><a href="unit6.html">Unit 6: Integration and Accumulation of Change</a></div>
+    <div class="toc-section"><a href="unit7.html">Unit 7: Differential Equations</a></div>
+    <div class="toc-section"><a href="unit8.html">Unit 8: Applications of Integration</a></div>
+    <div class="toc-section"><a href="unit9.html">Unit 9: Parametric, Polar, and Vector-Valued Functions</a></div>
+    <div class="toc-section"><a href="unit10.html">Unit 10: Infinite Sequences and Series</a></div>
+  </details>
+  <div class="toc-section"><a href="#overview">Overview</a></div>
+  <div class="toc-section"><a href="#t101">10.1 Defining Convergent and Divergent Infinite Series (BC)</a></div>
+  <div class="toc-section"><a href="#t102">10.2 Working with Geometric Series (BC)</a></div>
+  <div class="toc-section"><a href="#t103">10.3 The nth Term Test for Divergence (BC)</a></div>
+  <div class="toc-section"><a href="#t104">10.4 Integral Test for Convergence (BC)</a></div>
+  <div class="toc-section"><a href="#t105">10.5 Harmonic Series and p-Series (BC)</a></div>
+  <div class="toc-section"><a href="#t106">10.6 Comparison Tests for Convergence (BC)</a></div>
+  <div class="toc-section"><a href="#t107">10.7 Alternating Series Test for Convergence (BC)</a></div>
+  <div class="toc-section"><a href="#t108">10.8 Ratio Test for Convergence (BC)</a></div>
+  <div class="toc-section"><a href="#t109">10.9 Determining Absolute or Conditional Convergence (BC)</a></div>
+  <div class="toc-section"><a href="#t1010">10.10 Alternating Series Error Bound (BC)</a></div>
+  <div class="toc-section"><a href="#t1011">10.11 Finding Taylor Polynomial Approximations of Functions (BC)</a></div>
+  <div class="toc-section"><a href="#t1012">10.12 Lagrange Error Bound (BC)</a></div>
+  <div class="toc-section"><a href="#t1013">10.13 Radius and Interval of Convergence of Power Series (BC)</a></div>
+  <div class="toc-section"><a href="#t1014">10.14 Finding Taylor or Maclaurin Series for a Function (BC)</a></div>
+  <div class="toc-section"><a href="#t1015">10.15 Representing Functions as Power Series (BC)</a></div>
+  <div class="toc-section"><a href="#practice">Mixed Practice and FRQ Strategy</a></div>
+</nav>
+<main id="main">
+  <div class="doc-title-block">
+    <div class="doc-label">BC only</div>
+    <h1 class="doc-title">Unit 10: Infinite Sequences and Series</h1>
+    <div class="doc-meta"><span><a class="all-subjects-link" href="../index.html">← AP Calculus</a></span><span>BC Exam Weight: 17%-18% (BC only unit)</span></div>
+  </div>
+
+  <div class="learn-block" id="overview">
+    <div class="teaching-label">How To Study This Unit</div>
+    <p><strong>BC only.</strong> A <strong>sequence</strong> \(\{a_n\}\) is a list; a <strong>series</strong> \(\sum a_n\) is the limit of its <strong>partial sums</strong> \(S_N=a_1+\cdots+a_N\). Always start with the nth-term test, then match the term shape to geometric, \(p\)-series, comparison, integral, alternating, or ratio tools.</p>
+    <p>Power series need a radius from the ratio (or root) test, then <strong>plug endpoints back into the original series</strong> with \([\ ]\) for convergent endpoints and \((\ )\) for divergent ones. Keep Lagrange and alternating error bounds in “\(\leq\)” form with the correct derivative order \((n+1)\) and the <strong>first omitted</strong> term.</p>
+  </div>
+
+  <div class="chapter" id="t101"><div class="chapter-header" onclick="toggle(this)"><h2>10.1 Defining Convergent and Divergent Infinite Series (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>A series \(\sum_{n=1}^\infty a_n\) converges if the sequence of partial sums \(S_N=\sum_{n=1}^N a_n\) approaches a finite limit \(S\). Otherwise it diverges (including to \(\pm\infty\) or oscillation of partial sums).</p>
+    <p>Sequence convergence asks whether <em>terms</em> \(a_n\) approach a limit; series convergence asks whether <em>cumulative sums</em> stabilize. Example: \(a_n=\frac{1}{2^{n-1}}\) gives the sequence \(1,\frac12,\frac14,\ldots\to 0\), while \(\sum_{n=1}^\infty \frac{1}{2^{n-1}}=2\).</p>
+    <div class="formula-block">\(\displaystyle \sum_{n=1}^\infty a_n = \lim_{N\to\infty}S_N\) when this limit exists.</div>
+    <div class="data-table">
+      <table>
+        <thead><tr><th>Object</th><th>Question</th><th>Typical tools</th></tr></thead>
+        <tbody>
+          <tr><td>Sequence \(\{a_n\}\)</td><td>\(\lim_{n\to\infty}a_n\)?</td><td>Limits, L’Hospital on \(n\) via continuous \(x\)</td></tr>
+          <tr><td>Series \(\sum a_n\)</td><td>\(\lim_{N\to\infty}S_N\)?</td><td>Convergence tests, closed sums (geometric)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Confusing \(\lim_{n\to\infty}a_n=0\) with convergence of \(\sum a_n\) (harmonic series \(\sum\frac1n\) diverges even though \(\frac1n\to 0\)).</p></div>
+  </div></div>
+
+  <div class="chapter" id="t102"><div class="chapter-header" onclick="toggle(this)"><h2>10.2 Working with Geometric Series (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>\(\sum ar^n\) converges if and only if \(|r|&lt;1\). When it converges, the infinite sum is <strong>first term shown</strong> divided by \(1-r\) after you align the index so the first displayed term is truly \(a\).</p>
+    <div class="formula-block">If the sum starts at \(n=0\): \(\displaystyle \sum_{n=0}^\infty ar^n=\frac{a}{1-r}\) for \(|r|&lt;1\). Partial sums (for \(r\neq 1\)): \(\displaystyle S_n=\frac{a(1-r^n)}{1-r}\).</div>
+    <div class="steps-block"><div class="teaching-label">Indexing on the AP Exam</div><ul class="notes-list"><li>If the series starts at \(n=1\), the first term is \(ar\) (when written as \(\sum_{n=1}^\infty ar^{n-1}\), read \(a\) as the \(n=1\) term).</li><li>Rewrite \(\sum \frac{3^n}{5^n}\) as \(\sum(\frac35)^n\) to spot \(r\).</li><li>If \(|r|\geq 1\), the series diverges (nth-term test: terms do not go to \(0\) unless trivial edge cases).</li></ul></div>
+    <div class="callout example">\(1+\frac13+\frac19+\cdots\): \(a=1\), \(r=\frac13\), sum \(=\frac{1}{1-1/3}=\frac32\). Also \(\sum_{n=1}^\infty(\frac23)^n=\frac{2/3}{1-2/3}=2\).</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Using \(\frac{a}{1-r}\) with the wrong \(a\) because the series was shifted (e.g. starts at \(n=3\)) without factoring out powers of \(r\) first.</p></div>
+  </div></div>
+
+  <div class="chapter" id="t103"><div class="chapter-header" onclick="toggle(this)"><h2>10.3 The nth Term Test for Divergence (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>This test only <strong>proves divergence</strong> from a necessary condition: if \(\sum a_n\) converges, then necessarily \(\lim_{n\to\infty}a_n=0\). The contrapositive is what you use on the exam: if \(\lim a_n\neq 0\) or the limit fails to exist, then \(\sum a_n\) diverges.</p>
+    <div class="formula-block">If \(\lim_{n\to\infty}a_n\neq 0\) or DNE \(\Rightarrow\) \(\sum a_n\) diverges. If \(\lim a_n=0\), the test says <strong>nothing</strong> (inconclusive).</div>
+    <div class="callout example">\(\sum \frac{n}{n+1}\): limit \(1\neq 0\) ⇒ diverges. \(\sum \cos n\): terms oscillate, no limit ⇒ diverges. \(\sum \frac1n\): limit \(0\) but series diverges—need another test.</div>
+    <div class="steps-block"><div class="teaching-label">Always-First Check</div><ul class="notes-list"><li>Compute \(\lim_{n\to\infty}a_n\) (often treat \(n\) as continuous \(x\) and use L’Hospital if indeterminate).</li><li>If nonzero or nonexistent, stop: divergent.</li><li>If zero, proceed to structure (geometric, \(p\)-series, alternating, etc.).</li></ul></div>
+  </div></div>
+
+  <div class="chapter" id="t104"><div class="chapter-header" onclick="toggle(this)"><h2>10.4 Integral Test for Convergence (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>For positive, continuous, eventually decreasing \(a_n=f(n)\), \(\sum_{n=N}^\infty a_n\) and \(\int_N^\infty f(x)\,dx\) share <strong>convergence or divergence</strong>—but the value of the improper integral is <strong>not</strong> the sum of the series.</p>
+    <div class="formula-block">If \(\int_N^\infty f(x)\,dx\) converges, then \(\sum_{n=N}^\infty a_n\) converges; if the integral diverges to \(\infty\), the series diverges.</div>
+    <div class="callout example">For \(\sum_{n=2}^\infty \frac{1}{n\ln n}\), use \(f(x)=\frac{1}{x\ln x}\). Then \(\int_2^\infty \frac{1}{x\ln x}\,dx=\lim_{b\to\infty}\ln(\ln x)\big|_2^b=\infty\) ⇒ series diverges. For \(\sum_{n=2}^\infty \frac{1}{n(\ln n)^2}\), the same substitution gives \(\int_2^\infty \frac{1}{x(\ln x)^2}\,dx=\frac{1}{\ln 2}\) (finite) ⇒ series converges.</div>
+    <div class="steps-block"><div class="teaching-label">Integral Test Checklist</div><ul class="notes-list"><li>Verify \(f\) is positive, continuous, and eventually decreasing on \([N,\infty)\).</li><li>Align the series lower index with the integral lower limit.</li><li>Evaluate \(\int_N^\infty f(x)\,dx\) (often \(u=\ln x\) for \(\ln\)-type terms).</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Equating the integral’s numerical value to the series sum, or applying the test when \(f\) is not eventually decreasing (e.g. terms with oscillating signs—integral test needs positive terms).</p></div>
+  </div></div>
+
+  <div class="chapter" id="t105"><div class="chapter-header" onclick="toggle(this)"><h2>10.5 Harmonic Series and p-Series (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>\(\displaystyle\sum_{n=1}^\infty \frac{1}{n^p}\) converges if and only if \(p>1\). At \(p=1\) you get the <strong>harmonic series</strong> \(\sum\frac1n\), which diverges even though \(\frac1n\to 0\).</p>
+    <div class="formula-block">\(p\)-series: converges \(\Leftrightarrow p>1\); diverges for \(p\leq 1\). Famous value (Basel): \(\displaystyle\sum_{n=1}^\infty \frac{1}{n^2}=\frac{\pi^2}{6}\).</div>
+    <div class="data-table">
+      <table>
+        <thead><tr><th>Series</th><th>\(p\) or form</th><th>Conclusion</th></tr></thead>
+        <tbody>
+          <tr><td>\(\sum 1/n\)</td><td>\(p=1\)</td><td>Diverges (harmonic)</td></tr>
+          <tr><td>\(\sum 1/n^2\)</td><td>\(p=2\)</td><td>Converges</td></tr>
+          <tr><td>\(\sum 1/\sqrt{n}\)</td><td>\(p=\frac12\)</td><td>Diverges</td></tr>
+          <tr><td>\(\sum 1/n^{1.01}\)</td><td>\(p=1.01\)</td><td>Converges (barely above \(1\))</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div></div>
+
+  <div class="chapter" id="t106"><div class="chapter-header" onclick="toggle(this)"><h2>10.6 Comparison Tests for Convergence (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p><strong>Direct comparison (DCT)</strong> needs \(0\leq a_n\leq b_n\) termwise (eventually). If \(\sum b_n\) converges, then \(\sum a_n\) converges. If \(\sum a_n\) diverges, then \(\sum b_n\) diverges. If the inequality faces the “wrong” way relative to a known series, DCT gives <strong>no conclusion</strong>.</p>
+    <p><strong>Limit comparison (LCT)</strong> avoids strict inequalities: for \(a_n,b_n>0\), if \(\displaystyle L=\lim_{n\to\infty}\frac{a_n}{b_n}\) is finite and positive, \(\sum a_n\) and \(\sum b_n\) share convergence behavior. If \(L=0\) and \(\sum b_n\) converges, then \(\sum a_n\) converges; if \(L=\infty\) and \(\sum b_n\) diverges, then \(\sum a_n\) diverges.</p>
+    <div class="formula-block">Pick \(b_n\) from dominant terms (e.g. \(\frac{3n^2+2}{5n^4+1}\) behaves like \(\frac{1}{n^2}\)). DCT example: \(\frac{1}{n^2+3n+1}\lt\frac{1}{n^2}\) for \(n\geq 1\) and \(\sum\frac1{n^2}\) converges ⇒ original converges.</div>
+    <div class="steps-block"><div class="teaching-label">Choosing a Comparison</div><ul class="notes-list"><li>Strip lower-order terms and constants to guess \(b_n\) (usually geometric or \(p\)-series).</li><li>Rational-style terms: prefer LCT to a \(p\)-series.</li><li>When you need a strict upper bound for convergence, use DCT with a convergent \(\sum b_n\).</li></ul></div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>From \(a_n\lt b_n\) and \(\sum b_n\) divergent, concluding anything about \(\sum a_n\)—you cannot. Similarly \(a_n>b_n\) with \(\sum b_n\) convergent proves nothing about \(\sum a_n\).</p></div>
+  </div></div>
+
+  <div class="chapter" id="t107"><div class="chapter-header" onclick="toggle(this)"><h2>10.7 Alternating Series Test for Convergence (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>For \(\sum(-1)^{n+1}b_n\) with \(b_n>0\), the <strong>alternating series test</strong> (Leibniz-type) says: if \(b_n\) is eventually nonincreasing and \(\lim_{n\to\infty}b_n=0\), then the series converges. The conditions are sufficient, not necessary.</p>
+    <div class="formula-block">AST: \(b_{n+1}\leq b_n\) for all large \(n\) and \(\lim b_n=0\) \(\Rightarrow\) \(\sum(-1)^{n+1}b_n\) converges.</div>
+    <div class="callout example">Alternating harmonic: \(\sum_{n=1}^\infty(-1)^{n+1}\frac1n\) has \(b_n=\frac1n\) decreasing to \(0\) ⇒ converges (to \(\ln 2\), not required on every FRQ).</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Applying AST when signs do not strictly alternate as \((-1)^n b_n\) with a single positive \(b_n\) sequence, or forgetting to verify eventual monotonicity (a derivative test on a continuous extension can help).</p></div>
+  </div></div>
+
+  <div class="chapter" id="t108"><div class="chapter-header" onclick="toggle(this)"><h2>10.8 Ratio Test for Convergence (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>Let \(L=\lim_{n\to\infty}|a_{n+1}/a_n|\). If \(L&lt;1\), the series converges absolutely; if \(L>1\) or \(L=\infty\), it diverges; if \(L=1\), the ratio test is <strong>inconclusive</strong> (try \(p\)-series, LCT, integral, or AST).</p>
+    <div class="formula-block">Ratio: \(\displaystyle L=\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|\). For \(\sum 1/n^p\), the ratio limit is always \(1\)—do not use the ratio test to classify \(p\)-series.</div>
+    <div class="steps-block"><div class="teaching-label">When the Ratio Test Shines</div><ul class="notes-list"><li>Factorials \(n!\), \((2n)!\), or products like \(n!\,c^n\).</li><li>Exponential factors \(c^n\) combined with polynomials.</li><li>Power series coefficients in \(x\) (treat \(|x-a|\) after simplifying the limit).</li></ul></div>
+    <div class="callout example">\(\sum n!/n^n\): ratio simplifies to \(\frac{n^n}{(n+1)^n}=\bigl(1-\frac{1}{n+1}\bigr)^n\to e^{-1}&lt;1\) ⇒ converges absolutely.</div>
+  </div></div>
+
+  <div class="chapter" id="t109"><div class="chapter-header" onclick="toggle(this)"><h2>10.9 Determining Absolute or Conditional Convergence (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>If \(\sum |a_n|\) converges, then \(\sum a_n\) converges <strong>absolutely</strong> (and therefore converges). If \(\sum a_n\) converges but \(\sum|a_n|\) diverges, the convergence is <strong>conditional</strong>. Check \(\sum|a_n|\) first with ratio, comparison, or integral tests; if that fails, try AST on the original alternating series.</p>
+    <div class="formula-block">Absolute convergence \(\Rightarrow\) ordinary convergence. Conditional convergence means rearrangements can change the sum (Riemann rearrangement)—absolutely convergent series do not have that pathology.</div>
+    <div class="data-table">
+      <table>
+        <thead><tr><th>Outcome</th><th>Name</th></tr></thead>
+        <tbody>
+          <tr><td>\(\sum |a_n|\) converges</td><td>Absolutely convergent</td></tr>
+          <tr><td>\(\sum |a_n|\) diverges but \(\sum a_n\) converges</td><td>Conditionally convergent</td></tr>
+          <tr><td>\(\sum a_n\) diverges</td><td>Divergent</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout example">\(\sum(-1)^{n+1}/n\) is conditional (\(\sum 1/n\) diverges). \(\sum(-1)^{n+1}/n^2\) is absolute (\(\sum 1/n^2\) converges).</div>
+  </div></div>
+
+  <div class="chapter" id="t1010"><div class="chapter-header" onclick="toggle(this)"><h2>10.10 Alternating Series Error Bound (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>For an alternating series satisfying AST, the remainder after the \(n\)th partial sum \(S_n\) is bounded by the <strong>first omitted term</strong> \(b_{n+1}\), not the last term you included. The true sum lies between any two consecutive partial sums.</p>
+    <div class="formula-block">\(|S-S_n|\leq b_{n+1}\) when AST hypotheses hold (upper bound—actual error can be smaller).</div>
+    <div class="callout example">For \(\sum(-1)^{k+1}/k\), to guarantee error \(\leq 0.01\) need \(b_{n+1}=\frac{1}{n+1}\leq 0.01\), so \(n\geq 99\) terms in the partial sum.</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Using \(b_n\) (last included term) instead of \(b_{n+1}\) in the bound, or applying the bound when AST hypotheses fail.</p></div>
+    <div class="qa-item"><div class="qa-question">AP-Style Prompt</div><div class="qa-answer">How many terms of \(\sum_{k=1}^\infty (-1)^{k+1}/k^2\) are needed so partial sum error is at most \(0.001\)?</div></div>
+  </div></div>
+
+  <div class="chapter" id="t1011"><div class="chapter-header" onclick="toggle(this)"><h2>10.11 Finding Taylor Polynomial Approximations of Functions (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>The Taylor polynomial \(P_n\) of degree \(n\) for \(f\) about \(a\) is the truncation of the Taylor series through the \((x-a)^n\) term: \(P_n(x)=\sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k\). A <strong>Maclaurin</strong> polynomial is the special case \(a=0\).</p>
+    <div class="formula-block">\(P_n(x)=f(a)+f'(a)(x-a)+\cdots+\frac{f^{(n)}(a)}{n!}(x-a)^n\). Remainder: \(R_n(x)=f(x)-P_n(x)\).</div>
+    <div class="steps-block"><div class="teaching-label">Coefficient Routine</div><ul class="notes-list"><li>Compute \(f^{(k)}(x)\) through the order you need.</li><li>Evaluate at the center \(a\).</li><li>Assemble \(\frac{f^{(k)}(a)}{k!}(x-a)^k\) for \(k=0,\ldots,n\).</li></ul></div>
+    <p>For speed, substitute into standard Maclaurin series (next section) instead of recomputing every derivative when the structure matches \(e^u\), \(\frac{1}{1-u}\), \(\ln(1+u)\), trig, etc.</p>
+  </div></div>
+
+  <div class="chapter" id="t1012"><div class="chapter-header" onclick="toggle(this)"><h2>10.12 Lagrange Error Bound (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>If \(P_n\) is the Taylor polynomial of degree \(n\) for \(f\) about \(a\), the remainder is \(R_n(x)=f(x)-P_n(x)\). When \(|f^{(n+1)}(t)|\leq M\) for all \(t\) between \(a\) and \(x\), Lagrange’s inequality bounds \(|R_n(x)|\).</p>
+    <div class="formula-block">\(\displaystyle |R_n(x)|\leq \frac{M}{(n+1)!}|x-a|^{n+1}\), where \(M\) is any upper bound for \(|f^{(n+1)}|\) on the interval from \(a\) to \(x\).</div>
+    <div class="steps-block"><div class="teaching-label">Lagrange Bound Routine</div><ul class="notes-list"><li>Identify degree \(n\) of \(P_n\) and center \(a\).</li><li>Differentiate one more time: \(f^{(n+1)}\).</li><li>Bound \(|f^{(n+1)}(t)|\) on the segment between \(a\) and \(x\); call the bound \(M\).</li><li>Plug into \(\frac{M}{(n+1)!}|x-a|^{n+1}\).</li></ul></div>
+    <div class="callout example">Approximate \(e\) with \(P_3\) for \(e^x\) at \(a=0\) evaluated at \(x=1\): \(f^{(4)}(x)=e^x\), on \([0,1]\) take \(M=e\) (or a cruder safe bound like \(3\)). Then \(|R_3(1)|\leq \frac{M}{4!}=\frac{M}{24}\).</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Using \(f^{(n)}\) instead of \(f^{(n+1)}\), or mismatching factorial/power with the polynomial degree.</p></div>
+  </div></div>
+
+  <div class="chapter" id="t1013"><div class="chapter-header" onclick="toggle(this)"><h2>10.13 Radius and Interval of Convergence of Power Series (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>For \(\sum c_n(x-a)^n\), the ratio test on the general term (treating \(x\) as fixed) gives an interval where the limit is \(\lt 1\): typically \(|x-a|\lt R\) with absolute convergence inside, divergence outside, and <strong>endpoints unknown until tested</strong> in the original series.</p>
+    <div class="formula-block">Three outcomes: \(R=0\) (converges only at \(x=a\)), \(0\lt R\lt\infty\) (finite interval; check \(x=a\pm R\)), or \(R=\infty\) (converges for all \(x\)).</div>
+    <div class="callout example">\(\sum_{n=1}^\infty \frac{x^n}{n}\): ratio gives \(|x|\lim\frac{n}{n+1}=|x|\), so \(R=1\). At \(x=1\): harmonic ⇒ diverges. At \(x=-1\): alternating harmonic ⇒ converges. Interval of convergence \([-1,1)\)—use \([\ ]\) only where the series converges.</div>
+    <div class="steps-block"><div class="teaching-label">Interval of Convergence</div><ul class="notes-list"><li>Apply ratio or root test to \(\sum|c_n||x-a|^n\) and solve \(|x-a|\lt R\).</li><li>Substitute \(x=a+R\) and \(x=a-R\) into the <em>original</em> series separately.</li><li>After term-by-term differentiation or integration of a known series, \(R\) is unchanged but endpoints must be retested.</li></ul></div>
+  </div></div>
+
+  <div class="chapter" id="t1014"><div class="chapter-header" onclick="toggle(this)"><h2>10.14 Finding Taylor or Maclaurin Series for a Function (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>Build \(\sum \frac{f^{(n)}(a)}{n!}(x-a)^n\) by differentiating \(f\) repeatedly, or—faster—<strong>substitute</strong> into standard Maclaurin forms with \(u\) a function of \(x\) (e.g. \(e^{x^2}\) from \(e^u\) with \(u=x^2\)).</p>
+    <div class="data-table">
+      <table>
+        <thead><tr><th>\(f(x)\)</th><th>Maclaurin series</th><th>Interval (standard)</th></tr></thead>
+        <tbody>
+          <tr><td>\(e^x\)</td><td>\(\displaystyle\sum_{n=0}^\infty \frac{x^n}{n!}\)</td><td>\((-\infty,\infty)\)</td></tr>
+          <tr><td>\(\sin x\)</td><td>\(\displaystyle\sum_{n=0}^\infty(-1)^n\frac{x^{2n+1}}{(2n+1)!}\)</td><td>\((-\infty,\infty)\)</td></tr>
+          <tr><td>\(\cos x\)</td><td>\(\displaystyle\sum_{n=0}^\infty(-1)^n\frac{x^{2n}}{(2n)!}\)</td><td>\((-\infty,\infty)\)</td></tr>
+          <tr><td>\(\dfrac{1}{1-x}\)</td><td>\(\displaystyle\sum_{n=0}^\infty x^n\)</td><td>\((-1,1)\)</td></tr>
+          <tr><td>\(\ln(1+x)\)</td><td>\(\displaystyle\sum_{n=1}^\infty(-1)^{n+1}\frac{x^n}{n}\)</td><td>\((-1,1]\)</td></tr>
+          <tr><td>\(\arctan x\)</td><td>\(\displaystyle\sum_{n=0}^\infty(-1)^n\frac{x^{2n+1}}{2n+1}\)</td><td>\([-1,1]\)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="formula-block">Substitution: \(\frac{1}{1+x^2}=\sum(-1)^n x^{2n}\) for \(|x|\lt 1\); \(\cos(3x)=\sum(-1)^n\frac{(3x)^{2n}}{(2n)!}\).</div>
+    <div class="mistake-block"><div class="teaching-label">Common Mistake</div><p>Reporting the open interval \((-1,1)\) from the ratio step as the final answer for a series whose endpoint \(x=-1\) converges by AST—always substitute endpoints.</p></div>
+  </div></div>
+
+  <div class="chapter" id="t1015"><div class="chapter-header" onclick="toggle(this)"><h2>10.15 Representing Functions as Power Series (BC)</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <p>Inside the interval of convergence, power series may be differentiated and integrated term-by-term. The radius \(R\) is unchanged, but <strong>endpoints can change</strong>: integration often improves convergence at a boundary that was previously divergent (differentiation can worsen it).</p>
+    <div class="formula-block">If \(f(x)=\sum c_n(x-a)^n\) for \(|x-a|\lt R\), then \(f'(x)=\sum_{n=1}^\infty n c_n(x-a)^{n-1}\) and \(\int f(x)\,dx=C+\sum_{n=0}^\infty c_n\frac{(x-a)^{n+1}}{n+1}\), each with the same \(R\) until endpoint retest.</div>
+    <div class="callout example">From \(\frac{1}{1-x}=\sum_{n=0}^\infty x^n\) on \((-1,1)\), integrate to \(-\ln(1-x)=\sum_{n=1}^\infty\frac{x^n}{n}\); at \(x=-1\) the alternating series converges, so the integrated series represents \(-\ln(1-x)\) on \([-1,1)\).</div>
+  </div></div>
+
+  <div class="chapter" id="practice"><div class="chapter-header" onclick="toggle(this)"><h2>Mixed Practice and FRQ Strategy</h2><span class="chevron">▼</span></div><div class="chapter-content">
+    <div class="data-table">
+      <table>
+        <thead><tr><th>Step</th><th>If you see…</th><th>Lean toward…</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>\(\lim a_n\neq 0\) or DNE</td><td>nth-term test ⇒ diverges</td></tr>
+          <tr><td>2</td><td>\(\sum a r^n\) or disguised \((\ )^n\) ratio</td><td>Geometric series</td></tr>
+          <tr><td>3</td><td>\(\sum 1/n^p\)</td><td>\(p\)-series (not ratio)</td></tr>
+          <tr><td>4</td><td>\((-1)^n b_n\), \(b_n\downarrow 0\)</td><td>AST; then check \(\sum|a_n|\)</td></tr>
+          <tr><td>5</td><td>\(n!\), \(c^n\), products</td><td>Ratio test</td></tr>
+          <tr><td>6</td><td>Rational in \(n\), no factorials</td><td>Limit comparison to \(p\)-series</td></tr>
+          <tr><td>7</td><td>\(1/(n\ln n)\), integrable \(f(n)\)</td><td>Integral test</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="data-table">
+      <table>
+        <thead><tr><th>Trap</th><th>Reality</th></tr></thead>
+        <tbody>
+          <tr><td>\(\lim a_n=0\)</td><td>Does not imply \(\sum a_n\) converges</td></tr>
+          <tr><td>Ratio gives \(L=1\)</td><td>Inconclusive—switch tests</td></tr>
+          <tr><td>Power series</td><td>Always test \(x=a\pm R\) in the original series</td></tr>
+          <tr><td>Integral test</td><td>Integral value \(\neq\) series sum</td></tr>
+          <tr><td>AST error</td><td>Bound uses first <em>omitted</em> term \(b_{n+1}\)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="steps-block"><div class="teaching-label">Timed Routine</div><ul class="notes-list"><li>3 convergence classifications with full justification.</li><li>1 power series radius + endpoint check.</li><li>1 Taylor/Maclaurin to order 3 or 4 (substitution allowed).</li><li>1 Lagrange or alternating error bound with explicit inequality.</li></ul></div>
+  </div></div>
+</main>
+<script src="../../main.js"></script>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"],["$","$"]]},svg:{fontCache:"global"}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+</html>
