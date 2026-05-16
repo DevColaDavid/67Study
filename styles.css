@@ -205,6 +205,16 @@ a:hover { text-decoration: underline; }
 
 .hub-header { margin-bottom: 2.5rem; }
 
+.hub-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.1rem;
+}
+
+.hub-title-row .hub-title { margin-bottom: 0; }
+
 .hub-title {
   font-family: "Outfit", sans-serif;
   font-size: 2.4rem;
@@ -439,6 +449,13 @@ a:hover { text-decoration: underline; }
   flex-wrap: wrap;
 }
 
+.unit-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
 .unit-page-title {
   font-family: "Outfit", sans-serif;
   font-size: 1.6rem;
@@ -663,6 +680,50 @@ a:hover { text-decoration: underline; }
 }
 .callout-quote .callout-title,
 .callout-summary .callout-title { color: var(--text-dim); }
+
+/* BC-only callout */
+.callout-bc {
+  border-left-color: #7c6fcd;
+  background: rgba(124, 111, 205, 0.08);
+}
+.callout-bc .callout-title { color: #9b8ee8; }
+.callout-bc .callout-title::before { content: "BC Only — "; opacity: 0.7; font-style: normal; }
+
+/* Hide BC content when in AB mode */
+.hide-bc .callout-bc { display: none; }
+
+/* ── AB/BC mode toggle ────────────────────────────────────────────────────── */
+.mode-toggle {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.mode-toggle-btn {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.22rem 0.65rem;
+  border-radius: 6px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.mode-toggle-btn--active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(155, 142, 232, 0.12);
+}
+
+/* Dimmed BC-only unit cards in AB mode */
+.unit-card--bc-dim {
+  opacity: 0.35;
+  pointer-events: none;
+}
 
 /* ── Scrollbar ──────────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }

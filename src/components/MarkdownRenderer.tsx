@@ -21,12 +21,15 @@ const CALLOUT_TYPES: Record<string, string> = {
   quote: 'quote',
   summary: 'summary',
   abstract: 'summary',
+  bc: 'bc',
+  'bc-only': 'bc',
 };
 
 function parseCallout(children: ReactNode[]): { type: string; title: string; body: ReactNode[] } | null {
-  const first = children[0];
-  if (!first || typeof first !== 'object') return null;
-  // The first child of a blockquote is a <p> element
+  // Skip leading whitespace/newline text nodes to find the first element
+  const first = children.find((c) => c !== null && c !== undefined && typeof c === 'object');
+  if (!first) return null;
+
   const p = first as React.ReactElement<{ children: ReactNode[] }>;
   if (!p.props?.children) return null;
 
@@ -34,19 +37,26 @@ function parseCallout(children: ReactNode[]): { type: string; title: string; bod
   const firstText = pChildren[0];
   if (typeof firstText !== 'string') return null;
 
-  const match = firstText.match(/^\[!(\w+)\](?:\s+(.+))?$/);
+  // Match only the first line — react-markdown may bundle the whole paragraph
+  // into one string with embedded \n, so don't anchor with $
+  const firstLine = firstText.split('\n')[0];
+  const match = firstLine.match(/^\[!(\w+)\](?:\s+([^\n]+))?/);
   if (!match) return null;
 
   const rawType = match[1].toLowerCase();
   const type = CALLOUT_TYPES[rawType] ?? 'note';
-  const title = match[2] ?? rawType.charAt(0).toUpperCase() + rawType.slice(1);
+  const title = match[2]?.trim() ?? rawType.charAt(0).toUpperCase() + rawType.slice(1);
 
-  // Rest of first paragraph after the [!type] line
-  const restOfP = pChildren.slice(1).filter(Boolean);
+  // Remainder of the first text node after the [!type] line
+  const afterFirstLine = firstText.slice(firstLine.length).replace(/^\n/, '');
+  const restOfP: ReactNode[] = [];
+  if (afterFirstLine) restOfP.push(afterFirstLine);
+  restOfP.push(...pChildren.slice(1));
+
   const body: ReactNode[] = [];
-  if (restOfP.length > 0) body.push(<p key="rest">{restOfP}</p>);
-  // Remaining blockquote children (paragraphs after the first)
-  body.push(...children.slice(1));
+  const filteredRest = restOfP.filter(Boolean);
+  if (filteredRest.length > 0) body.push(<p key="rest">{filteredRest}</p>);
+  body.push(...children.slice(children.indexOf(first) + 1));
 
   return { type, title, body };
 }
