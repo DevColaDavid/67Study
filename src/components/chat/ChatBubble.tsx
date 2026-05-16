@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { deleteDoc, doc, addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { deleteDoc, doc, addDoc, collection, Timestamp } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useAuth } from '../../context/AuthContext';
 
@@ -41,7 +41,7 @@ export default function ChatBubble({ message, isOwn, showAvatar }: Props) {
         count: 1,
         messagePreview: message.text.slice(0, 80),
         messageAuthor: message.displayName,
-        timestamp: serverTimestamp(),
+        timestamp: Timestamp.now(),
       });
     } catch {
       setDeleting(false);

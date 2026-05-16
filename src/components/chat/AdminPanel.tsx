@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
   collection, query, where, orderBy, onSnapshot,
-  getDocs, writeBatch, addDoc, serverTimestamp, Timestamp,
+  getDocs, writeBatch, addDoc, Timestamp,
 } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useAuth } from '../../context/AuthContext';
@@ -68,7 +68,7 @@ export default function AdminPanel({ room }: Props) {
         count: snap.size,
         messagePreview: '',
         messageAuthor: '',
-        timestamp: serverTimestamp(),
+        timestamp: Timestamp.now(),
       });
     } finally {
       setDeleting(false);

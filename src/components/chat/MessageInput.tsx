@@ -1,5 +1,5 @@
 import { useState, useRef, KeyboardEvent } from 'react';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useAuth } from '../../context/AuthContext';
 
@@ -26,7 +26,7 @@ export default function MessageInput({ room }: Props) {
         displayName: user.displayName ?? 'Anonymous',
         photoURL: user.photoURL ?? '',
         room,
-        timestamp: serverTimestamp(),
+        timestamp: Timestamp.now(),
       });
     } finally {
       setSending(false);
