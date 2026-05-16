@@ -85,6 +85,23 @@ export const SUBJECTS: SubjectMeta[] = [
       { unit: 2, title: 'Skills, Drill & Knowledge' },
     ],
   },
+  {
+    id: 'ap-us-history',
+    name: 'AP US History',
+    slug: 'ap-us-history',
+    color: 'crimson',
+    units: [
+      { unit: 1, title: 'A New World (1491–1607)' },
+      { unit: 2, title: 'Colonial America (1607–1754)' },
+      { unit: 3, title: 'American Revolution (1754–1800)' },
+      { unit: 4, title: 'New Republic (1800–1848)' },
+      { unit: 5, title: 'Civil War and Reconstruction (1844–1877)' },
+      { unit: 6, title: 'The Gilded Age (1865–1898)' },
+      { unit: 7, title: 'Progressive Era and World Wars (1890–1945)' },
+      { unit: 8, title: 'Cold War (1945–1980)' },
+      { unit: 9, title: 'Global Role (1980–Present)' },
+    ],
+  },
 ];
 
 export function getSubject(slug: string): SubjectMeta | undefined {

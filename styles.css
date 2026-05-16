@@ -15,7 +15,8 @@
   --color-violet: #9b8ee8;
   --color-amber:  #f0a04b;
   --color-rose:   #e879a0;
-  --color-olive:  #8db87a;
+  --color-olive:   #8db87a;
+  --color-crimson: #e05252;
 
   /* Active accent (overridden per-page via data-color) */
   --accent:       #5b8dee;
@@ -25,7 +26,8 @@
 [data-color="violet"] { --accent: var(--color-violet); }
 [data-color="amber"]  { --accent: var(--color-amber); }
 [data-color="rose"]   { --accent: var(--color-rose); }
-[data-color="olive"]  { --accent: var(--color-olive); }
+[data-color="olive"]   { --accent: var(--color-olive); }
+[data-color="crimson"] { --accent: var(--color-crimson); }
 
 /* ── Reset ─────────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

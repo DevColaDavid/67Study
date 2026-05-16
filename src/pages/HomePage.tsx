@@ -17,6 +17,7 @@ const SUBJECT_ICONS: Record<string, string> = {
   'ap-world-history': '🌍',
   'religion': '✝️',
   'jrotc': '🎖️',
+  'ap-us-history': '🦅',
 };
 
 const SUBJECT_TAGLINES: Record<string, string> = {
@@ -25,6 +26,7 @@ const SUBJECT_TAGLINES: Record<string, string> = {
   'ap-world-history': 'Empires, trade, and revolutions',
   'religion': 'Faith, scripture, and the Church',
   'jrotc': 'Leadership, drill, and service',
+  'ap-us-history': 'From colonization to the modern era',
 };
 
 export default function HomePage() {

@@ -6,7 +6,12 @@
       "Bash(mkdir -p \"C:\\\\Users\\\\david\\\\OneDrive\\\\Desktop\\\\APStudy\\\\.claude\\\\worktrees\\\\laughing-clarke-dd76ce\\\\.claude\")",
       "mcp__Claude_Preview__preview_start",
       "WebFetch(domain:www.chemistrystudent.com)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\david\\\\iCloudDrive\\\\iCloud~md~obsidian\\\\Obsidian Vault\\\\Study\\\\APUSH\" -Recurse -Force)",
+      "Bash(Select-Object FullName, Name, Extension)",
+      "Bash(Format-Table -AutoSize)",
+      "Bash(npx tsc *)",
+      "Bash(node_modules\\\\.bin\\\\vite build *)"
     ]
   }
 }
