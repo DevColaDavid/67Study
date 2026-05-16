@@ -67,7 +67,7 @@ export const SUBJECTS: SubjectMeta[] = [
   },
   {
     id: 'religion',
-    name: 'Religion',
+    name: 'Sophomore Religion',
     slug: 'religion',
     color: 'rose',
     units: [
