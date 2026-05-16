@@ -61,6 +61,20 @@ export default function HomePage() {
             </Link>
           );
         })}
+
+        <Link to="/chat" className="subject-card subject-card--chat">
+          <div className="subject-card-accent" />
+          <div className="subject-card-body">
+            <span className="subject-card-icon">💬</span>
+            <div className="subject-card-info">
+              <span className="subject-card-name">Study Chat</span>
+              <span className="subject-card-tagline">Global + subject rooms</span>
+            </div>
+          </div>
+          <div className="subject-card-footer">
+            <span className="subject-card-units">7 rooms</span>
+          </div>
+        </Link>
       </div>
     </main>
   );
