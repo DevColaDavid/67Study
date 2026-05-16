@@ -37,7 +37,7 @@ export const SUBJECTS: SubjectMeta[] = [
     color: 'violet',
     units: [
       { unit: 1, title: 'Limits and Continuity' },
-      { unit: 2, title: 'Differentiation: Definition and Fundamental Properties' },
+      { unit: 2, title: 'Differentiation: Definition and Basic Derivative Rules' },
       { unit: 3, title: 'Differentiation: Composite, Implicit, and Inverse Functions' },
       { unit: 4, title: 'Contextual Applications of Differentiation' },
       { unit: 5, title: 'Analytical Applications of Differentiation' },

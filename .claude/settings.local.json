@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(not exist *)",
+      "Bash(mkdir -p \"C:\\\\Users\\\\david\\\\OneDrive\\\\Desktop\\\\APStudy\\\\.claude\\\\worktrees\\\\laughing-clarke-dd76ce\\\\.claude\")",
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:www.chemistrystudent.com)",
+      "Bash(git add *)"
+    ]
+  }
+}

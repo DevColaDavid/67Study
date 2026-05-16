@@ -1,5 +1,6 @@
 import { useParams, Navigate, Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
+import GithubSlugger from 'github-slugger';
 import { getSubject, getUnit } from '../data/subjects';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 
@@ -9,6 +10,8 @@ const markdownModules = import.meta.glob('../content/**/*.md', {
   import: 'default',
 });
 
+type CalcMode = 'ab' | 'bc';
+
 interface Heading {
   level: number;
   text: string;
@@ -16,16 +19,13 @@ interface Heading {
 }
 
 function extractHeadings(markdown: string): Heading[] {
+  const slugger = new GithubSlugger();
   return (markdown.match(/^#{1,3} .+/gm) ?? [])
     .filter((line) => !line.startsWith('# ')) // skip h1 (page title)
     .map((line) => {
       const level = (line.match(/^#+/) as RegExpMatchArray)[0].length;
       const text = line.replace(/^#+\s/, '');
-      const id = text
-        .toLowerCase()
-        .replace(/[^a-z0-9\s-]/g, '')
-        .trim()
-        .replace(/\s+/g, '-');
+      const id = slugger.slug(text);
       return { level, text, id };
     });
 }
@@ -49,6 +49,10 @@ function setUnitRead(slug: string, unit: number, read: boolean) {
   localStorage.setItem(`read-units:${slug}`, JSON.stringify(updated));
 }
 
+function getCalcMode(): CalcMode {
+  return (localStorage.getItem('calc-mode') as CalcMode) ?? 'bc';
+}
+
 export default function UnitPage() {
   const { subject, unitId } = useParams<{ subject: string; unitId: string }>();
   const navigate = useNavigate();
@@ -61,6 +65,7 @@ export default function UnitPage() {
   const [error, setError] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isRead, setIsRead] = useState(false);
+  const [calcMode, setCalcMode] = useState<CalcMode>(getCalcMode);
 
   useEffect(() => {
     if (!subjectMeta || !unitMeta) return;
@@ -82,14 +87,22 @@ export default function UnitPage() {
     setIsRead(next);
   }, [subjectMeta, unitNum, isRead]);
 
+  const updateCalcMode = (m: CalcMode) => {
+    setCalcMode(m);
+    localStorage.setItem('calc-mode', m);
+  };
+
   if (!subjectMeta || !unitMeta) return <Navigate to="/" replace />;
+
+  const isCalc = subjectMeta.slug === 'ap-calculus';
+  const hideBc = isCalc && calcMode === 'ab';
 
   const headings = content ? extractHeadings(stripFrontmatter(content)) : [];
   const prevUnit = subjectMeta.units.find((u) => u.unit === unitNum - 1);
   const nextUnit = subjectMeta.units.find((u) => u.unit === unitNum + 1);
 
   return (
-    <div className="unit-layout" data-color={subjectMeta.color}>
+    <div className={`unit-layout${hideBc ? ' hide-bc' : ''}`} data-color={subjectMeta.color}>
       {/* Sidebar */}
       <aside className={`unit-sidebar${sidebarOpen ? '' : ' unit-sidebar--closed'}`}>
         <div className="sidebar-header">
@@ -133,12 +146,30 @@ export default function UnitPage() {
             <span className="unit-page-number">Unit {unitNum}</span>
             {unitMeta.title}
           </h1>
-          <button
-            className={`read-btn${isRead ? ' read-btn--done' : ''}`}
-            onClick={toggleRead}
-          >
-            {isRead ? '✓ Marked as read' : 'Mark as read'}
-          </button>
+          <div className="unit-topbar-actions">
+            {isCalc && (
+              <div className="mode-toggle">
+                <button
+                  className={`mode-toggle-btn${calcMode === 'ab' ? ' mode-toggle-btn--active' : ''}`}
+                  onClick={() => updateCalcMode('ab')}
+                >
+                  AB
+                </button>
+                <button
+                  className={`mode-toggle-btn${calcMode === 'bc' ? ' mode-toggle-btn--active' : ''}`}
+                  onClick={() => updateCalcMode('bc')}
+                >
+                  BC
+                </button>
+              </div>
+            )}
+            <button
+              className={`read-btn${isRead ? ' read-btn--done' : ''}`}
+              onClick={toggleRead}
+            >
+              {isRead ? '✓ Marked as read' : 'Mark as read'}
+            </button>
+          </div>
         </div>
 
         <div className="unit-content">
