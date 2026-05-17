@@ -18,6 +18,9 @@ export default function ChatPage() {
         <Link to="/" className="chat-back">← Home</Link>
         <span className="chat-topnav-title">Study Chat</span>
         <div className="chat-topnav-right">
+          {isAdmin && (
+            <Link to="/admin" className="chat-admin-link">Admin Panel</Link>
+          )}
           <img
             className="chat-user-avatar"
             src={user.photoURL ?? ''}

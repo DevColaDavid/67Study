@@ -5,6 +5,7 @@ import SubjectHubPage from './pages/SubjectHubPage';
 import UnitPage from './pages/UnitPage';
 import LoginPage from './pages/LoginPage';
 import ChatPage from './pages/ChatPage';
+import AdminPage from './pages/AdminPage';
 import ChatFab from './components/ChatFab';
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/chat" element={<ChatPage />} />
+          <Route path="/admin" element={<AdminPage />} />
           <Route path="/:subject" element={<SubjectHubPage />} />
           <Route path="/:subject/units/:unitId" element={<UnitPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

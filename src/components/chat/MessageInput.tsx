@@ -20,12 +20,11 @@ export default function MessageInput({ room }: Props) {
     setText('');
     if (textareaRef.current) textareaRef.current.style.height = 'auto';
     try {
-      await addDoc(collection(db, 'messages'), {
+      await addDoc(collection(db, 'rooms', room, 'messages'), {
         text: trimmed,
         uid: user.uid,
         displayName: user.displayName ?? 'Anonymous',
         photoURL: user.photoURL ?? '',
-        room,
         timestamp: Timestamp.now(),
       });
     } finally {

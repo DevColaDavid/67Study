@@ -1,16 +1,11 @@
 import { useEffect, useState } from 'react';
-import {
-  collection, query, where, orderBy, onSnapshot,
-  getDocs, writeBatch, addDoc, Timestamp,
-} from 'firebase/firestore';
+import { collection, query, orderBy, onSnapshot, Timestamp } from 'firebase/firestore';
 import { db } from '../../firebase';
-import { useAuth } from '../../context/AuthContext';
 
 interface LogEntry {
   id: string;
-  action: 'delete_message' | 'delete_all';
+  action: 'delete_message' | 'delete_selected' | 'delete_all';
   adminName: string;
-  room: string;
   count: number;
   messagePreview: string;
   messageAuthor: string;
@@ -26,125 +21,62 @@ function formatTs(ts: { seconds: number } | null): string {
   return new Date(ts.seconds * 1000).toLocaleString();
 }
 
-function roomLabel(room: string): string {
-  if (room === 'global') return 'Global';
-  return room.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-}
-
 export default function AdminPanel({ room }: Props) {
-  const { user } = useAuth();
-  const [activeTab, setActiveTab] = useState<'actions' | 'logs'>('actions');
   const [logs, setLogs] = useState<LogEntry[]>([]);
-  const [confirming, setConfirming] = useState(false);
-  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
+    // subcollection per room — no composite index needed
     const q = query(
-      collection(db, 'admin_logs'),
-      where('room', '==', room),
+      collection(db, 'rooms', room, 'logs'),
       orderBy('timestamp', 'desc')
     );
-    const unsubscribe = onSnapshot(q, (snap) => {
-      setLogs(snap.docs.map((d) => ({ id: d.id, ...(d.data() as Omit<LogEntry, 'id'>) })));
-    });
+    const unsubscribe = onSnapshot(
+      q,
+      (snap) => setLogs(snap.docs.map((d) => ({ id: d.id, ...(d.data() as Omit<LogEntry, 'id'>) }))),
+      (err) => console.error('Admin log listener error:', err)
+    );
     return unsubscribe;
   }, [room]);
 
-  async function handleDeleteAll() {
-    if (!user || deleting) return;
-    setDeleting(true);
-    try {
-      const snap = await getDocs(
-        query(collection(db, 'messages'), where('room', '==', room))
-      );
-      const batch = writeBatch(db);
-      snap.docs.forEach((d) => batch.delete(d.ref));
-      await batch.commit();
-      await addDoc(collection(db, 'admin_logs'), {
-        action: 'delete_all',
-        adminUid: user.uid,
-        adminName: user.displayName ?? 'Admin',
-        room,
-        count: snap.size,
-        messagePreview: '',
-        messageAuthor: '',
-        timestamp: Timestamp.now(),
-      });
-    } finally {
-      setDeleting(false);
-      setConfirming(false);
-    }
-  }
+  const actionLabel = (action: LogEntry['action']) => {
+    if (action === 'delete_all') return 'delete all';
+    if (action === 'delete_selected') return 'bulk delete';
+    return 'delete';
+  };
 
   return (
     <div className="admin-panel">
       <div className="admin-panel-header">
         <span className="admin-badge">Admin</span>
-        <div className="admin-tabs">
-          <button
-            className={`admin-tab${activeTab === 'actions' ? ' admin-tab--active' : ''}`}
-            onClick={() => setActiveTab('actions')}
-          >
-            Actions
-          </button>
-          <button
-            className={`admin-tab${activeTab === 'logs' ? ' admin-tab--active' : ''}`}
-            onClick={() => setActiveTab('logs')}
-          >
-            Logs
-          </button>
-        </div>
+        <span className="admin-panel-label">Action Log</span>
       </div>
-
-      {activeTab === 'actions' && (
-        <div className="admin-actions">
-          {!confirming ? (
-            <button className="admin-danger-btn" onClick={() => setConfirming(true)}>
-              Delete All Messages in {roomLabel(room)}
-            </button>
-          ) : (
-            <div className="admin-confirm">
-              <p>Delete all messages in <strong>{roomLabel(room)}</strong>? This cannot be undone.</p>
-              <div className="admin-confirm-btns">
-                <button className="admin-danger-btn" onClick={handleDeleteAll} disabled={deleting}>
-                  {deleting ? 'Deleting…' : 'Yes, delete all'}
-                </button>
-                <button className="admin-cancel-btn" onClick={() => setConfirming(false)}>
-                  Cancel
-                </button>
+      <div className="admin-log-list">
+        {logs.length === 0 ? (
+          <p className="admin-log-empty">No actions logged for this room yet.</p>
+        ) : (
+          logs.map((log) => (
+            <div key={log.id} className="log-entry">
+              <span className={`log-action-badge log-action-badge--${log.action}`}>
+                {actionLabel(log.action)}
+              </span>
+              <div className="log-entry-body">
+                <span className="log-admin">{log.adminName}</span>
+                {log.action === 'delete_all' ? (
+                  <span className="log-detail">deleted all messages ({log.count})</span>
+                ) : log.action === 'delete_selected' ? (
+                  <span className="log-detail">deleted {log.count} selected message{log.count !== 1 ? 's' : ''}</span>
+                ) : (
+                  <span className="log-detail">
+                    deleted message by <em>{log.messageAuthor}</em>
+                    {log.messagePreview ? `: "${log.messagePreview}"` : ''}
+                  </span>
+                )}
+                <span className="log-time">{formatTs(log.timestamp)}</span>
               </div>
             </div>
-          )}
-        </div>
-      )}
-
-      {activeTab === 'logs' && (
-        <div className="admin-log-list">
-          {logs.length === 0 ? (
-            <p className="admin-log-empty">No actions logged for this room yet.</p>
-          ) : (
-            logs.map((log) => (
-              <div key={log.id} className="log-entry">
-                <span className={`log-action-badge log-action-badge--${log.action}`}>
-                  {log.action === 'delete_all' ? 'delete all' : 'delete'}
-                </span>
-                <div className="log-entry-body">
-                  <span className="log-admin">{log.adminName}</span>
-                  {log.action === 'delete_all' ? (
-                    <span className="log-detail">deleted {log.count} message{log.count !== 1 ? 's' : ''}</span>
-                  ) : (
-                    <span className="log-detail">
-                      deleted message by <em>{log.messageAuthor}</em>
-                      {log.messagePreview ? `: "${log.messagePreview}"` : ''}
-                    </span>
-                  )}
-                  <span className="log-time">{formatTs(log.timestamp)}</span>
-                </div>
-              </div>
-            ))
-          )}
-        </div>
-      )}
+          ))
+        )}
+      </div>
     </div>
   );
 }

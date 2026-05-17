@@ -1,11 +1,12 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { User, onAuthStateChanged, signInWithPopup, signOut as firebaseSignOut } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc, Timestamp } from 'firebase/firestore';
 import { auth, db, googleProvider } from '../firebase';
 
 interface AuthContextValue {
   user: User | null;
   isAdmin: boolean;
+  isSuperAdmin: boolean;
   loading: boolean;
   signIn: () => Promise<void>;
   signOut: () => Promise<void>;
@@ -16,6 +17,7 @@ const AuthContext = createContext<AuthContextValue | null>(null);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isSuperAdmin, setIsSuperAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,9 +25,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUser(firebaseUser);
       if (firebaseUser) {
         const adminDoc = await getDoc(doc(db, 'admins', firebaseUser.uid));
+        const adminData = adminDoc.exists() ? adminDoc.data() : null;
         setIsAdmin(adminDoc.exists());
+        setIsSuperAdmin(adminData?.superadmin === true);
+
+        // Upsert user profile so admin panel can list all users
+        await setDoc(doc(db, 'users', firebaseUser.uid), {
+          uid: firebaseUser.uid,
+          displayName: firebaseUser.displayName ?? '',
+          photoURL: firebaseUser.photoURL ?? '',
+          email: firebaseUser.email ?? '',
+          lastSeen: Timestamp.now(),
+        }, { merge: true });
       } else {
         setIsAdmin(false);
+        setIsSuperAdmin(false);
       }
       setLoading(false);
     });
@@ -41,7 +55,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAdmin, loading, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, isAdmin, isSuperAdmin, loading, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );

@@ -4,9 +4,14 @@ import ChatBubble, { Message } from './ChatBubble';
 
 interface Props {
   messages: Message[];
+  room: string;
+  selectMode: boolean;
+  selectedIds: Set<string>;
+  onToggle: (id: string) => void;
+  onDeleted: (id: string) => void;
 }
 
-export default function MessageList({ messages }: Props) {
+export default function MessageList({ messages, room, selectMode, selectedIds, onToggle, onDeleted }: Props) {
   const { user } = useAuth();
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -32,8 +37,13 @@ export default function MessageList({ messages }: Props) {
           <ChatBubble
             key={msg.id}
             message={msg}
+            room={room}
             isOwn={isOwn}
             showAvatar={showAvatar}
+            selectMode={selectMode}
+            selected={selectedIds.has(msg.id)}
+            onToggle={() => onToggle(msg.id)}
+            onDeleted={() => onDeleted(msg.id)}
           />
         );
       })}
