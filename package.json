@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^12.13.0",
     "github-slugger": "^2.0.0",
     "katex": "^0.16.21",
     "react": "^19.0.0",

@@ -11,7 +11,10 @@
       "Bash(Select-Object FullName, Name, Extension)",
       "Bash(Format-Table -AutoSize)",
       "Bash(npx tsc *)",
-      "Bash(node_modules\\\\.bin\\\\vite build *)"
+      "Bash(node_modules\\\\.bin\\\\vite build *)",
+      "Bash(npm install *)",
+      "Bash(git checkout *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

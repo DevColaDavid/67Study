@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SUBJECTS } from '../data/subjects';
+import { useAuth } from '../context/AuthContext';
 
 function getReadCount(slug: string, total: number): number {
   try {
@@ -30,6 +31,8 @@ const SUBJECT_TAGLINES: Record<string, string> = {
 };
 
 export default function HomePage() {
+  const { isAdmin } = useAuth();
+
   return (
     <main className="home-page">
       <div className="home-hero">
@@ -61,6 +64,36 @@ export default function HomePage() {
             </Link>
           );
         })}
+
+        <Link to="/chat" className="subject-card subject-card--chat">
+          <div className="subject-card-accent" />
+          <div className="subject-card-body">
+            <span className="subject-card-icon">💬</span>
+            <div className="subject-card-info">
+              <span className="subject-card-name">Study Chat</span>
+              <span className="subject-card-tagline">Global + subject rooms</span>
+            </div>
+          </div>
+          <div className="subject-card-footer">
+            <span className="subject-card-units">7 rooms</span>
+          </div>
+        </Link>
+
+        {isAdmin && (
+          <Link to="/admin" className="subject-card subject-card--admin">
+            <div className="subject-card-accent" />
+            <div className="subject-card-body">
+              <span className="subject-card-icon">⚙️</span>
+              <div className="subject-card-info">
+                <span className="subject-card-name">Admin Panel</span>
+                <span className="subject-card-tagline">Chat, users & more</span>
+              </div>
+            </div>
+            <div className="subject-card-footer">
+              <span className="subject-card-units">Admins only</span>
+            </div>
+          </Link>
+        )}
       </div>
     </main>
   );
