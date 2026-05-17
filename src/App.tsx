@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import { useAuth } from './context/AuthContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import HomePage from './pages/HomePage';
 import SubjectHubPage from './pages/SubjectHubPage';
 import UnitPage from './pages/UnitPage';
@@ -8,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import ChatPage from './pages/ChatPage';
 import AdminPage from './pages/AdminPage';
 import ChatFab from './components/ChatFab';
+import ProfileDropdown from './components/ProfileDropdown';
 
 function AuthGuard({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
@@ -37,6 +37,7 @@ function AppRoutes() {
         } />
       </Routes>
       <ChatFab />
+      <ProfileDropdown />
     </>
   );
 }

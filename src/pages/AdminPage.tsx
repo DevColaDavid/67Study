@@ -7,7 +7,7 @@ import UsersSection from '../components/admin/UsersSection';
 type Tab = 'chat' | 'users';
 
 export default function AdminPage() {
-  const { user, isAdmin, isSuperAdmin, signOut } = useAuth();
+  const { isAdmin, isSuperAdmin } = useAuth();
   const [tab, setTab] = useState<Tab>('chat');
 
   if (!isAdmin) return <Navigate to="/" replace />;
@@ -17,12 +17,7 @@ export default function AdminPage() {
       <div className="admin-topnav">
         <Link to="/" className="chat-back">← Home</Link>
         <span className="admin-topnav-title">Admin Panel</span>
-        <div className="chat-topnav-right">
-          <img className="chat-user-avatar" src={user.photoURL ?? ''} alt={user.displayName ?? ''} referrerPolicy="no-referrer" />
-          <span className="chat-user-name">{user.displayName}</span>
-          {isSuperAdmin && <span className="admin-badge">Superadmin</span>}
-          <button className="chat-signout-btn" onClick={signOut}>Sign out</button>
-        </div>
+        {isSuperAdmin && <span className="admin-badge">Superadmin</span>}
       </div>
 
       <div className="admin-layout">
