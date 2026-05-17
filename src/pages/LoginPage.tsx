@@ -9,7 +9,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (!loading && user) {
-      const next = searchParams.get('next') ?? '/chat';
+      const next = searchParams.get('next') ?? '/';
       navigate(next, { replace: true });
     }
   }, [user, loading, navigate, searchParams]);
@@ -26,7 +26,7 @@ export default function LoginPage() {
     <main className="login-page">
       <div className="login-card">
         <h1 className="login-title">67 Study</h1>
-        <p className="login-subtitle">Sign in to access Study Chat</p>
+        <p className="login-subtitle">Sign in to access 67 Study</p>
         <button className="login-google-btn" onClick={handleSignIn} disabled={loading}>
           <svg className="login-google-icon" viewBox="0 0 24 24" aria-hidden="true">
             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>

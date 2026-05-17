@@ -7,11 +7,10 @@ import UsersSection from '../components/admin/UsersSection';
 type Tab = 'chat' | 'users';
 
 export default function AdminPage() {
-  const { user, isAdmin, isSuperAdmin, loading, signOut } = useAuth();
+  const { user, isAdmin, isSuperAdmin, signOut } = useAuth();
   const [tab, setTab] = useState<Tab>('chat');
 
-  if (loading) return <div className="chat-loading">Loading…</div>;
-  if (!user || !isAdmin) return <Navigate to="/" replace />;
+  if (!isAdmin) return <Navigate to="/" replace />;
 
   return (
     <main className="admin-page">

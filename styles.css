@@ -1048,19 +1048,36 @@ a:hover { text-decoration: underline; }
   border-top: 2px solid #e06c7533;
   background: #1a1520;
   flex-shrink: 0;
-  max-height: 260px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+.admin-panel--open {
+  max-height: 260px;
 }
 .admin-panel-header {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.5rem 1.25rem;
-  border-bottom: 1px solid var(--border);
+  padding: 0.45rem 1.25rem;
   flex-shrink: 0;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
 }
+.admin-panel-header:hover { background: #ffffff08; }
+.admin-panel-chevron {
+  width: 14px;
+  height: 14px;
+  color: var(--text-dim);
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.admin-panel-chevron--up { transform: rotate(180deg); }
 .admin-badge {
   font-family: "Outfit", sans-serif;
   font-size: 0.7rem;
