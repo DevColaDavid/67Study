@@ -1,5 +1,9 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { User, onAuthStateChanged, signInWithPopup, signOut as firebaseSignOut } from 'firebase/auth';
+import { createContext, useContext, useEffect, useState, useCallback, ReactNode } from 'react';
+import {
+  User, AuthCredential, onAuthStateChanged,
+  signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword,
+  updateProfile, linkWithCredential, signOut as firebaseSignOut,
+} from 'firebase/auth';
 import { doc, getDoc, setDoc, Timestamp } from 'firebase/firestore';
 import { auth, db, googleProvider } from '../firebase';
 
@@ -8,7 +12,10 @@ interface AuthContextValue {
   isAdmin: boolean;
   isSuperAdmin: boolean;
   loading: boolean;
-  signIn: () => Promise<void>;
+  signInWithGoogle: () => Promise<void>;
+  signInWithEmail: (email: string, password: string) => Promise<void>;
+  signUpWithEmail: (email: string, password: string, name: string) => Promise<void>;
+  linkCredential: (cred: AuthCredential) => Promise<void>;
   signOut: () => Promise<void>;
 }
 
@@ -29,8 +36,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           const adminData = adminDoc.exists() ? adminDoc.data() : null;
           setIsAdmin(adminDoc.exists());
           setIsSuperAdmin(adminData?.superadmin === true);
-
-          // Upsert user profile so admin panel can list all users
           await setDoc(doc(db, 'users', firebaseUser.uid), {
             uid: firebaseUser.uid,
             displayName: firebaseUser.displayName ?? '',
@@ -51,16 +56,36 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return unsubscribe;
   }, []);
 
-  async function signIn() {
+  const signInWithGoogle = useCallback(async () => {
     await signInWithPopup(auth, googleProvider);
-  }
+  }, []);
 
-  async function signOut() {
+  const signInWithEmail = useCallback(async (email: string, password: string) => {
+    await signInWithEmailAndPassword(auth, email, password);
+  }, []);
+
+  const signUpWithEmail = useCallback(async (email: string, password: string, name: string) => {
+    const result = await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(result.user, { displayName: name });
+    // Trigger onAuthStateChanged to pick up the updated displayName
+    setUser({ ...result.user });
+  }, []);
+
+  const linkCredential = useCallback(async (cred: AuthCredential) => {
+    if (!auth.currentUser) throw new Error('Not signed in');
+    await linkWithCredential(auth.currentUser, cred);
+  }, []);
+
+  const signOut = useCallback(async () => {
     await firebaseSignOut(auth);
-  }
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ user, isAdmin, isSuperAdmin, loading, signIn, signOut }}>
+    <AuthContext.Provider value={{
+      user, isAdmin, isSuperAdmin, loading,
+      signInWithGoogle, signInWithEmail, signUpWithEmail,
+      linkCredential, signOut,
+    }}>
       {children}
     </AuthContext.Provider>
   );
