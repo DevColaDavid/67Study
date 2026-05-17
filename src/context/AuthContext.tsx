@@ -23,25 +23,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       setUser(firebaseUser);
-      if (firebaseUser) {
-        const adminDoc = await getDoc(doc(db, 'admins', firebaseUser.uid));
-        const adminData = adminDoc.exists() ? adminDoc.data() : null;
-        setIsAdmin(adminDoc.exists());
-        setIsSuperAdmin(adminData?.superadmin === true);
+      try {
+        if (firebaseUser) {
+          const adminDoc = await getDoc(doc(db, 'admins', firebaseUser.uid));
+          const adminData = adminDoc.exists() ? adminDoc.data() : null;
+          setIsAdmin(adminDoc.exists());
+          setIsSuperAdmin(adminData?.superadmin === true);
 
-        // Upsert user profile so admin panel can list all users
-        await setDoc(doc(db, 'users', firebaseUser.uid), {
-          uid: firebaseUser.uid,
-          displayName: firebaseUser.displayName ?? '',
-          photoURL: firebaseUser.photoURL ?? '',
-          email: firebaseUser.email ?? '',
-          lastSeen: Timestamp.now(),
-        }, { merge: true });
-      } else {
-        setIsAdmin(false);
-        setIsSuperAdmin(false);
+          // Upsert user profile so admin panel can list all users
+          await setDoc(doc(db, 'users', firebaseUser.uid), {
+            uid: firebaseUser.uid,
+            displayName: firebaseUser.displayName ?? '',
+            photoURL: firebaseUser.photoURL ?? '',
+            email: firebaseUser.email ?? '',
+            lastSeen: Timestamp.now(),
+          }, { merge: true });
+        } else {
+          setIsAdmin(false);
+          setIsSuperAdmin(false);
+        }
+      } catch (err) {
+        console.error('Auth setup error:', err);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     });
     return unsubscribe;
   }, []);
