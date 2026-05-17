@@ -1,17 +1,9 @@
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import { getSubject } from '../data/subjects';
+import { useProgress } from '../context/ProgressContext';
 
 type CalcMode = 'ab' | 'bc';
-
-function getReadUnits(slug: string): number[] {
-  try {
-    const raw = localStorage.getItem(`read-units:${slug}`);
-    return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
-  }
-}
 
 function getCalcMode(): CalcMode {
   return (localStorage.getItem('calc-mode') as CalcMode) ?? 'bc';
@@ -20,6 +12,7 @@ function getCalcMode(): CalcMode {
 export default function SubjectHubPage() {
   const { subject } = useParams<{ subject: string }>();
   const meta = subject ? getSubject(subject) : undefined;
+  const { readUnits: allReadUnits } = useProgress();
 
   if (!meta) return <Navigate to="/" replace />;
 
@@ -31,7 +24,7 @@ export default function SubjectHubPage() {
     localStorage.setItem('calc-mode', m);
   };
 
-  const readUnits = getReadUnits(meta.slug);
+  const readUnits = allReadUnits[meta.slug] ?? [];
   const countableUnits = isCalc && calcMode === 'ab'
     ? meta.units.filter((u) => !u.bcOnly)
     : meta.units;

@@ -1,16 +1,7 @@
 import { Link } from 'react-router-dom';
 import { SUBJECTS } from '../data/subjects';
 import { useAuth } from '../context/AuthContext';
-
-function getReadCount(slug: string, total: number): number {
-  try {
-    const raw = localStorage.getItem(`read-units:${slug}`);
-    const arr: number[] = raw ? JSON.parse(raw) : [];
-    return Math.min(arr.length, total);
-  } catch {
-    return 0;
-  }
-}
+import { useProgress } from '../context/ProgressContext';
 
 const SUBJECT_ICONS: Record<string, string> = {
   'ap-chemistry': '🧪',
@@ -32,6 +23,7 @@ const SUBJECT_TAGLINES: Record<string, string> = {
 
 export default function HomePage() {
   const { isAdmin } = useAuth();
+  const { readUnits } = useProgress();
 
   return (
     <main className="home-page">
@@ -42,7 +34,7 @@ export default function HomePage() {
 
       <div className="subject-grid">
         {SUBJECTS.map((s) => {
-          const read = getReadCount(s.slug, s.units.length);
+          const read = Math.min((readUnits[s.slug] ?? []).length, s.units.length);
           const pct = Math.round((read / s.units.length) * 100);
           return (
             <Link key={s.id} to={`/${s.slug}`} className="subject-card" data-color={s.color}>

@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { ProgressProvider } from './context/ProgressContext';
 import HomePage from './pages/HomePage';
 import SubjectHubPage from './pages/SubjectHubPage';
 import UnitPage from './pages/UnitPage';
@@ -46,7 +47,9 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <AppRoutes />
+        <ProgressProvider>
+          <AppRoutes />
+        </ProgressProvider>
       </AuthProvider>
     </BrowserRouter>
   );

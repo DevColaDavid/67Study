@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import GithubSlugger from 'github-slugger';
 import { getSubject, getUnit } from '../data/subjects';
 import MarkdownRenderer from '../components/MarkdownRenderer';
+import { useProgress } from '../context/ProgressContext';
 
 // Vite glob import — all markdown files, loaded as raw strings on demand
 const markdownModules = import.meta.glob('../content/**/*.md', {
@@ -34,21 +35,6 @@ function stripFrontmatter(markdown: string): string {
   return markdown.replace(/^---[\s\S]*?---\n?/, '');
 }
 
-function getReadUnits(slug: string): number[] {
-  try {
-    const raw = localStorage.getItem(`read-units:${slug}`);
-    return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
-  }
-}
-
-function setUnitRead(slug: string, unit: number, read: boolean) {
-  const current = getReadUnits(slug);
-  const updated = read ? [...new Set([...current, unit])] : current.filter((u) => u !== unit);
-  localStorage.setItem(`read-units:${slug}`, JSON.stringify(updated));
-}
-
 function getCalcMode(): CalcMode {
   return (localStorage.getItem('calc-mode') as CalcMode) ?? 'bc';
 }
@@ -57,21 +43,23 @@ export default function UnitPage() {
   const { subject, unitId } = useParams<{ subject: string; unitId: string }>();
   const navigate = useNavigate();
 
+  const { isUnitRead, markUnit } = useProgress();
+
   const subjectMeta = subject ? getSubject(subject) : undefined;
   const unitNum = unitId ? parseInt(unitId, 10) : NaN;
   const unitMeta = subjectMeta && !isNaN(unitNum) ? getUnit(subject!, unitNum) : undefined;
 
+  const isRead = subjectMeta ? isUnitRead(subjectMeta.slug, unitNum) : false;
+
   const [content, setContent] = useState<string | null>(null);
   const [error, setError] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [isRead, setIsRead] = useState(false);
   const [calcMode, setCalcMode] = useState<CalcMode>(getCalcMode);
 
   useEffect(() => {
     if (!subjectMeta || !unitMeta) return;
     setContent(null);
     setError(false);
-    setIsRead(getReadUnits(subjectMeta.slug).includes(unitNum));
 
     const key = `../content/${subjectMeta.slug}/unit-${unitNum}.md`;
     const loader = markdownModules[key];
@@ -82,10 +70,8 @@ export default function UnitPage() {
 
   const toggleRead = useCallback(() => {
     if (!subjectMeta) return;
-    const next = !isRead;
-    setUnitRead(subjectMeta.slug, unitNum, next);
-    setIsRead(next);
-  }, [subjectMeta, unitNum, isRead]);
+    markUnit(subjectMeta.slug, unitNum, !isRead);
+  }, [subjectMeta, unitNum, isRead, markUnit]);
 
   const updateCalcMode = (m: CalcMode) => {
     setCalcMode(m);
