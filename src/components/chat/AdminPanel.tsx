@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
 
 interface LogEntry {
@@ -34,7 +34,8 @@ export default function AdminPanel({ room }: Props) {
   useEffect(() => {
     const q = query(
       collection(db, 'rooms', room, 'logs'),
-      orderBy('timestamp', 'desc')
+      orderBy('timestamp', 'desc'),
+      limit(30)
     );
     const unsubscribe = onSnapshot(
       q,

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { collection, query, orderBy, onSnapshot, getDocs, writeBatch, addDoc, Timestamp } from 'firebase/firestore';
+import { collection, query, orderBy, limit, limitToLast, onSnapshot, getDocs, writeBatch, addDoc, Timestamp } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useAuth } from '../../context/AuthContext';
 import { SUBJECTS } from '../../data/subjects';
@@ -45,7 +45,7 @@ export default function ChatSection() {
 
   useEffect(() => {
     setMessages([]);
-    const q = query(collection(db, 'rooms', room, 'messages'), orderBy('timestamp', 'asc'));
+    const q = query(collection(db, 'rooms', room, 'messages'), orderBy('timestamp', 'asc'), limitToLast(50));
     const unsub = onSnapshot(q,
       (snap) => setMessages(snap.docs.map((d) => ({ id: d.id, ...(d.data() as Omit<Message, 'id'>) }))),
       (err) => console.error('ChatSection messages error:', err)
@@ -55,7 +55,7 @@ export default function ChatSection() {
 
   useEffect(() => {
     setLogs([]);
-    const q = query(collection(db, 'rooms', room, 'logs'), orderBy('timestamp', 'desc'));
+    const q = query(collection(db, 'rooms', room, 'logs'), orderBy('timestamp', 'desc'), limit(30));
     const unsub = onSnapshot(q,
       (snap) => setLogs(snap.docs.map((d) => ({ id: d.id, ...(d.data() as Omit<LogEntry, 'id'>) }))),
       (err) => console.error('ChatSection logs error:', err)

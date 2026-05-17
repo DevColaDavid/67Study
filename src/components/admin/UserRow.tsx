@@ -20,50 +20,35 @@ export interface AdminEntry {
 interface Props {
   profile: UserProfile;
   adminEntry: AdminEntry | null;
+  onChanged: () => void;
 }
 
-export default function UserRow({ profile, adminEntry }: Props) {
+export default function UserRow({ profile, adminEntry, onChanged }: Props) {
   const { user } = useAuth();
   const [busy, setBusy] = useState(false);
   const isSelf = user?.uid === profile.uid;
   const isAdmin = adminEntry !== null;
   const isSuperAdmin = adminEntry?.superadmin === true;
 
-  async function grantAdmin() {
+  async function run(fn: () => Promise<void>) {
     setBusy(true);
-    try {
-      await setDoc(doc(db, 'admins', profile.uid), {
-        displayName: profile.displayName,
-        superadmin: false,
-        addedAt: Timestamp.now(),
-      });
-    } finally { setBusy(false); }
+    try { await fn(); onChanged(); } finally { setBusy(false); }
   }
 
-  async function revokeAdmin() {
-    setBusy(true);
-    try {
-      await deleteDoc(doc(db, 'admins', profile.uid));
-    } finally { setBusy(false); }
-  }
+  const grantAdmin = () => run(() => setDoc(doc(db, 'admins', profile.uid), {
+    displayName: profile.displayName, superadmin: false, addedAt: Timestamp.now(),
+  }));
 
-  async function grantSuperAdmin() {
-    setBusy(true);
-    try {
-      await setDoc(doc(db, 'admins', profile.uid), {
-        displayName: profile.displayName,
-        superadmin: true,
-        addedAt: adminEntry ? undefined : Timestamp.now(),
-      }, { merge: true });
-    } finally { setBusy(false); }
-  }
+  const revokeAdmin = () => run(() => deleteDoc(doc(db, 'admins', profile.uid)));
 
-  async function revokeSuperAdmin() {
-    setBusy(true);
-    try {
-      await setDoc(doc(db, 'admins', profile.uid), { superadmin: false }, { merge: true });
-    } finally { setBusy(false); }
-  }
+  const grantSuperAdmin = () => run(() => setDoc(doc(db, 'admins', profile.uid), {
+    displayName: profile.displayName, superadmin: true,
+    ...(adminEntry ? {} : { addedAt: Timestamp.now() }),
+  }, { merge: true }));
+
+  const revokeSuperAdmin = () => run(() =>
+    setDoc(doc(db, 'admins', profile.uid), { superadmin: false }, { merge: true })
+  );
 
   return (
     <div className="user-row">

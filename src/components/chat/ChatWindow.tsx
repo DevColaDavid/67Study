@@ -1,10 +1,12 @@
 import { useEffect, useState, useCallback } from 'react';
-import { collection, query, orderBy, onSnapshot, deleteDoc, doc, addDoc, Timestamp, writeBatch } from 'firebase/firestore';
+import { collection, query, orderBy, limitToLast, onSnapshot, doc, addDoc, Timestamp, writeBatch } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useAuth } from '../../context/AuthContext';
 import { Message } from './ChatBubble';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
+
+const MESSAGE_LIMIT = 50;
 
 interface Props {
   room: string;
@@ -23,7 +25,8 @@ export default function ChatWindow({ room }: Props) {
     setSelectedIds(new Set());
     const q = query(
       collection(db, 'rooms', room, 'messages'),
-      orderBy('timestamp', 'asc')
+      orderBy('timestamp', 'asc'),
+      limitToLast(MESSAGE_LIMIT)
     );
     const unsubscribe = onSnapshot(
       q,
