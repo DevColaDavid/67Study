@@ -17,6 +17,7 @@
   --color-rose:   #e879a0;
   --color-olive:   #8db87a;
   --color-crimson: #e05252;
+  --color-sky:     #5bc8f5;
 
   /* Active accent (overridden per-page via data-color) */
   --accent:       #5b8dee;
@@ -28,6 +29,7 @@
 [data-color="rose"]   { --accent: var(--color-rose); }
 [data-color="olive"]   { --accent: var(--color-olive); }
 [data-color="crimson"] { --accent: var(--color-crimson); }
+[data-color="sky"]     { --accent: var(--color-sky); }
 
 /* ── Reset ─────────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -721,7 +723,7 @@ a:hover { text-decoration: underline; }
   background: rgba(155, 142, 232, 0.12);
 }
 
-/* Dimmed BC-only unit cards in AB mode */
+/* Dimmed unit cards (BC-only in AB mode; Mech/E&M units in opposite physics mode) */
 .unit-card--bc-dim {
   opacity: 0.35;
   pointer-events: none;

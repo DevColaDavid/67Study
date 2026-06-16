@@ -2,6 +2,7 @@ export interface UnitMeta {
   unit: number;
   title: string;
   bcOnly?: boolean;
+  emOnly?: boolean;
 }
 
 export interface SubjectMeta {
@@ -100,6 +101,29 @@ export const SUBJECTS: SubjectMeta[] = [
       { unit: 7, title: 'Progressive Era and World Wars (1890–1945)' },
       { unit: 8, title: 'Cold War (1945–1980)' },
       { unit: 9, title: 'Global Role (1980–Present)' },
+    ],
+  },
+  {
+    id: 'ap-physics-c',
+    name: 'AP Physics C',
+    slug: 'ap-physics-c',
+    color: 'sky',
+    units: [
+      // Mechanics
+      { unit: 1,  title: 'Kinematics' },
+      { unit: 2,  title: 'Force and Translational Dynamics' },
+      { unit: 3,  title: 'Work, Energy, and Power' },
+      { unit: 4,  title: 'Linear Momentum' },
+      { unit: 5,  title: 'Torque and Rotational Dynamics' },
+      { unit: 6,  title: 'Energy and Momentum of Rotating Systems' },
+      { unit: 7,  title: 'Oscillations' },
+      // Electricity & Magnetism
+      { unit: 8,  title: 'Electric Charges, Fields, and Gauss\'s Law', emOnly: true },
+      { unit: 9,  title: 'Electric Potential',                          emOnly: true },
+      { unit: 10, title: 'Conductors and Capacitors',                   emOnly: true },
+      { unit: 11, title: 'Electric Circuits',                            emOnly: true },
+      { unit: 12, title: 'Magnetic Fields and Electromagnetism',         emOnly: true },
+      { unit: 13, title: 'Electromagnetic Induction',                    emOnly: true },
     ],
   },
 ];

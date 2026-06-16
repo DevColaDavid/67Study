@@ -4,9 +4,14 @@ import { getSubject } from '../data/subjects';
 import { useProgress } from '../context/ProgressContext';
 
 type CalcMode = 'ab' | 'bc';
+type PhysicsMode = 'mech' | 'em' | 'both';
 
 function getCalcMode(): CalcMode {
   return (localStorage.getItem('calc-mode') as CalcMode) ?? 'bc';
+}
+
+function getPhysicsMode(): PhysicsMode {
+  return (localStorage.getItem('physics-c-mode') as PhysicsMode) ?? 'both';
 }
 
 export default function SubjectHubPage() {
@@ -17,17 +22,29 @@ export default function SubjectHubPage() {
   if (!meta) return <Navigate to="/" replace />;
 
   const isCalc = meta.slug === 'ap-calculus';
-  const [calcMode, setCalcMode] = useState<CalcMode>(getCalcMode);
+  const isPhysics = meta.slug === 'ap-physics-c';
 
-  const updateMode = (m: CalcMode) => {
+  const [calcMode, setCalcMode] = useState<CalcMode>(getCalcMode);
+  const [physicsMode, setPhysicsMode] = useState<PhysicsMode>(getPhysicsMode);
+
+  const updateCalcMode = (m: CalcMode) => {
     setCalcMode(m);
     localStorage.setItem('calc-mode', m);
   };
 
+  const updatePhysicsMode = (m: PhysicsMode) => {
+    setPhysicsMode(m);
+    localStorage.setItem('physics-c-mode', m);
+  };
+
   const readUnits = allReadUnits[meta.slug] ?? [];
-  const countableUnits = isCalc && calcMode === 'ab'
-    ? meta.units.filter((u) => !u.bcOnly)
-    : meta.units;
+
+  const countableUnits =
+    isCalc && calcMode === 'ab'       ? meta.units.filter((u) => !u.bcOnly) :
+    isPhysics && physicsMode === 'mech' ? meta.units.filter((u) => !u.emOnly) :
+    isPhysics && physicsMode === 'em'   ? meta.units.filter((u) => u.emOnly) :
+    meta.units;
+
   const countedRead = readUnits.filter((n) => countableUnits.some((u) => u.unit === n)).length;
   const progress = countableUnits.length > 0
     ? Math.round((countedRead / countableUnits.length) * 100)
@@ -42,23 +59,48 @@ export default function SubjectHubPage() {
       <div className="hub-header">
         <div className="hub-title-row">
           <h1 className="hub-title">{meta.name}</h1>
+
           {isCalc && (
             <div className="mode-toggle">
               <button
                 className={`mode-toggle-btn${calcMode === 'ab' ? ' mode-toggle-btn--active' : ''}`}
-                onClick={() => updateMode('ab')}
+                onClick={() => updateCalcMode('ab')}
               >
                 AB
               </button>
               <button
                 className={`mode-toggle-btn${calcMode === 'bc' ? ' mode-toggle-btn--active' : ''}`}
-                onClick={() => updateMode('bc')}
+                onClick={() => updateCalcMode('bc')}
               >
                 BC
               </button>
             </div>
           )}
+
+          {isPhysics && (
+            <div className="mode-toggle">
+              <button
+                className={`mode-toggle-btn${physicsMode === 'mech' ? ' mode-toggle-btn--active' : ''}`}
+                onClick={() => updatePhysicsMode('mech')}
+              >
+                Mech
+              </button>
+              <button
+                className={`mode-toggle-btn${physicsMode === 'em' ? ' mode-toggle-btn--active' : ''}`}
+                onClick={() => updatePhysicsMode('em')}
+              >
+                E&amp;M
+              </button>
+              <button
+                className={`mode-toggle-btn${physicsMode === 'both' ? ' mode-toggle-btn--active' : ''}`}
+                onClick={() => updatePhysicsMode('both')}
+              >
+                Both
+              </button>
+            </div>
+          )}
         </div>
+
         <div className="hub-progress-row">
           <div className="hub-progress-bar-wrap">
             <div className="hub-progress-bar" style={{ width: `${progress}%` }} />
@@ -70,7 +112,10 @@ export default function SubjectHubPage() {
       <div className="unit-grid">
         {meta.units.map((u) => {
           const isRead = readUnits.includes(u.unit);
-          const isDimmed = isCalc && calcMode === 'ab' && u.bcOnly;
+          const isDimmed =
+            (isCalc && calcMode === 'ab' && !!u.bcOnly) ||
+            (isPhysics && physicsMode === 'mech' && !!u.emOnly) ||
+            (isPhysics && physicsMode === 'em' && !u.emOnly);
           return (
             <Link
               key={u.unit}
@@ -81,6 +126,7 @@ export default function SubjectHubPage() {
               <span className="unit-card-title">{u.title}</span>
               <div className="unit-card-footer">
                 {u.bcOnly && <span className="unit-card-badge">BC only</span>}
+                {u.emOnly && <span className="unit-card-badge">E&amp;M</span>}
                 {isRead && <span className="unit-card-check">✓ Read</span>}
               </div>
             </Link>

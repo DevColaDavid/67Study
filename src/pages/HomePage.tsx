@@ -10,6 +10,7 @@ const SUBJECT_ICONS: Record<string, string> = {
   'religion': '✝️',
   'jrotc': '🎖️',
   'ap-us-history': '🦅',
+  'ap-physics-c':  '⚡',
 };
 
 const SUBJECT_TAGLINES: Record<string, string> = {
@@ -19,6 +20,7 @@ const SUBJECT_TAGLINES: Record<string, string> = {
   'religion': 'Faith, scripture, and the Church',
   'jrotc': 'Leadership, drill, and service',
   'ap-us-history': 'From colonization to the modern era',
+  'ap-physics-c':  'Mechanics, electricity & magnetism',
 };
 
 export default function HomePage() {
@@ -67,7 +69,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="subject-card-footer">
-            <span className="subject-card-units">7 rooms</span>
+            <span className="subject-card-units">8 rooms</span>
           </div>
         </Link>
 
