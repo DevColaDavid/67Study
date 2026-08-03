@@ -4,6 +4,7 @@ import { ProgressProvider } from './context/ProgressContext';
 import HomePage from './pages/HomePage';
 import SubjectHubPage from './pages/SubjectHubPage';
 import UnitPage from './pages/UnitPage';
+import WordLabPage from './pages/WordLabPage';
 import LoginPage from './pages/LoginPage';
 import ChatPage from './pages/ChatPage';
 import AdminPage from './pages/AdminPage';
@@ -31,6 +32,7 @@ function AppRoutes() {
               <Route path="/chat" element={<ChatPage />} />
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/:subject" element={<SubjectHubPage />} />
+              <Route path="/:subject/vocab" element={<WordLabPage />} />
               <Route path="/:subject/units/:unitId" element={<UnitPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>

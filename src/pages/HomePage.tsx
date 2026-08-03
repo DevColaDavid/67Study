@@ -11,6 +11,7 @@ const SUBJECT_ICONS: Record<string, string> = {
   'jrotc': '🎖️',
   'ap-us-history': '🦅',
   'ap-physics-c':  '⚡',
+  'test-prep': '📝',
 };
 
 const SUBJECT_TAGLINES: Record<string, string> = {
@@ -21,6 +22,7 @@ const SUBJECT_TAGLINES: Record<string, string> = {
   'jrotc': 'Leadership, drill, and service',
   'ap-us-history': 'From colonization to the modern era',
   'ap-physics-c':  'Mechanics, electricity & magnetism',
+  'test-prep': 'SAT, ACT, and SSAT prep',
 };
 
 export default function HomePage() {

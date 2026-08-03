@@ -167,12 +167,12 @@ export default function UnitPage() {
         {/* Prev / Next navigation */}
         <nav className="unit-nav">
           {prevUnit ? (
-            <button className="unit-nav-btn unit-nav-btn--prev" onClick={() => navigate(`/${subjectMeta.slug}/units/${prevUnit.unit}`)}>
+            <button className="unit-nav-btn unit-nav-btn--prev" onClick={() => navigate(prevUnit.link ?? `/${subjectMeta.slug}/units/${prevUnit.unit}`)}>
               ← Unit {prevUnit.unit}: {prevUnit.title}
             </button>
           ) : <span />}
           {nextUnit && (
-            <button className="unit-nav-btn unit-nav-btn--next" onClick={() => navigate(`/${subjectMeta.slug}/units/${nextUnit.unit}`)}>
+            <button className="unit-nav-btn unit-nav-btn--next" onClick={() => navigate(nextUnit.link ?? `/${subjectMeta.slug}/units/${nextUnit.unit}`)}>
               Unit {nextUnit.unit}: {nextUnit.title} →
             </button>
           )}

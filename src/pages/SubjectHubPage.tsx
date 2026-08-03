@@ -50,6 +50,33 @@ export default function SubjectHubPage() {
     ? Math.round((countedRead / countableUnits.length) * 100)
     : 0;
 
+  const hasSections = meta.units.some((u) => u.section);
+  const sections = Array.from(new Set(meta.units.map((u) => u.section ?? 'Overview')));
+
+  const renderUnitCard = (u: (typeof meta.units)[number]) => {
+    const isRead = readUnits.includes(u.unit);
+    const isDimmed =
+      (isCalc && calcMode === 'ab' && !!u.bcOnly) ||
+      (isPhysics && physicsMode === 'mech' && !!u.emOnly) ||
+      (isPhysics && physicsMode === 'em' && !u.emOnly);
+    return (
+      <Link
+        key={u.unit}
+        to={u.link ?? `/${meta.slug}/units/${u.unit}`}
+        className={`unit-card${isRead ? ' unit-card--read' : ''}${isDimmed ? ' unit-card--bc-dim' : ''}`}
+      >
+        <span className="unit-card-number">Unit {u.unit}</span>
+        <span className="unit-card-title">{u.title}</span>
+        <div className="unit-card-footer">
+          {u.bcOnly && <span className="unit-card-badge">BC only</span>}
+          {u.emOnly && <span className="unit-card-badge">E&amp;M</span>}
+          {u.link && <span className="unit-card-badge">Interactive</span>}
+          {isRead && <span className="unit-card-check">✓ Read</span>}
+        </div>
+      </Link>
+    );
+  };
+
   return (
     <div className="hub-page" data-color={meta.color}>
       <div className="hub-topnav">
@@ -109,30 +136,18 @@ export default function SubjectHubPage() {
         </div>
       </div>
 
-      <div className="unit-grid">
-        {meta.units.map((u) => {
-          const isRead = readUnits.includes(u.unit);
-          const isDimmed =
-            (isCalc && calcMode === 'ab' && !!u.bcOnly) ||
-            (isPhysics && physicsMode === 'mech' && !!u.emOnly) ||
-            (isPhysics && physicsMode === 'em' && !u.emOnly);
-          return (
-            <Link
-              key={u.unit}
-              to={`/${meta.slug}/units/${u.unit}`}
-              className={`unit-card${isRead ? ' unit-card--read' : ''}${isDimmed ? ' unit-card--bc-dim' : ''}`}
-            >
-              <span className="unit-card-number">Unit {u.unit}</span>
-              <span className="unit-card-title">{u.title}</span>
-              <div className="unit-card-footer">
-                {u.bcOnly && <span className="unit-card-badge">BC only</span>}
-                {u.emOnly && <span className="unit-card-badge">E&amp;M</span>}
-                {isRead && <span className="unit-card-check">✓ Read</span>}
-              </div>
-            </Link>
-          );
-        })}
-      </div>
+      {hasSections ? (
+        sections.map((section) => (
+          <div key={section} className="unit-section">
+            <h2 className="unit-section-title">{section}</h2>
+            <div className="unit-grid">
+              {meta.units.filter((u) => (u.section ?? 'Overview') === section).map((u) => renderUnitCard(u))}
+            </div>
+          </div>
+        ))
+      ) : (
+        <div className="unit-grid">{meta.units.map((u) => renderUnitCard(u))}</div>
+      )}
     </div>
   );
 }

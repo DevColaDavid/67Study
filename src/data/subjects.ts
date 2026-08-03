@@ -3,6 +3,10 @@ export interface UnitMeta {
   title: string;
   bcOnly?: boolean;
   emOnly?: boolean;
+  /** Optional group label — units sharing a section render under a header on the hub page. */
+  section?: string;
+  /** Optional override — if set, the unit card links here instead of the markdown unit route. */
+  link?: string;
 }
 
 export interface SubjectMeta {
@@ -124,6 +128,24 @@ export const SUBJECTS: SubjectMeta[] = [
       { unit: 11, title: 'Electric Circuits',                            emOnly: true },
       { unit: 12, title: 'Magnetic Fields and Electromagnetism',         emOnly: true },
       { unit: 13, title: 'Electromagnetic Induction',                    emOnly: true },
+    ],
+  },
+  {
+    id: 'test-prep',
+    name: 'SAT / ACT / SSAT Prep',
+    slug: 'test-prep',
+    color: 'gold',
+    units: [
+      { unit: 1, title: 'Test Overview & Strategy', section: 'Overview' },
+      { unit: 2, title: 'Information and Ideas', section: 'Language — EBRW' },
+      { unit: 3, title: 'Craft and Structure', section: 'Language — EBRW' },
+      { unit: 4, title: 'Expression of Ideas', section: 'Language — EBRW' },
+      { unit: 5, title: 'Standard English Conventions', section: 'Language — EBRW' },
+      { unit: 6, title: 'Essay / Writing Sample', section: 'Language — EBRW' },
+      { unit: 7, title: 'Vocab, Word Parts & Transitions Practice', section: 'Language — Vocab', link: '/test-prep/vocab' },
+      { unit: 8, title: 'Algebra & Problem Solving', section: 'Math' },
+      { unit: 9, title: 'Advanced Math (Geometry, Trig, Data)', section: 'Math' },
+      { unit: 10, title: 'Timing, Pacing & Test-Day Tactics', section: 'Overview' },
     ],
   },
 ];

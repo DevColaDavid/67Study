@@ -18,6 +18,7 @@
   --color-olive:   #8db87a;
   --color-crimson: #e05252;
   --color-sky:     #5bc8f5;
+  --color-gold:    #e0c15b;
 
   /* Active accent (overridden per-page via data-color) */
   --accent:       #5b8dee;
@@ -30,6 +31,7 @@
 [data-color="olive"]   { --accent: var(--color-olive); }
 [data-color="crimson"] { --accent: var(--color-crimson); }
 [data-color="sky"]     { --accent: var(--color-sky); }
+[data-color="gold"]    { --accent: var(--color-gold); }
 
 /* ── Reset ─────────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -254,6 +256,18 @@ a:hover { text-decoration: underline; }
   font-size: 0.78rem;
   color: var(--text-dim);
   white-space: nowrap;
+}
+
+.unit-section { margin-bottom: 2rem; }
+
+.unit-section-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--heading);
+  margin: 0 0 0.85rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .unit-grid {
@@ -1909,4 +1923,417 @@ a:hover { text-decoration: underline; }
     left: auto;
     max-width: calc(100vw - 1rem);
   }
+}
+
+/* ==========================================================================
+   Word Lab (Vocab / Word Parts / Transitions practice)
+   ========================================================================== */
+
+.wordlab-page {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 4rem;
+}
+
+.wordlab-topnav { margin-bottom: 1.25rem; }
+
+.wordlab-header { margin-bottom: 1.5rem; }
+
+.wordlab-subtitle {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.wordlab-tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+
+.wordlab-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-dim);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+}
+
+.wordlab-tab:hover { color: var(--text-bright); }
+
+.wordlab-tab--active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.wordlab-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.wordlab-search,
+.wordlab-select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.wordlab-search { flex: 1; min-width: 160px; }
+
+.wordlab-quiz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.wordlab-count {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  margin-bottom: 0.75rem;
+}
+
+.wordlab-hint-inline {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+}
+
+.wordlab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.wordlab-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.wordlab-page-label {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.wordlab-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s;
+  font: inherit;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wordlab-card:hover { border-color: var(--accent); }
+
+.wordlab-card--mastered { border-color: var(--accent); }
+
+.wordlab-card-word {
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  color: var(--text-bright);
+}
+
+.wordlab-card-badge {
+  font-size: 0.68rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.wordlab-card-badge--level {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.wordlab-btn {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.wordlab-btn:hover { border-color: var(--accent); }
+
+.wordlab-btn--accent {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.wordlab-btn--muted { color: var(--text-dim); }
+
+.wordlab-mastered-hint {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+/* Practice session (flashcards + quiz) */
+
+.wordlab-session {
+  max-width: 640px;
+  margin: 1rem auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wordlab-session--summary { text-align: center; }
+
+.wordlab-summary-score {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+.wordlab-empty {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.wordlab-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.wordlab-progress-bar-wrap {
+  flex: 1;
+  height: 6px;
+  background: var(--surface2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.wordlab-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.2s;
+}
+
+.wordlab-progress-label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.flashcard {
+  flex: 1;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  perspective: 1000px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  color: var(--text);
+  font: inherit;
+}
+
+.flashcard-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  backface-visibility: hidden;
+  transition: transform 0.4s;
+  text-align: center;
+  color: var(--text);
+}
+
+.flashcard-front { transform: rotateY(0deg); }
+.flashcard-back { transform: rotateY(180deg); }
+
+.flashcard--flipped .flashcard-front { transform: rotateY(-180deg); }
+.flashcard--flipped .flashcard-back { transform: rotateY(0deg); }
+
+.flashcard-word {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.wordlab-hint {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  margin: -0.5rem 0 0;
+}
+
+.wordlab-session-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.wordlab-exit-link {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.flashcard-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.flashcard-badges {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.flashcard-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.flashcard-bookmark {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.4;
+  filter: grayscale(1);
+  transition: opacity 0.15s, filter 0.15s;
+}
+
+.flashcard-bookmark--active {
+  opacity: 1;
+  filter: none;
+}
+
+.flashcard-nav-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.flashcard-nav-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.flashcard-nav-btn:hover:not(:disabled) { border-color: var(--accent); }
+.flashcard-nav-btn:disabled { opacity: 0.3; cursor: default; }
+
+.flashcard-know-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-bright);
+  cursor: pointer;
+}
+
+.flashcard-note {
+  width: 100%;
+  min-height: 70px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: "Lora", Georgia, serif;
+  font-size: 0.9rem;
+  padding: 0.75rem;
+  resize: vertical;
+}
+
+.flashcard-note-count {
+  align-self: flex-end;
+  margin-top: -0.75rem;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+.quiz-prompt {
+  font-size: 1rem;
+  color: var(--text-bright);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.quiz-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.quiz-choice {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.88rem;
+  text-align: left;
+  padding: 0.65rem 0.9rem;
+  cursor: pointer;
+}
+
+.quiz-choice:not(:disabled):hover { border-color: var(--accent); }
+
+.quiz-choice--correct {
+  border-color: var(--color-teal);
+  background: color-mix(in srgb, var(--color-teal) 12%, var(--surface));
+}
+
+.quiz-choice--wrong {
+  border-color: var(--color-crimson);
+  background: color-mix(in srgb, var(--color-crimson) 12%, var(--surface));
 }
