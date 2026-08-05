@@ -1,9 +1,9 @@
-import { useParams, Navigate, Link, useNavigate } from 'react-router-dom';
+import { useParams, Navigate, Link, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
-import GithubSlugger from 'github-slugger';
 import { getSubject, getUnit } from '../data/subjects';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 import { useProgress } from '../context/ProgressContext';
+import { extractHeadings, stripFrontmatter } from '../lib/markdownUtils';
 
 // Vite glob import — all markdown files, loaded as raw strings on demand
 const markdownModules = import.meta.glob('../content/**/*.md', {
@@ -13,28 +13,6 @@ const markdownModules = import.meta.glob('../content/**/*.md', {
 
 type CalcMode = 'ab' | 'bc';
 
-interface Heading {
-  level: number;
-  text: string;
-  id: string;
-}
-
-function extractHeadings(markdown: string): Heading[] {
-  const slugger = new GithubSlugger();
-  return (markdown.match(/^#{1,3} .+/gm) ?? [])
-    .filter((line) => !line.startsWith('# ')) // skip h1 (page title)
-    .map((line) => {
-      const level = (line.match(/^#+/) as RegExpMatchArray)[0].length;
-      const text = line.replace(/^#+\s/, '');
-      const id = slugger.slug(text);
-      return { level, text, id };
-    });
-}
-
-function stripFrontmatter(markdown: string): string {
-  return markdown.replace(/^---[\s\S]*?---\n?/, '');
-}
-
 function getCalcMode(): CalcMode {
   return (localStorage.getItem('calc-mode') as CalcMode) ?? 'bc';
 }
@@ -42,6 +20,7 @@ function getCalcMode(): CalcMode {
 export default function UnitPage() {
   const { subject, unitId } = useParams<{ subject: string; unitId: string }>();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { isUnitRead, markUnit } = useProgress();
 
@@ -53,7 +32,8 @@ export default function UnitPage() {
 
   const [content, setContent] = useState<string | null>(null);
   const [error, setError] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  // ponytail: no resize listener — rotating a phone mid-session won't reopen the sidebar; fine for a personal study app
+  const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth > 640);
   const [calcMode, setCalcMode] = useState<CalcMode>(getCalcMode);
 
   useEffect(() => {
@@ -67,6 +47,14 @@ export default function UnitPage() {
 
     loader().then((md) => setContent(md as string)).catch(() => setError(true));
   }, [subjectMeta, unitMeta, unitNum]);
+
+  // Deep-link support: scroll to the heading named by the URL hash once content has rendered
+  useEffect(() => {
+    if (!content || !location.hash) return;
+    const id = decodeURIComponent(location.hash.slice(1));
+    const el = document.getElementById(id);
+    el?.scrollIntoView({ block: 'start' });
+  }, [content, location.hash]);
 
   const toggleRead = useCallback(() => {
     if (!subjectMeta) return;
@@ -89,6 +77,9 @@ export default function UnitPage() {
 
   return (
     <div className={`unit-layout${hideBc ? ' hide-bc' : ''}`} data-color={subjectMeta.color}>
+      {sidebarOpen && (
+        <div className="unit-sidebar-backdrop" onClick={() => setSidebarOpen(false)} />
+      )}
       {/* Sidebar */}
       <aside className={`unit-sidebar${sidebarOpen ? '' : ' unit-sidebar--closed'}`}>
         <div className="sidebar-header">
@@ -149,6 +140,18 @@ export default function UnitPage() {
                 </button>
               </div>
             )}
+            <Link
+              to={`/search?subject=${subjectMeta.slug}`}
+              className="unit-search-link"
+              aria-label={`Search ${subjectMeta.name}`}
+              title={`Search ${subjectMeta.name}`}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <span>Search this class</span>
+            </Link>
             <button
               className={`read-btn${isRead ? ' read-btn--done' : ''}`}
               onClick={toggleRead}

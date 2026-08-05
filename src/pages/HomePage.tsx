@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { SUBJECTS } from '../data/subjects';
 import { useAuth } from '../context/AuthContext';
 import { useProgress } from '../context/ProgressContext';
+import InlineSearchBar from '../components/InlineSearchBar';
 
 const SUBJECT_ICONS: Record<string, string> = {
   'ap-chemistry': '🧪',
@@ -35,6 +36,8 @@ export default function HomePage() {
         <h1 className="home-title">67 Study</h1>
         <p className="home-subtitle">Your notes, organized by unit.</p>
       </div>
+
+      <InlineSearchBar placeholder="Search across every subject…" />
 
       <div className="subject-grid">
         {SUBJECTS.map((s) => {

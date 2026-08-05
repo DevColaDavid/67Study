@@ -104,7 +104,17 @@ export default function WordLabPage() {
     filteredVocab.map((v) => ({
       id: v.word,
       word: <span className="flashcard-word">{v.word}</span>,
-      meaning: <span>{v.definition ?? 'No definition available yet.'}</span>,
+      meaning: (
+        <span>
+          {v.definition ?? 'No definition available yet.'}
+          {v.sentence && (
+            <>
+              <br />
+              <em className="wordlab-card-sentence">&ldquo;{v.sentence}&rdquo;</em>
+            </>
+          )}
+        </span>
+      ),
       badges: (
         <>
           <span className="wordlab-card-badge wordlab-card-badge--level">{v.level}</span>

@@ -2,6 +2,7 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import { getSubject } from '../data/subjects';
 import { useProgress } from '../context/ProgressContext';
+import InlineSearchBar from '../components/InlineSearchBar';
 
 type CalcMode = 'ab' | 'bc';
 type PhysicsMode = 'mech' | 'em' | 'both';
@@ -134,6 +135,8 @@ export default function SubjectHubPage() {
           </div>
           <span className="hub-progress-label">{countedRead} / {countableUnits.length} units read</span>
         </div>
+
+        <InlineSearchBar subjectSlug={meta.slug} placeholder={`Search ${meta.name}…`} />
       </div>
 
       {hasSections ? (

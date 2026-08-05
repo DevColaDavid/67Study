@@ -60,7 +60,13 @@ a:hover { text-decoration: underline; }
   padding: 5rem 2.5rem 6rem;
 }
 
-.home-hero { text-align: center; margin-bottom: 4rem; }
+.home-hero { text-align: center; margin-bottom: 2.5rem; }
+
+.home-page > .inline-search-bar {
+  display: block;
+  max-width: 480px;
+  margin: 0 auto 3rem;
+}
 
 .home-title {
   font-family: "Outfit", sans-serif;
@@ -210,6 +216,25 @@ a:hover { text-decoration: underline; }
 .hub-back:hover { color: var(--accent); text-decoration: none; }
 
 .hub-header { margin-bottom: 2.5rem; }
+
+.hub-header > .inline-search-bar {
+  display: block;
+  max-width: 420px;
+  margin-top: 1.25rem;
+}
+
+.inline-search-bar {
+  width: 100%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.95rem;
+  padding: 0.7rem 1rem;
+  transition: border-color 0.15s;
+}
+.inline-search-bar::placeholder { color: var(--text-dim); }
+.inline-search-bar:focus { outline: none; border-color: var(--accent); }
 
 .hub-title-row {
   display: flex;
@@ -371,6 +396,8 @@ a:hover { text-decoration: underline; }
   padding: 1.25rem 0.5rem;
   overflow: hidden;
 }
+
+.unit-sidebar-backdrop { display: none; }
 
 .unit-sidebar::-webkit-scrollbar { width: 4px; }
 .unit-sidebar::-webkit-scrollbar-track { background: transparent; }
@@ -1304,28 +1331,6 @@ a:hover { text-decoration: underline; }
 .log-detail em { font-style: normal; color: var(--text); }
 .log-time { color: var(--text-dim); font-size: 0.74rem; }
 
-/* ── Floating chat button (FAB) ─────────────────────────────────────────────── */
-.chat-fab {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: none;
-  background: var(--accent);
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-  z-index: 100;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.chat-fab:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(0,0,0,0.5); }
-.chat-fab svg { width: 24px; height: 24px; }
-
 /* ── Profile dropdown ───────────────────────────────────────────────────────── */
 .profile-dropdown-wrap {
   position: fixed;
@@ -1925,6 +1930,60 @@ a:hover { text-decoration: underline; }
   }
 }
 
+/* ── Responsive: unit sidebar → overlay drawer on phones ────────────────────── */
+@media (max-width: 640px) {
+  .unit-layout { position: relative; }
+
+  .unit-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 82%;
+    max-width: 300px;
+    min-width: 0;
+    transform: translateX(-100%);
+    box-shadow: 4px 0 24px rgba(0,0,0,0.5);
+  }
+  .unit-sidebar:not(.unit-sidebar--closed) { transform: translateX(0); }
+  .unit-sidebar--closed {
+    /* fully hidden off-canvas, not a thin 40px rail, since it no longer shares the row */
+    width: 82%;
+    max-width: 300px;
+    padding: 1.25rem 1rem;
+  }
+
+  .unit-sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 40;
+  }
+
+  .unit-main {
+    padding: 1.5rem 1.25rem 3rem;
+  }
+}
+
+/* ── Responsive: phone tier (≤480px) ─────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .wordlab-page { padding: 1.25rem 1rem 3rem; }
+
+  .chat-bubble { max-width: 85%; }
+
+  .message-input-row { padding: 0.6rem 0.75rem; }
+  .send-btn { width: 44px; height: 44px; }
+
+  .unit-main { padding: 1.25rem 1rem 2.5rem; }
+  .unit-topbar { margin-bottom: 1.25rem; }
+
+  .sidebar-toggle { padding: 8px 12px; }
+
+  .chat-sidebar-tab { padding: 0.75rem 1rem; }
+  .admin-nav-tab { padding: 0.7rem 1.1rem; }
+}
+
 /* ==========================================================================
    Word Lab (Vocab / Word Parts / Transitions practice)
    ========================================================================== */
@@ -2196,6 +2255,15 @@ a:hover { text-decoration: underline; }
   color: var(--text-bright);
 }
 
+.wordlab-card-sentence {
+  display: inline-block;
+  margin-top: 0.6rem;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
 .wordlab-hint {
   color: var(--text-dim);
   font-size: 0.78rem;
@@ -2336,4 +2404,153 @@ a:hover { text-decoration: underline; }
 .quiz-choice--wrong {
   border-color: var(--color-crimson);
   background: color-mix(in srgb, var(--color-crimson) 12%, var(--surface));
+}
+
+/* ==========================================================================
+   Search
+   ========================================================================== */
+
+.search-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+
+.search-topnav { margin-bottom: 1rem; }
+
+.search-header { margin-bottom: 1.25rem; }
+
+.search-subtitle {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-top: 0.35rem;
+}
+
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.15s;
+}
+.search-input::placeholder { color: var(--text-dim); }
+.search-input:focus { outline: none; border-color: var(--accent); }
+
+.search-empty {
+  color: var(--text-dim);
+  font-style: italic;
+  margin-top: 1.5rem;
+}
+
+.search-results {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.search-result-group-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+.search-result-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text);
+  font: inherit;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.search-result-row:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+.search-result-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-bright);
+}
+
+.search-result-heading {
+  font-weight: 400;
+  color: var(--text-dim);
+}
+
+.search-result-snippet {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.search-filters {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.search-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.search-chip {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-dim);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.search-chip:hover { color: var(--text); }
+.search-chip--active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+}
+
+.unit-search-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: "Outfit", sans-serif;
+  padding: 0.4rem 0.9rem;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+.unit-search-link:hover { border-color: var(--accent); color: var(--accent); }
+.unit-search-link svg { width: 14px; height: 14px; }
+
+@media (max-width: 480px) {
+  .search-page { padding: 1.25rem 1rem 3rem; }
+  .unit-search-link span { display: none; }
 }
