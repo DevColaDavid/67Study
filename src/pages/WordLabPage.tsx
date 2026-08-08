@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useMemo, useState } from 'react';
 import { getSubject } from '../data/subjects';
 import { VOCAB } from '../data/vocab';
@@ -9,6 +9,7 @@ import QuizSession, { type QuizQuestion } from '../components/wordlab/QuizSessio
 import { useMastered } from '../components/wordlab/useMastered';
 import { useWordNotes } from '../components/wordlab/useWordNotes';
 import { sample, shuffle } from '../components/wordlab/utils';
+import { useProgress } from '../context/ProgressContext';
 
 type Tab = 'vocab' | 'parts' | 'transitions';
 type Mode = 'browse' | 'flashcards' | 'quiz';
@@ -20,14 +21,25 @@ const TRANSITION_TYPES: TransitionType[] = [
 ];
 const WORD_PART_TYPES: WordPartType[] = ['prefix', 'suffix', 'root'];
 
+const SECTION_TABS: { id: Tab; label: string }[] = [
+  { id: 'vocab', label: 'Vocabulary' },
+  { id: 'parts', label: 'Word Parts' },
+  { id: 'transitions', label: 'Transitions' },
+];
+
 export default function WordLabPage() {
   const { subject } = useParams<{ subject: string }>();
   const meta = subject ? getSubject(subject) : undefined;
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { isUnitRead } = useProgress();
 
   const [tab, setTab] = useState<Tab>('vocab');
   const [mode, setMode] = useState<Mode>('browse');
   const [page, setPage] = useState(0);
   const [search, setSearch] = useState('');
+  const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth > 640);
+  const [unitDropdownOpen, setUnitDropdownOpen] = useState(false);
 
   const [vocabLevel, setVocabLevel] = useState('All');
   const [vocabPos, setVocabPos] = useState('All');
@@ -87,6 +99,14 @@ export default function WordLabPage() {
   const pageStart = page * PAGE_SIZE;
 
   if (!meta) return <Navigate to="/" replace />;
+
+  const thisUnit = meta.units.find((u) => u.link === location.pathname);
+  const unitNum = thisUnit?.unit;
+  const prevUnit = unitNum !== undefined ? meta.units.find((u) => u.unit === unitNum - 1) : undefined;
+  const nextUnit = unitNum !== undefined ? meta.units.find((u) => u.unit === unitNum + 1) : undefined;
+
+  const goToUnit = (u: { unit: number; link?: string }) =>
+    navigate(u.link ?? `/${meta.slug}/units/${u.unit}`);
 
   const switchTab = (t: Tab) => {
     setTab(t);
@@ -229,11 +249,93 @@ export default function WordLabPage() {
     tab === 'vocab' ? vocabNotes : tab === 'parts' ? partsNotes : transitionsNotes;
 
   return (
-    <div className="wordlab-page" data-color={meta.color}>
-      <div className="wordlab-topnav">
-        <Link to={`/${meta.slug}`} className="hub-back">← {meta.name}</Link>
-      </div>
+    <div className="unit-layout" data-color={meta.color}>
+      {sidebarOpen && (
+        <div className="unit-sidebar-backdrop" onClick={() => setSidebarOpen(false)} />
+      )}
+      <aside className={`unit-sidebar${sidebarOpen ? '' : ' unit-sidebar--closed'}`}>
+        <div className="sidebar-header">
+          <Link to={`/${meta.slug}`} className="sidebar-back">← {meta.name}</Link>
+          <button
+            className="sidebar-toggle"
+            onClick={() => setSidebarOpen((v) => !v)}
+            aria-label={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
+          >
+            {sidebarOpen ? '‹' : '›'}
+          </button>
+        </div>
 
+        {sidebarOpen && (
+          <>
+            <p className="sidebar-unit-label">Units</p>
+            <div className="unit-switcher">
+              <button
+                className="unit-switcher-arrow"
+                disabled={!prevUnit}
+                aria-label="Previous unit"
+                onClick={() => prevUnit && goToUnit(prevUnit)}
+              >
+                ‹
+              </button>
+              <button
+                className="unit-switcher-current"
+                aria-expanded={unitDropdownOpen}
+                onClick={() => setUnitDropdownOpen((v) => !v)}
+              >
+                <span className="unit-switcher-label">
+                  {unitNum !== undefined ? `Unit ${unitNum}: ${thisUnit?.title}` : meta.name}
+                </span>
+                <span className="unit-switcher-caret">{unitDropdownOpen ? '▲' : '▼'}</span>
+              </button>
+              <button
+                className="unit-switcher-arrow"
+                disabled={!nextUnit}
+                aria-label="Next unit"
+                onClick={() => nextUnit && goToUnit(nextUnit)}
+              >
+                ›
+              </button>
+            </div>
+
+            {unitDropdownOpen && (
+              <nav className="sidebar-unit-list">
+                {meta.units.map((u) => (
+                  <Link
+                    key={u.unit}
+                    to={u.link ?? `/${meta.slug}/units/${u.unit}`}
+                    className={`unit-side-link${u.unit === unitNum ? ' unit-side-link--active' : ''}`}
+                    onClick={() => setUnitDropdownOpen(false)}
+                  >
+                    <span className="unit-side-num">{u.unit}</span>
+                    <span className="unit-side-title">{u.title}</span>
+                    {isUnitRead(meta.slug, u.unit) && (
+                      <span className="unit-side-check">✓</span>
+                    )}
+                  </Link>
+                ))}
+              </nav>
+            )}
+
+            <div className="sidebar-divider" />
+
+            <p className="sidebar-unit-label">Sections</p>
+            <nav className="sidebar-toc">
+              {SECTION_TABS.map((s) => (
+                <button
+                  key={s.id}
+                  type="button"
+                  className={`toc-link toc-section-link${tab === s.id ? ' toc-link--active' : ''}`}
+                  onClick={() => switchTab(s.id)}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </nav>
+          </>
+        )}
+      </aside>
+
+      <main className="unit-main wordlab-page" data-color={meta.color}>
       <div className="wordlab-header">
         <h1 className="hub-title">Vocab, Word Parts &amp; Transitions</h1>
         <p className="wordlab-subtitle">Practice with flashcards and quizzes — progress saves on this device.</p>
@@ -378,6 +480,7 @@ export default function WordLabPage() {
           onNextGroup={goNextQuizGroup}
         />
       )}
+      </main>
     </div>
   );
 }
