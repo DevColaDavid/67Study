@@ -7,6 +7,15 @@ unit: 6
 
 ---
 
+## 6.1 — Contextualizing Period 6
+
+- **Exam weight:** 10%–17% of the AP exam.
+- **Bridge from Period 5:** With Reconstruction abandoned (Compromise of 1877), the nation's energy shifts from remaking the South to settling the West and building an industrial economy — the "Gilded Age" label (Mark Twain) captures a glittering surface over deep inequality and corruption.
+- **The big arc:** Railroads knit together a continental market; new technology and corporate organization (trusts, vertical/horizontal integration) create unprecedented wealth alongside brutal labor conditions, while millions of new immigrants and freedpeople navigate a rapidly industrializing, urbanizing, and racially segregating society.
+- **Framing tension:** Rapid economic growth ("progress") coexists with the entrenchment of Jim Crow, the near-destruction of Native American ways of life, and a government largely unwilling to regulate big business until popular pressure (Populists, later Progressives) forces change.
+
+---
+
 ## 6.2 — Westward Expansion: Economic Development
 
 ### Transcontinental Railroads
@@ -319,3 +328,22 @@ unit: 6
 | **Election of 1896** | William Jennings Bryan ("Cross of Gold" speech) vs. **William McKinley** (gold standard, high tariffs); McKinley won → Republican dominance; triumph of urban/industrial interests |
 
 > Bryan's defeat ended the Populist Party as a major force. McKinley's presidency set the stage for U.S. emergence as a world power.
+
+---
+
+## 6.14 — Continuity and Change in Period 6
+
+**Historical Reasoning Skill:** Continuity and Change Over Time.
+
+### What Changed
+- **Economy:** Agrarian, regional economy → industrial, national (and increasingly global) economy built on railroads, steel, and oil.
+- **Where people live:** Rural majority → rapid urbanization; a "new immigration" wave (Southern/Eastern Europe) replaces the older Northern/Western European pattern.
+- **Government's role:** Laissez-faire dominance gives way, by the 1890s, to the first federal regulatory efforts (Interstate Commerce Act, Sherman Antitrust Act) — though weakly enforced.
+- **Native American policy:** Shifts from open warfare/removal to forced assimilation (Dawes Act) — a different method aimed at the same goal of dismantling tribal land and culture.
+
+### What Stayed the Same
+- **Racial hierarchy in the South:** Slavery is gone, but sharecropping and Black Codes hardening into Jim Crow, plus disenfranchisement (literacy tests, poll taxes), recreate a rigid racial caste system.
+- **Concentration of wealth:** Extreme inequality persists and worsens — by the 1890s the richest 10% control 90% of wealth, echoing (and exceeding) antebellum disparities.
+- **Faith in individualism:** Social Darwinism and the Gospel of Wealth (6.6, 6.10) repackage older laissez-faire, self-reliance ideals for an industrial age.
+
+> **Historian's framing:** Period 6 shows how fast an economy can transform while a society's underlying power structures — racial, and now also economic — prove far more durable.

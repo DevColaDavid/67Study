@@ -7,6 +7,15 @@ unit: 1
 
 ---
 
+## 1.1 — Contextualizing Period 1
+
+- **Exam weight:** 4%–6% of the AP exam — the smallest period, but it establishes the baseline (pre-contact diversity) against which every later period's demographic, economic, and cultural change is measured.
+- **Before 1491:** North America was not "empty" — an estimated **2–10 million people** lived north of Mexico alone, organized into hundreds of distinct societies shaped by geography (desert farmers, coastal fishers, Plains hunters, mound-building river valley civilizations).
+- **What changes in this period:** Isolated hemispheres (the Americas vs. Afro-Eurasia) become permanently linked — the start of a global exchange of people, goods, and diseases that will define the next four centuries.
+- **Bridge to Period 2:** Spanish conquest and the Columbian Exchange (1.4–1.5) create the labor systems, caste hierarchies, and imperial rivalries that English, French, and Dutch colonizers inherit and adapt starting in 1607.
+
+---
+
 ## 1.2 — Native American Societies Before European Contact
 
 ### Early Migration and Settlement
@@ -130,3 +139,26 @@ The widespread transfer of plants, animals, people, diseases, and ideas between 
 ### African Cultural Influence
 - Introduced agricultural knowledge, music (e.g., the banjo).
 - Europeans rationalized slavery through biblical interpretations and racial theories.
+
+---
+
+## 1.7 — Causation in Period 1
+
+**Historical Reasoning Skill:** Explaining cause-and-effect relationships is central to Period 1 — evaluate why sustained contact happened *when* it did, and what changed as a result.
+
+### Causes of Sustained European–American Contact (by ~1600)
+
+| Cause | Type | Explanation |
+|---|---|---|
+| Technological | Long-term | Compass, caravel ships, gunpowder weapons enabled ocean crossings and conquest |
+| Political/Religious | Long-term | Reconquista completed 1492 → freed Spanish resources and zeal for overseas expansion |
+| Economic | Long-term | Ottoman control of overland trade routes (1453) pushed Europe to seek sea routes to Asia |
+| Immediate | Short-term | Columbus's 1492 voyage under Spanish crown patronage |
+
+### Effects of Contact
+- **Demographic:** Native populations collapsed (up to 90% in some regions) from smallpox, measles, and influenza — diseases against which they had no prior immunity.
+- **Economic:** The Columbian Exchange created new global food supplies (potatoes, maize → Europe/Africa/Asia) that fueled population growth outside the Americas.
+- **Social:** Labor shortages from Native depopulation drove Spain toward the encomienda system, then African slavery — a caste-based social order other empires later adapted.
+- **Long-term:** Set the precedent for centuries of imperial competition (Spain, France, England) over American territory and labor.
+
+> **Multiple Causation:** No single cause explains contact — technological capacity, religious motivation, and economic pressure converged simultaneously.

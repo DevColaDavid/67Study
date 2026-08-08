@@ -7,6 +7,15 @@ unit: 5
 
 ---
 
+## 5.1 — Contextualizing Period 5
+
+- **Exam weight:** 10%–17% of the AP exam.
+- **Bridge from Period 4:** Territorial expansion (Manifest Destiny, 5.2) and the market/democratic transformations of Period 4 collide with the question the Missouri Compromise (4.3) only postponed — will slavery expand into new territory?
+- **The big arc:** Repeated compromise attempts (1850, Kansas-Nebraska) fail to contain the sectional crisis, leading to secession, the Civil War, and a Reconstruction that ultimately fails to secure lasting racial equality by 1877.
+- **Framing question:** Why did compromise work in 1820 and 1850 but fail by 1860 — and why did a war that ended slavery fail to secure lasting equality for the freedpeople it liberated?
+
+---
+
 ## 5.2 — Manifest Destiny
 
 - Coined by journalist **John L. O'Sullivan** in 1845 — divine mission to spread American liberty and democracy from Atlantic to Pacific.
@@ -270,3 +279,29 @@ unit: 5
   - Withdrawal of federal troops from the South.
   - Support for a Southern transcontinental railroad.
 - **Marked the end of Reconstruction** → rollback of Black rights; rise of Jim Crow.
+
+---
+
+## 5.12 — Comparison in Period 5
+
+**Historical Reasoning Skill:** Comparison — across the North/South divide and across competing Reconstruction plans.
+
+### North vs. South on the Eve of War
+
+| Category | North | South |
+|---|---|---|
+| Economy | Diversified — industry, finance, farming | Agricultural — cotton dependent |
+| Population | ~22 million, growing via immigration | ~9 million (incl. ~3.5 million enslaved) |
+| Infrastructure | Dense railroad network, factories | Fewer railroads; exported raw cotton |
+| View of slavery | Increasingly hostile (abolitionist minority, "free labor" majority) | Central to economy, society, and identity |
+
+### Comparing Reconstruction Plans
+
+| Plan | Author | Terms | Fate |
+|---|---|---|---|
+| **10% Plan** | Lincoln | 10% of voters swear loyalty; accept emancipation | Seen as too lenient by Radical Republicans |
+| **Wade-Davis Bill** | Radical Republicans | 50% loyalty oath; only non-Confederates vote | Vetoed by Lincoln |
+| **Presidential Reconstruction** | Andrew Johnson | Pardons for most ex-Confederates; minimal conditions | Allowed Black Codes; provoked Congress |
+| **Congressional (Radical) Reconstruction** | Republican Congress | Military districts; 14th/15th Amendment ratification required | Achieved the most, but enforcement collapsed after 1877 |
+
+> **Why it matters:** The gap between Lincoln's lenient vision and Congress's more punitive one explains much of Reconstruction's internal conflict — and, ultimately, its failure to secure durable rights for freedpeople.
