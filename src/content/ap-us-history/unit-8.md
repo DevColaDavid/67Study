@@ -7,6 +7,15 @@ unit: 8
 
 ---
 
+## 8.1 — Contextualizing Period 8
+
+- **Exam weight:** 10%–17% of the AP exam.
+- **Bridge from Period 7:** World War II leaves the U.S. and the Soviet Union as the world's two superpowers, and wartime unity (and wartime federal power) carries directly into the Cold War's ideological, military, and economic competition.
+- **The big arc:** Cold War containment shapes foreign policy from Truman through Carter, while at home postwar prosperity, suburbanization, and the baby boom coexist with — and eventually help fuel — the Civil Rights Movement and a broader rights-based liberalism (women's rights, environmentalism, gay rights) that peaks by the 1970s.
+- **Framing tension:** A nation promoting "freedom" abroad against communism faces growing pressure to reconcile that message with segregation and inequality at home — a contradiction civil rights leaders explicitly invoke.
+
+---
+
 ## 8.2 — The Cold War from 1945 to 1980
 
 ### Origins
@@ -406,3 +415,22 @@ unit: 8
 ### Carter's Presidency
 - Ended "imperial presidency" with informal style.
 - Iranian hostage crisis and economic problems → 23% approval rating by 1980.
+
+---
+
+## 8.15 — Continuity and Change in Period 8
+
+**Historical Reasoning Skill:** Continuity and Change Over Time.
+
+### What Changed
+- **Legal racial order:** Formal segregation (Plessy-era Jim Crow) is dismantled by law — Brown v. Board, the Civil Rights Act of 1964, and the Voting Rights Act of 1965.
+- **Federal government's domestic role:** Expands dramatically with the Great Society (Medicare, Medicaid, federal education funding) — a scale of intervention beyond even the New Deal.
+- **Social norms:** The sexual revolution, women's movement, gay rights movement, and youth counterculture all reshape norms that had held since before WWII.
+- **U.S.-Soviet relations:** Shift from open hostility (Cuban Missile Crisis) to Nixon-era détente and arms-limitation treaties.
+
+### What Stayed the Same
+- **Containment as the core Cold War strategy:** From the Truman Doctrine through Nixon, every administration frames foreign policy around stopping the spread of communism — Korea, Vietnam, Latin America, and the Middle East are all read through this lens.
+- **De facto racial and economic inequality:** Legal desegregation does not eliminate residential segregation, wealth gaps, or urban poverty — the Kerner Commission (8.10) explicitly warns of a nation moving toward "two societies."
+- **Executive power in war-making:** Presidents continue to commit troops (Korea, Vietnam) without formal declarations of war, despite the post-Vietnam War Powers Act's attempt to check this.
+
+> **Historian's framing:** Legal and cultural change in this period is dramatic, but converting legal equality into lived equality proves to be a much slower, incomplete process — a theme that carries directly into Period 9.

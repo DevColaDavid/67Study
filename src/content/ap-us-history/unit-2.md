@@ -7,6 +7,16 @@ unit: 2
 
 ---
 
+## 2.1 — Contextualizing Period 2
+
+- **Exam weight:** 6%–8% of the AP exam.
+- **Bridge from Period 1:** Spain and Portugal had a nearly century-long head start (Columbus, 1492); England, France, and the Netherlands enter colonization late and compete for territory Spain had not already claimed along the Atlantic seaboard.
+- **England's late start:** Preoccupied with internal religious conflict (the Reformation, later civil war) until the early 1600s — Jamestown (1607) comes 115 years after Columbus's first voyage.
+- **Key shift:** Unlike Spain's conquest-and-extraction model, English colonization (via royal charters and joint-stock companies) emphasizes permanent settlement, family migration, and self-government — laying the groundwork for distinct regional societies.
+- **Sets up the period's throughline:** Colonies develop divergent economies and social structures shaped by geography, labor systems, and the degree of England's "salutary neglect" — differences that will directly shape the sectional divisions of later periods.
+
+---
+
 ## 2.2 — European Colonization
 
 ### General Motivations
@@ -177,3 +187,30 @@ unit: 2
 ### The Enlightenment
 - **John Locke:** Governance based on inherent human rights; sovereignty resides with the people.
 - Fueled revolutionary ideas → U.S. Constitution.
+
+---
+
+## 2.8 — Comparison in Period 2
+
+**Historical Reasoning Skill:** Comparison — identify similarities and differences among British colonial regions, and between British and other European colonization models.
+
+### Comparing British Colonial Regions
+
+| Category | New England | Middle Colonies | Southern Colonies |
+|---|---|---|---|
+| Economy | Subsistence farming, fishing, shipbuilding, rum | Grain farming ("breadbasket"), iron, trade | Cash-crop plantations (tobacco, rice, indigo) |
+| Labor | Family farms; some indentured servants | Family farms; tenant farmers | Indentured servants → enslaved Africans |
+| Religion | Puritan (Congregationalist); low tolerance | Diverse — Quakers, Anglicans, Lutherans, Jews | Established Anglican church; less devout |
+| Settlement Pattern | Tight-knit towns around a church/green | Scattered farms and growing port cities | Dispersed plantations along rivers |
+| Government | Town meetings; high political participation | Assemblies; ethnically diverse politics | Elite planter-controlled assemblies |
+
+### Comparing European Colonial Models
+
+| Power | Approach | Native Relations |
+|---|---|---|
+| **Spanish** | Conquest, extraction, encomienda labor | Subjugation and forced conversion |
+| **French** | Fur trade, minimal settlement | Alliance-based, generally cooperative |
+| **Dutch** | Commercial trading posts | Trade-focused, limited conflict |
+| **English** | Permanent agricultural settlement | Land-hungry — displaced Native populations as population grew |
+
+> **Why it matters:** These regional and imperial differences aren't just trivia — they explain why New England later industrializes, the South entrenches slavery, and the Middle Colonies become the most diverse and commercially dynamic region.

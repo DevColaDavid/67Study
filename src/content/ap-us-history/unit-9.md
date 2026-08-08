@@ -7,6 +7,15 @@ unit: 9
 
 ---
 
+## 9.1 — Contextualizing Period 9
+
+- **Exam weight:** 4%–6% of the AP exam — the smallest period, but the one most directly connected to the present day.
+- **Bridge from Period 8:** The economic troubles (stagflation, oil shocks), Watergate-driven distrust of government, and stalemate in Vietnam by the late 1970s discredit the postwar liberal consensus and open space for a conservative resurgence.
+- **The big arc:** Reagan-era conservatism and the end of the Cold War (a defining Period 8 conflict finally resolved) reshape U.S. politics and the global order; globalization and the tech economy transform daily life; and the post-9/11 "War on Terror" defines U.S. foreign policy into the 21st century.
+- **Framing question:** With the Cold War's defining conflict gone, what new organizing principle — or principles — shape U.S. foreign and domestic policy after 1991?
+
+---
+
 ## 9.2 — Reagan and Conservatism
 
 ### Reagan's Rise
@@ -235,3 +244,28 @@ unit: 9
 - Called for unity in inaugural address.
 - **$1.9 trillion pandemic relief package.**
 - Plan to vaccinate all Americans by fall 2021.
+
+---
+
+## 9.7 — Causation in Period 9
+
+**Historical Reasoning Skill:** Causation — explain what caused the end of the Cold War and the rise of post-9/11 foreign policy, and what effects followed.
+
+### Causes → Effects of the Cold War's End
+
+| Cause | Effect |
+|---|---|
+| Reagan's military buildup and SDI | Pressured a Soviet economy already strained by central planning |
+| Gorbachev's glasnost and perestroika | Loosened political control → nationalist movements broke free |
+| Soviet economic stagnation | Unable to sustain the arms race or subsidize satellite states |
+| *(resulting effects)* | Soviet collapse (1991); U.S. emerges as sole superpower; "peace dividend" debates; NATO/EU expansion eastward |
+
+### Causes → Effects of 9/11 and the War on Terror
+
+| Cause | Effect |
+|---|---|
+| Al-Qaeda's ideological opposition to U.S. presence in the Middle East | September 11, 2001 attacks |
+| Attacks on U.S. soil | USA PATRIOT Act; creation of the Dept. of Homeland Security; invasions of Afghanistan and Iraq |
+| Iraq War's unclear justification (no WMDs found) | Prolonged insurgency; erosion of U.S. credibility abroad; rise of ISIS |
+
+> **Continuity with Period 8:** Just as containment shaped nearly every Cold War decision, the "War on Terror" becomes the organizing framework for U.S. foreign policy for the two decades after 2001 — illustrating how a single defining threat can dominate an era's causation the way communism once did.

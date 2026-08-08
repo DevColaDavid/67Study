@@ -7,6 +7,15 @@ unit: 3
 
 ---
 
+## 3.1 — Contextualizing Period 3
+
+- **Exam weight:** 10%–17% of the AP exam — one of the heaviest-tested periods, spanning colonial breakdown, revolution, and the founding of a new government.
+- **Bridge from Period 2:** A century of salutary neglect (2.4) let colonies develop de facto self-government and distinct regional identities. Britain's victory in the Seven Years' War (3.2) removes the French threat that once made colonists dependent on British protection — and Britain's attempt to recoup war debt through new taxes ignites the crisis that leads to revolution.
+- **The big arc:** Colonies → independent states → a failed confederation → a durable constitutional republic, all within about 45 years.
+- **Framing question:** How radical was the American Revolution? It overturned monarchy and colonial status, but (as 3.13 explores) left many social hierarchies largely intact.
+
+---
+
 ## 3.2 — The Seven Years' War (The French and Indian War)
 
 ### Wars Leading Up to It
@@ -276,3 +285,64 @@ unit: 3
 - **XYZ Affair:** French demanded bribes from U.S. diplomats → outrage but Adams avoided war.
 - **Alien and Sedition Acts:** Suppressed Democratic-Republican opposition; criminalized criticism of government.
 - **Kentucky and Virginia Resolutions (Jefferson & Madison):** States could **nullify** unconstitutional federal laws → precursor to states' rights disputes.
+
+---
+
+## 3.11 — Developing an American Identity
+
+### Toward a National Culture
+- Before the Revolution, colonists identified primarily with their **colony** or region, not a shared "American" nationality.
+- Shared resistance to British policy (Stamp Act Congress, Continental Congresses, the war itself) forged a **common political identity** across colonies that had previously had little contact with one another.
+
+### Print Culture and Public Opinion
+- **Newspapers and pamphlets** expanded dramatically during the imperial crisis; the Committees of Correspondence (3.3) spread a shared narrative of British tyranny across colonies with little prior contact.
+- **Thomas Paine's *Common Sense*** (3.4) sold ~500,000 copies — arguably the first work to speak of "America" as a single political community rather than 13 separate colonies.
+- **J. Hector St. John de Crèvecœur**, *Letters from an American Farmer* (1782) — posed "What is an American?"; described a new people shaped by opportunity, self-government, and the mixing of European backgrounds (his vision excluded enslaved people and Native Americans).
+
+### Symbols and Institutions of Nationhood
+- New national symbols emerge: the flag, the bald eagle, Fourth of July celebrations.
+- **Noah Webster** pushed for a distinctly American English (spelling reform, *American Dictionary*) to break cultural dependence on Britain.
+- Republican ideology (virtue, natural rights, distrust of concentrated power) became a unifying civic creed even as regional differences (New England vs. South) persisted.
+
+> **Tension:** A unifying "American" identity was being built at the same moment the Constitution's compromises (Three-Fifths Compromise, protection of the slave trade) excluded millions of actual Americans from that identity.
+
+---
+
+## 3.12 — Movement in the Early Republic
+
+### Westward Migration
+- Peace with Britain (Treaty of Paris, 1783) opened land to the **Mississippi River** to American settlement.
+- Veterans were paid partly in land warrants; land speculation companies bought and resold huge tracts.
+- Migration routes: the Wilderness Road (Daniel Boone) through the Cumberland Gap into Kentucky/Tennessee; the Ohio River into the Northwest Territory.
+
+### Government Framework for Expansion
+- **Land Ordinance of 1785** — surveyed western lands into a grid of townships and 640-acre sections; one section per township was reserved to fund public schools.
+- **Northwest Ordinance of 1787** — created an orderly path from territory to statehood (60,000 free inhabitants); banned slavery north of the Ohio River — a rare direct federal restriction on slavery before the Civil War.
+
+### Consequences
+- **Native Americans:** Westward migration accelerated pressure on Ohio Valley tribes; conflicts culminated in the Northwest Indian War, ending with the **Treaty of Greenville (1795)** after the Battle of Fallen Timbers (see 3.10).
+- **New states:** Vermont (1791), Kentucky (1792), and Tennessee (1796) were admitted — expanding the Union and adding new political voices (often more democratic, less deferential to elites).
+- **Sectional stakes:** Every new state reopened the question of the balance between free and slave states — a preview of the sectional crises of Periods 4 and 5.
+
+---
+
+## 3.13 — Continuity and Change in Period 3
+
+**Historical Reasoning Skill:** Continuity and Change Over Time — weigh how much actually changed between 1754 and 1800 against what stayed the same.
+
+### What Changed
+
+| Area | Before (Colonial) | After (1800) |
+|---|---|---|
+| Government | Monarchy; colonies subject to Parliament | Republic; written Constitution; elected government |
+| Political participation | Limited to property-owning colonists loyal to the Crown | Expanded (still property-based) civic participation; popular sovereignty |
+| National identity | Separate colonies, British subjects | Emerging shared "American" identity (3.11) |
+| Political structure | No national government | Constitution with federalism, checks and balances |
+
+### What Stayed the Same
+- **Slavery** persisted and was constitutionally protected (Three-Fifths Compromise, slave trade guaranteed until 1808) — the Revolution's liberty rhetoric did not extend to the enslaved.
+- **Gender roles** — women gained no formal political rights; "Republican Motherhood" (3.6) redefined but did not eliminate domestic confinement.
+- **Native American dispossession** continued and accelerated regardless of which government — British, then American — held power.
+- **Social hierarchy** — a property-owning elite continued to dominate politics; the "common man's" democracy would not expand meaningfully until Period 4 (the Jacksonian era).
+
+> **Historian's framing:** The Revolution was politically radical (ending monarchy, creating the first large-scale republic) but socially conservative — it redistributed political power among white men without fundamentally restructuring who held power at all.

@@ -7,6 +7,15 @@ unit: 7
 
 ---
 
+## 7.1 — Contextualizing Period 7
+
+- **Exam weight:** 10%–17% of the AP exam — the longest chronological span of any period (55 years) and one of the most heavily tested.
+- **Bridge from Period 6:** Backlash against Gilded Age inequality and corporate power (Populists, muckrakers) matures into organized Progressive reform, while the industrial and naval power built in Period 6 pushes the U.S. toward overseas expansion.
+- **The big arc:** Progressive domestic reform → emergence as a world power (Spanish-American War) → World War I → the cultural clashes and prosperity of the 1920s → the Great Depression and the New Deal's expansion of the federal government → World War II, which cements the U.S. as a global superpower.
+- **Framing question:** How does the federal government's role in the economy and society expand over this period — and what recurring event (a world war, an economic collapse) forces each expansion?
+
+---
+
 ## 7.2 — Imperialism: Debates
 
 ### Context
@@ -471,3 +480,30 @@ unit: 7
 ### Post-War Economic Landscape
 - U.S. infrastructure intact → dominant economic power.
 - Europe devastated → Marshall Plan (later) to rebuild Western Europe.
+
+---
+
+## 7.15 — Comparison in Period 7
+
+**Historical Reasoning Skill:** Comparison — between the two World Wars' home fronts, and between Progressive and New Deal reform.
+
+### WWI Home Front vs. WWII Home Front
+
+| Category | WWI (1917–1918) | WWII (1941–1945) |
+|---|---|---|
+| Economic mobilization | War Industries Board (voluntary, limited) | War Production Board — total economic conversion |
+| Civil liberties | Espionage & Sedition Acts; harsh suppression of dissent | Japanese American internment; less broad speech suppression |
+| Women's role | Some factory/clerical work; helped win suffrage (19th Amendment) | Mass entry into industrial jobs ("Rosie the Riveter"); more lasting workforce change |
+| African Americans | First Great Migration begins; segregated units | Second Great Migration accelerates; "Double V" campaign; still-segregated military |
+| Economic outcome | Postwar recession, Red Scare | Ended the Great Depression entirely; postwar boom |
+
+### Progressive Era Reform vs. New Deal Reform
+
+| Category | Progressive Era | New Deal |
+|---|---|---|
+| Government's economic role | Regulate business (trust-busting, ICC) | Directly employ, insure, and regulate (WPA, Social Security, SEC) |
+| Primary reformers | Middle-class urban reformers, muckrakers | The federal government itself, under FDR |
+| Scale | State and local reforms plus moderate federal action | Massive, centralized federal expansion |
+| Legacy | Constitutional amendments (16th–19th) | A permanent welfare state (Social Security, banking regulation) |
+
+> **Continuity across both comparisons:** Each crisis (war, depression) permanently ratchets up federal power — a pattern that does not reverse afterward.

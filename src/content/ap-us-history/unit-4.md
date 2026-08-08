@@ -7,6 +7,15 @@ unit: 4
 
 ---
 
+## 4.1 — Contextualizing Period 4
+
+- **Exam weight:** 10%–17% of the AP exam.
+- **Bridge from Period 3:** The Constitution (3.9) and Washington's precedents (3.10) created a working federal government, but left unresolved questions — how much power should the federal government have? How democratic should politics become? Should slavery expand?
+- **The big arc:** A young republic dominated by a political elite (Federalists vs. Democratic-Republicans) transforms into a mass democracy (Democrats vs. Whigs), driven by expanding suffrage, a market and transportation revolution, and religious/reform ferment — while slavery becomes further entrenched in the South.
+- **Framing tension:** "Expanding democracy" (4.7) for white men occurs alongside intensifying restrictions and violence toward enslaved and Native Americans (4.8, 4.12) — a pattern worth tracking across the whole period.
+
+---
+
 ## 4.2 — The Rise of Political Parties and the Era of Jefferson
 
 ### The Election of 1800 ("Revolution of 1800")
@@ -337,3 +346,25 @@ unit: 4
 ### Social Reform in the South
 - Limited impact; tradition over modernization.
 - Anti-slavery seen as a northern threat.
+
+---
+
+## 4.14 — Causation in Period 4
+
+**Historical Reasoning Skill:** Causation — trace how the Market Revolution and the rise of mass democracy caused (and were caused by) each other.
+
+### Causes → Effects of the Market Revolution
+
+| Cause | Effect |
+|---|---|
+| Transportation improvements (canals, railroads, steamboats) | National markets replace local/regional ones; goods and people move faster |
+| Technological innovation (cotton gin, interchangeable parts, mechanical reaper) | Mass production begins; agricultural surplus supports a non-farming population |
+| Immigration surge | Cheap urban labor supply; growth of factory cities |
+
+### Effects on Society and Politics
+- **New social classes** — an urban middle class (4.6) and a wage-earning working class emerge, replacing the older model of independent farmers and artisans.
+- **Women's roles shift** — the Cult of Domesticity and factory work (Lowell System) both emerge from the same economic transformation.
+- **Democratization** — economic dynamism and the breakdown of old elite hierarchies fuel demand for expanded white male suffrage (4.7) and Jacksonian politics (4.8).
+- **Sectional divergence** — the North industrializes while the cotton gin entrenches the South's plantation economy (4.5, 4.13) — the two regions grow more economically interdependent even as their social systems diverge.
+
+> **Multiple Causation:** The Market Revolution isn't just an economic story — it underlies Period 4's religious revivalism (people seeking meaning amid rapid change, 4.10), reform movements (anxiety about social disorder, 4.11), and the democratization of politics.
