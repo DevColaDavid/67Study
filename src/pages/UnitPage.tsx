@@ -1,5 +1,5 @@
 import { useParams, Navigate, Link, useNavigate, useLocation } from 'react-router-dom';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { getSubject, getUnit } from '../data/subjects';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 import { useProgress } from '../context/ProgressContext';
@@ -35,6 +35,9 @@ export default function UnitPage() {
   // ponytail: no resize listener — rotating a phone mid-session won't reopen the sidebar; fine for a personal study app
   const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth > 640);
   const [calcMode, setCalcMode] = useState<CalcMode>(getCalcMode);
+  const [unitDropdownOpen, setUnitDropdownOpen] = useState(false);
+
+  useEffect(() => { setUnitDropdownOpen(false); }, [unitNum]);
 
   useEffect(() => {
     if (!subjectMeta || !unitMeta) return;
@@ -56,6 +59,53 @@ export default function UnitPage() {
     el?.scrollIntoView({ block: 'start' });
   }, [content, location.hash]);
 
+  const headings = useMemo(
+    () => (content ? extractHeadings(stripFrontmatter(content)) : []),
+    [content],
+  );
+
+  // Scrollspy: highlight whichever heading is currently at/above the top-of-viewport offset
+  const [activeHeadingId, setActiveHeadingId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const elements = headings
+      .map((h) => document.getElementById(h.id))
+      .filter((el): el is HTMLElement => el !== null);
+    if (!elements.length) {
+      setActiveHeadingId(null);
+      return;
+    }
+
+    const offset = 96;
+    let ticking = false;
+    const updateActive = () => {
+      ticking = false;
+      let current = elements[0].id;
+      for (const el of elements) {
+        if (el.getBoundingClientRect().top - offset <= 0) current = el.id;
+        else break;
+      }
+      setActiveHeadingId(current);
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateActive);
+      }
+    };
+
+    updateActive();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [headings]);
+
+  // Keep the active sidebar link scrolled into view as the page scrolls
+  useEffect(() => {
+    if (!activeHeadingId) return;
+    const link = document.querySelector(`.sidebar-toc a[href="#${CSS.escape(activeHeadingId)}"]`);
+    link?.scrollIntoView({ block: 'nearest' });
+  }, [activeHeadingId]);
+
   const toggleRead = useCallback(() => {
     if (!subjectMeta) return;
     markUnit(subjectMeta.slug, unitNum, !isRead);
@@ -71,7 +121,6 @@ export default function UnitPage() {
   const isCalc = subjectMeta.slug === 'ap-calculus';
   const hideBc = isCalc && calcMode === 'ab';
 
-  const headings = content ? extractHeadings(stripFrontmatter(content)) : [];
   const prevUnit = subjectMeta.units.find((u) => u.unit === unitNum - 1);
   const nextUnit = subjectMeta.units.find((u) => u.unit === unitNum + 1);
 
@@ -97,13 +146,62 @@ export default function UnitPage() {
 
         {sidebarOpen && (
           <>
+            <p className="sidebar-unit-label">Units</p>
+            <div className="unit-switcher">
+              <button
+                className="unit-switcher-arrow"
+                disabled={!prevUnit}
+                aria-label="Previous unit"
+                onClick={() => prevUnit && navigate(prevUnit.link ?? `/${subjectMeta.slug}/units/${prevUnit.unit}`)}
+              >
+                ‹
+              </button>
+              <button
+                className="unit-switcher-current"
+                aria-expanded={unitDropdownOpen}
+                onClick={() => setUnitDropdownOpen((v) => !v)}
+              >
+                <span className="unit-switcher-label">Unit {unitNum}: {unitMeta.title}</span>
+                <span className="unit-switcher-caret">{unitDropdownOpen ? '▲' : '▼'}</span>
+              </button>
+              <button
+                className="unit-switcher-arrow"
+                disabled={!nextUnit}
+                aria-label="Next unit"
+                onClick={() => nextUnit && navigate(nextUnit.link ?? `/${subjectMeta.slug}/units/${nextUnit.unit}`)}
+              >
+                ›
+              </button>
+            </div>
+
+            {unitDropdownOpen && (
+              <nav className="sidebar-unit-list">
+                {subjectMeta.units.map((u) => (
+                  <Link
+                    key={u.unit}
+                    to={u.link ?? `/${subjectMeta.slug}/units/${u.unit}`}
+                    className={`unit-side-link${u.unit === unitNum ? ' unit-side-link--active' : ''}`}
+                    onClick={() => setUnitDropdownOpen(false)}
+                  >
+                    <span className="unit-side-num">{u.unit}</span>
+                    <span className="unit-side-title">{u.title}</span>
+                    {isUnitRead(subjectMeta.slug, u.unit) && (
+                      <span className="unit-side-check">✓</span>
+                    )}
+                  </Link>
+                ))}
+              </nav>
+            )}
+
+            <div className="sidebar-divider" />
+
             <p className="sidebar-unit-label">Unit {unitNum}</p>
             <nav className="sidebar-toc">
               {headings.map((h) => (
                 <a
                   key={h.id}
                   href={`#${h.id}`}
-                  className={`toc-link toc-level-${h.level}`}
+                  className={`toc-link toc-level-${h.level}${h.id === activeHeadingId ? ' toc-link--active' : ''}`}
                 >
                   {h.text}
                 </a>
