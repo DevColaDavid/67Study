@@ -6,6 +6,7 @@ export interface QuizQuestion {
   prompt: ReactNode;
   choices: string[];
   correctIndex: number;
+  explanation?: ReactNode;
 }
 
 interface Props {
@@ -84,6 +85,10 @@ export default function QuizSession({ questions, onExit, hasNextGroup, onNextGro
           );
         })}
       </div>
+
+      {selected !== null && current.explanation && (
+        <div className="quiz-rationale">{current.explanation}</div>
+      )}
 
       {selected !== null && (
         <button className="wordlab-btn wordlab-btn--accent" onClick={next}>

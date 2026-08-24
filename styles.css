@@ -1353,6 +1353,22 @@ a:hover { text-decoration: underline; }
   overflow: hidden;
 }
 .profile-avatar-btn:hover { border-color: var(--accent); }
+.profile-signin-link {
+  position: fixed;
+  top: 0.75rem;
+  right: 1.25rem;
+  z-index: 200;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+.profile-signin-link:hover { border-color: var(--accent); color: var(--accent); }
 .profile-avatar-img {
   width: 32px;
   height: 32px;
@@ -2131,6 +2147,66 @@ a:hover { text-decoration: underline; }
   border-color: var(--accent);
 }
 
+.quiz-meta-badges {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.practice-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.practice-filter-group { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.practice-filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin: 0;
+}
+
+.practice-filter-hint {
+  font-weight: 400;
+  color: var(--text-dim);
+  font-size: 0.78rem;
+}
+
+.filter-chip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.5rem;
+}
+
+.filter-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.82rem;
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.filter-chip:hover { border-color: var(--accent); }
+
+.filter-chip--active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, var(--surface));
+  color: var(--text-bright);
+}
+
+.filter-chip-custom-input { width: 80px; }
+
 .wordlab-btn {
   background: var(--surface2);
   border: 1px solid var(--border);
@@ -2404,6 +2480,16 @@ a:hover { text-decoration: underline; }
 .quiz-choice--wrong {
   border-color: var(--color-crimson);
   background: color-mix(in srgb, var(--color-crimson) 12%, var(--surface));
+}
+
+.quiz-rationale {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 0.9rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-dim);
 }
 
 /* ==========================================================================

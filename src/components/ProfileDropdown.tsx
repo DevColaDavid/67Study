@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export default function ProfileDropdown() {
@@ -30,7 +30,18 @@ export default function ProfileDropdown() {
     return () => document.removeEventListener('keydown', handleKey);
   }, [open]);
 
-  if (!user || location.pathname === '/login') return null;
+  if (location.pathname === '/login') return null;
+
+  if (!user) {
+    return (
+      <Link
+        to={`/login?next=${encodeURIComponent(location.pathname)}`}
+        className="profile-signin-link"
+      >
+        Sign in
+      </Link>
+    );
+  }
 
   return (
     <div className="profile-dropdown-wrap" ref={containerRef}>

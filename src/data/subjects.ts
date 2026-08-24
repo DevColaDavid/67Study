@@ -143,6 +143,7 @@ export const SUBJECTS: SubjectMeta[] = [
       { unit: 5, title: 'Standard English Conventions', section: 'Language — EBRW' },
       { unit: 6, title: 'Essay / Writing Sample', section: 'Language — EBRW' },
       { unit: 7, title: 'Vocab, Word Parts & Transitions Practice', section: 'Language — Vocab', link: '/test-prep/vocab' },
+      { unit: 11, title: 'Practice Questions (1,776 R&W Qs)', section: 'Language — Practice', link: '/test-prep/practice' },
       { unit: 8, title: 'Algebra & Problem Solving', section: 'Math' },
       { unit: 9, title: 'Advanced Math (Geometry, Trig, Data)', section: 'Math' },
       { unit: 10, title: 'Timing, Pacing & Test-Day Tactics', section: 'Overview' },
