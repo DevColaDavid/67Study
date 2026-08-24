@@ -719,6 +719,100 @@ a:hover { text-decoration: underline; }
 .markdown-body h3 { font-size: 1.05rem; font-weight: 600; }
 .markdown-body h4 { font-size: 0.95rem; font-weight: 600; color: var(--text-dim); }
 
+.markdown-body h2.module-heading {
+  max-width: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.video-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(180deg, #ff4d4d, #e0262c);
+  border: none;
+  border-radius: 999px;
+  padding: 0.4rem 1rem 0.4rem 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(224, 38, 44, 0.35);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.video-toggle-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(224, 38, 44, 0.5);
+}
+
+.video-toggle-btn:active {
+  transform: translateY(0);
+}
+
+.video-toggle-btn[aria-expanded="true"] {
+  background: var(--surface2);
+  color: var(--text-dim);
+  box-shadow: none;
+  border: 1px solid var(--border);
+}
+
+.video-toggle-btn[aria-expanded="true"]:hover {
+  color: var(--text);
+  border-color: var(--text-dim);
+}
+
+.video-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 0.65rem;
+  line-height: 1;
+}
+
+.video-toggle-btn[aria-expanded="true"] .video-toggle-icon {
+  background: var(--border);
+}
+
+.video-embed {
+  max-width: 780px;
+  margin-bottom: 1.5rem;
+}
+
+.video-embed-caption {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+}
+
+.video-embed-caption a {
+  color: var(--accent);
+}
+
+.video-embed-frame {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+}
+
+.video-embed-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .markdown-body p { margin-bottom: 1rem; }
 
 .markdown-body ul,

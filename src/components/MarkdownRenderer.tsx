@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
@@ -6,6 +7,7 @@ import rehypeSlug from 'rehype-slug';
 import 'katex/dist/katex.min.css';
 import type { Components } from 'react-markdown';
 import type { ReactNode } from 'react';
+import HEIMLER_VIDEOS from '../data/heimlerVideos';
 
 // Obsidian callout types → CSS modifier
 const CALLOUT_TYPES: Record<string, string> = {
@@ -61,7 +63,71 @@ function parseCallout(children: ReactNode[]): { type: string; title: string; bod
   return { type, title, body };
 }
 
+function ModuleHeading({
+  id,
+  videoId,
+  videoTitle,
+  children,
+}: {
+  id?: string;
+  videoId: string;
+  videoTitle: string;
+  children: ReactNode;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <h2 id={id} className="module-heading">
+        <span>{children}</span>
+        <button
+          type="button"
+          className="video-toggle-btn"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span className="video-toggle-icon" aria-hidden="true">
+            {open ? '✕' : '▶'}
+          </span>
+          {open ? 'Hide video' : "Watch Heimler's History video"}
+        </button>
+      </h2>
+      {open && (
+        <div className="video-embed">
+          <p className="video-embed-caption">
+            {videoTitle} —{' '}
+            <a href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noreferrer">
+              Heimler's History
+            </a>
+          </p>
+          <div className="video-embed-frame">
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}`}
+              title={videoTitle}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+const MODULE_NUMBER_RE = /^(\d+\.\d+)\s/;
+
 const components: Components = {
+  h2({ id, children }) {
+    const arr = Array.isArray(children) ? children : [children];
+    const text = arr.map((c) => (typeof c === 'string' ? c : '')).join('');
+    const match = text.match(MODULE_NUMBER_RE);
+    const video = match ? HEIMLER_VIDEOS[match[1]] : undefined;
+    if (!video) return <h2 id={id}>{children}</h2>;
+    return (
+      <ModuleHeading id={id} videoId={video.id} videoTitle={video.title}>
+        {children}
+      </ModuleHeading>
+    );
+  },
   blockquote({ children }) {
     const arr = Array.isArray(children) ? children : [children];
     const callout = parseCallout(arr as ReactNode[]);
