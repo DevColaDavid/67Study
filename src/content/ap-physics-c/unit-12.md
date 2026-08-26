@@ -7,7 +7,9 @@ unit: 12
 
 ---
 
-## Magnetic Force on a Moving Charge
+## 12.1 — Magnetic Forces
+
+### Magnetic Force on a Moving Charge
 
 The **Lorentz force** on a charge $q$ moving with velocity $\vec{v}$ in magnetic field $\vec{B}$:
 
@@ -27,9 +29,7 @@ Key properties:
 > [!tip] Right-Hand Rule
 > Point fingers in direction of $\vec{v}$, curl toward $\vec{B}$, thumb points in direction of $\vec{F}$ for positive charge. For negative charge, reverse.
 
----
-
-## Motion of Charges in Magnetic Fields
+### Motion of Charges in Magnetic Fields
 
 Since $\vec{F}\perp\vec{v}$, a charge in a uniform magnetic field moves in a **circle** (if $\vec{v}\perp\vec{B}$):
 
@@ -44,16 +44,14 @@ Period is **independent of speed** (key to cyclotron operation).
 
 **General case** ($\vec{v}$ not perpendicular to $\vec{B}$): component parallel to $\vec{B}$ is unaffected → helical motion.
 
-### Crossed Fields (Velocity Selector)
+**Crossed Fields (Velocity Selector)**
 
 Electric and magnetic forces balance for a specific speed:
 $$qE = qvB \implies v = \frac{E}{B}$$
 
 Only particles with this speed pass through undeflected — used in mass spectrometers.
 
----
-
-## Magnetic Force on Current-Carrying Wire
+### Magnetic Force on Current-Carrying Wire
 
 A wire carries current $I$ in magnetic field $\vec{B}$. For a straight wire of length $L$:
 
@@ -78,7 +76,9 @@ Direction: right-hand rule on $\vec{L}$ (in direction of current) crossed with $
 
 ---
 
-## Torque on a Current Loop
+## 12.2 — Magnetic Fields and Dipoles
+
+### Torque on a Current Loop
 
 A rectangular loop (area $A = ab$, $N$ turns) carrying current $I$ in uniform field $\vec{B}$:
 
@@ -93,11 +93,24 @@ Potential energy of dipole: $U = -\vec{\mu}\cdot\vec{B} = -\mu B\cos\theta$
 
 This is the operating principle of **DC motors** and **galvanometers**.
 
+### Magnetic Flux and Gauss's Law for Magnetism
+
+$$\Phi_B = \int\vec{B}\cdot d\vec{A} \quad \text{(webers, Wb = T·m}^2\text{)}$$
+
+For uniform field through flat surface: $\Phi_B = BA\cos\theta$
+
+**Gauss's Law for Magnetism** (no magnetic monopoles):
+
+$$\oint\vec{B}\cdot d\vec{A} = 0$$
+
+All magnetic field lines form closed loops — every field line that enters a closed surface must also leave it, since isolated north or south "magnetic charges" have never been observed. This is the magnetic analog of Gauss's Law for electric fields (Unit 8), except the right side is always zero.
+
+> [!note] Contrast with Electric Field Lines
+> Electric field lines start/end on charges ($+$/$-$). Magnetic field lines never start or end — a bar magnet's field lines loop continuously from the north pole, around through space, into the south pole, and back through the magnet's interior to north again.
+
 ---
 
-## Sources of Magnetic Fields
-
-### Biot-Savart Law
+## 12.3 — Biot-Savart Law
 
 The magnetic field produced by a current element $Id\vec{l}$:
 
@@ -124,7 +137,7 @@ $\mu_0 = 4\pi\times10^{-7}$ T·m/A (permeability of free space)
 
 ---
 
-## Ampère's Law
+## 12.4 — Ampère's Law
 
 For any closed path (Amperian loop), the line integral of $\vec{B}$ equals $\mu_0$ times the total current enclosed:
 
@@ -163,9 +176,7 @@ $$B = \frac{\mu_0 NI}{2\pi r} \quad \text{(inside)}$$
 
 $B = 0$ outside the toroid.
 
----
-
-## Magnetic Field Configurations
+### Summary of Field Configurations
 
 | Source | Field | Formula |
 |---|---|---|
@@ -173,20 +184,6 @@ $B = 0$ outside the toroid.
 | Center of circular loop | Along axis | $B = \mu_0 I/(2R)$ |
 | Inside solenoid | Uniform, parallel | $B = \mu_0 nI$ |
 | Inside toroid | Circles along torus | $B = \mu_0 NI/(2\pi r)$ |
-
----
-
-## Magnetic Flux
-
-$$\Phi_B = \int\vec{B}\cdot d\vec{A} \quad \text{(webers, Wb = T·m}^2\text{)}$$
-
-For uniform field through flat surface: $\Phi_B = BA\cos\theta$
-
-**Gauss's Law for Magnetism** (no magnetic monopoles):
-
-$$\oint\vec{B}\cdot d\vec{A} = 0$$
-
-All magnetic field lines form closed loops.
 
 ---
 
@@ -198,6 +195,8 @@ $$\vec{F} = q\vec{v}\times\vec{B}, \quad \vec{F} = I\vec{L}\times\vec{B}$$
 
 $$\vec{\tau} = \vec{\mu}\times\vec{B}, \quad \mu = NIA$$
 
+$$\Phi_B = \int\vec{B}\cdot d\vec{A}, \quad \oint\vec{B}\cdot d\vec{A} = 0$$
+
 **Biot-Savart:** $d\vec{B} = \dfrac{\mu_0}{4\pi}\dfrac{I\,d\vec{l}\times\hat{r}}{r^2}$
 
 $$\oint\vec{B}\cdot d\vec{l} = \mu_0 I_{enc} \quad \text{(Ampère's Law)}$$
@@ -207,5 +206,3 @@ $$\oint\vec{B}\cdot d\vec{l} = \mu_0 I_{enc} \quad \text{(Ampère's Law)}$$
 **Solenoid:** $B = \mu_0 nI$
 
 **Loop center:** $B = \dfrac{\mu_0 I}{2R}$
-
-$$\Phi_B = \int\vec{B}\cdot d\vec{A}, \quad \oint\vec{B}\cdot d\vec{A} = 0$$

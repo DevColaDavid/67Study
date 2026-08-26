@@ -7,7 +7,7 @@ unit: 10
 
 ---
 
-## Conductors in Electrostatic Equilibrium
+## 10.1 — Electrostatics with Conductors
 
 When charges stop moving (electrostatic equilibrium), for **any conductor**:
 
@@ -25,7 +25,7 @@ If charge $+q$ is placed inside the cavity, it induces $-q$ on the inner surface
 
 ---
 
-## Capacitance
+## 10.2 — Capacitors and Capacitance
 
 A **capacitor** is two conductors (plates) separated by an insulator (gap or dielectric), designed to store charge and energy.
 
@@ -35,9 +35,7 @@ $$C = \frac{Q}{V} \quad \text{(farads, F = C/V)}$$
 
 $C$ depends only on **geometry** — not on $Q$ or $V$.
 
----
-
-## Parallel Plate Capacitor
+### Parallel Plate Capacitor
 
 Two plates of area $A$, separation $d$, charge $\pm Q$:
 
@@ -48,9 +46,7 @@ $$\boxed{C = \frac{\epsilon_0 A}{d}}$$
 Larger area → more charge for same voltage → larger $C$.  
 Smaller gap → stronger field per volt → larger $C$.
 
----
-
-## Spherical Capacitor
+### Spherical Capacitor
 
 Inner sphere radius $a$, outer sphere radius $b$, charge $+Q$ on inner, $-Q$ on outer:
 
@@ -62,9 +58,7 @@ $$C = \frac{4\pi\epsilon_0 ab}{b-a}$$
 
 As $b\to\infty$ (isolated sphere): $C = 4\pi\epsilon_0 a = a/k_e$
 
----
-
-## Cylindrical Capacitor
+### Cylindrical Capacitor
 
 Inner radius $a$, outer radius $b$, length $L$, charge per length $\lambda = Q/L$:
 
@@ -74,17 +68,15 @@ $$V = \frac{\lambda}{2\pi\epsilon_0}\ln\!\left(\frac{b}{a}\right)$$
 
 $$C = \frac{2\pi\epsilon_0 L}{\ln(b/a)}$$
 
----
+### Capacitors in Circuits
 
-## Capacitors in Circuits
-
-### Series (same $Q$, voltages add)
+**Series** (same $Q$, voltages add):
 
 $$\frac{1}{C_{eq}} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots$$
 
 $C_{eq} < $ each individual capacitor. Voltage splits: $V = V_1 + V_2$.
 
-### Parallel (same $V$, charges add)
+**Parallel** (same $V$, charges add):
 
 $$C_{eq} = C_1 + C_2 + \cdots$$
 
@@ -95,9 +87,7 @@ $C_{eq} > $ each individual capacitor. Charge splits: $Q = Q_1 + Q_2$.
 > - Parallel capacitors add (like series resistors)
 > - Series capacitors use the reciprocal rule (like parallel resistors)
 
----
-
-## Energy Stored in a Capacitor
+### Energy Stored in a Capacitor
 
 Work done charging a capacitor from $0$ to $Q$:
 
@@ -120,7 +110,7 @@ This is a universal result — the energy is stored in the **field**, not the ch
 
 ---
 
-## Dielectrics
+## 10.3 — Dielectrics
 
 A **dielectric** is an insulating material placed between capacitor plates.
 
@@ -163,9 +153,7 @@ $$\oint \kappa\epsilon_0\vec{E}\cdot d\vec{A} = Q_{free,enc}$$
 or equivalently using displacement field $\vec{D} = \epsilon\vec{E}$:
 $$\oint\vec{D}\cdot d\vec{A} = Q_{free,enc}$$
 
----
-
-## Dielectric Breakdown
+### Dielectric Breakdown
 
 Every dielectric has a **dielectric strength** — maximum $E$ field before it becomes conducting (breakdown, sparking). For air: $E_{max} \approx 3\times10^6$ V/m.
 

@@ -7,7 +7,7 @@ unit: 9
 
 ---
 
-## Electric Potential Energy
+## 9.1 — Electric Potential Energy
 
 The electric potential energy $U$ is the work done by an external agent moving a charge from infinity to a point, against the electric force (or equivalently, the negative work done by the electric force).
 
@@ -23,7 +23,7 @@ For a system of multiple charges, $U = $ sum over all unique pairs.
 
 ---
 
-## Electric Potential
+## 9.2 — Electric Potential
 
 Electric potential $V$ is the electric potential energy per unit positive charge:
 
@@ -46,9 +46,7 @@ Much easier than superposition of fields (scalar addition, no vector components)
 > [!tip] Scalar vs. Vector
 > $V$ is scalar — just add numbers. $\vec{E}$ is a vector — must add components. When possible, use potential instead of field calculations.
 
----
-
-## Relationship Between $E$ and $V$
+### Relationship Between $E$ and $V$
 
 Electric field is the **negative gradient** of potential:
 
@@ -77,9 +75,7 @@ $$V_B - V_A = -\int_A^B \vec{E}\cdot d\vec{l}$$
 > Work done by field moving $q = 2\,\mu$C from + to − plate:
 > $W = q(V_+ - V_-) = (2\times10^{-6})(0-(-20)) = 4\times10^{-5}$ J
 
----
-
-## Equipotential Surfaces
+### Equipotential Surfaces
 
 Surfaces of constant $V$. Key properties:
 
@@ -90,9 +86,7 @@ Surfaces of constant $V$. Key properties:
 - Equipotentials for a uniform field are parallel planes perpendicular to $\vec{E}$
 - Conductor surfaces are always equipotentials (in electrostatic equilibrium)
 
----
-
-## Potential of Continuous Charge Distributions
+### Potential of Continuous Charge Distributions
 
 $$V = \int k_e\frac{dq}{r}$$
 
@@ -111,34 +105,7 @@ $$V = \int k_e\frac{dq}{r}$$
 >
 > $$V = \int_0^R \frac{k_e\sigma(2\pi r\,dr)}{\sqrt{r^2+x^2}} = \frac{\sigma}{2\epsilon_0}\left(\sqrt{R^2+x^2}-x\right)$$
 
----
-
-## Energy Conservation with Moving Charges
-
-For a charge $q$ moving between points where potential changes by $\Delta V$:
-
-$$\Delta K + \Delta U = 0 \quad \text{(no friction)}$$
-
-$$\Delta K = -q\Delta V = q(V_i - V_f)$$
-
-$$\frac{1}{2}mv_f^2 - \frac{1}{2}mv_i^2 = q(V_i - V_f)$$
-
-### Electron Volt (eV)
-
-The kinetic energy gained by an elementary charge moving through 1 volt:
-
-$$1 \text{ eV} = 1.602\times10^{-19} \text{ J}$$
-
-> [!example] Example: Proton Accelerated
-> A proton ($q = e$, $m = 1.67\times10^{-27}$ kg) is accelerated from rest through $\Delta V = 5000$ V.
->
-> $$\Delta K = q\Delta V = (1.6\times10^{-19})(5000) = 8\times10^{-16} \text{ J}$$
->
-> $$v = \sqrt{\frac{2\Delta K}{m}} = \sqrt{\frac{2(8\times10^{-16})}{1.67\times10^{-27}}} = 9.79\times10^5 \text{ m/s}$$
-
----
-
-## Potential Inside and Outside Conductors
+### Potential Inside and Outside Conductors
 
 For a conductor in electrostatic equilibrium:
 
@@ -149,19 +116,49 @@ For a conductor in electrostatic equilibrium:
 
 **Hollow conductor**: $E = 0$ and $V = $ const inside the cavity (no charges inside) — **Faraday cage**.
 
-### Potential of a Charged Sphere (radius $R$, charge $Q$)
+**Potential of a Charged Sphere** (radius $R$, charge $Q$):
 
 $$V = \begin{cases} \dfrac{k_eQ}{r} & r \geq R \text{ (outside: same as point charge)} \\[8pt] \dfrac{k_eQ}{R} & r \leq R \text{ (inside/surface: constant)} \end{cases}$$
 
----
-
-## Potential Due to Multiple Configurations
+### Potential Due to Multiple Configurations
 
 **Two point charges** ($+q$ and $-q$ separated by $2a$) — electric dipole:
 
 $$V = k_e\frac{q}{r_+} + k_e\frac{(-q)}{r_-}$$
 
 At large distances ($r \gg a$): $V = k_e\frac{p\cos\theta}{r^2}$ where $p = 2qa$ is the dipole moment.
+
+---
+
+## 9.3 — Conservation of Electric Energy
+
+For a charge $q$ moving between points where potential changes by $\Delta V$, mechanical energy (kinetic + electric potential) is conserved in the absence of non-conservative forces:
+
+$$\Delta K + \Delta U = 0 \quad \text{(no friction)}$$
+
+$$\Delta K = -q\Delta V = q(V_i - V_f)$$
+
+$$\frac{1}{2}mv_f^2 - \frac{1}{2}mv_i^2 = q(V_i - V_f)$$
+
+A charge speeds up moving toward lower potential energy (positive charge → toward lower $V$; negative charge → toward higher $V$), exactly analogous to gravitational PE converting to KE as an object falls.
+
+### Electron Volt (eV)
+
+The kinetic energy gained by an elementary charge moving through 1 volt:
+
+$$1 \text{ eV} = 1.602\times10^{-19} \text{ J}$$
+
+Convenient unit for atomic/particle-scale energies — avoids carrying powers of $10^{-19}$ through every calculation.
+
+> [!example] Example: Proton Accelerated
+> A proton ($q = e$, $m = 1.67\times10^{-27}$ kg) is accelerated from rest through $\Delta V = 5000$ V.
+>
+> $$\Delta K = q\Delta V = (1.6\times10^{-19})(5000) = 8\times10^{-16} \text{ J}$$
+>
+> $$v = \sqrt{\frac{2\Delta K}{m}} = \sqrt{\frac{2(8\times10^{-16})}{1.67\times10^{-27}}} = 9.79\times10^5 \text{ m/s}$$
+
+> [!tip] Choosing a Path
+> Because the electric force is conservative, $\Delta U$ (and thus $\Delta K$) depends only on the endpoints' potentials — never on the path taken between them. Pick whatever path makes $V_i$ and $V_f$ easiest to compute.
 
 ---
 

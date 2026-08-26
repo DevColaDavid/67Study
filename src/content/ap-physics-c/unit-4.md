@@ -7,36 +7,44 @@ unit: 4
 
 ---
 
-## Momentum
+## 4.1 — Linear Momentum
 
 Linear momentum is the product of mass and velocity:
 
 $$\vec{p} = m\vec{v}$$
 
-Units: kg·m/s. Vector quantity — direction same as velocity.
+Units: kg·m/s. Momentum is a **vector** quantity — direction same as velocity.
 
 For a system of particles:
 $$\vec{p}_{total} = \sum m_i \vec{v}_i = M\vec{v}_{cm}$$
 
 The total momentum equals the total mass times the velocity of the center of mass.
 
+> [!note] Key Definitions
+> Momentum is the natural tool for analyzing **collisions** and **explosions**:
+> - A **collision** is an interaction where the forces exerted between the objects involved are much larger than any net external force on the system during the interaction — so only the initial and final states matter, and each object can be treated as a single point (the "object model").
+> - An **explosion** is the reverse: an interaction in which forces *internal* to the system push its constituent parts apart.
+
 ---
 
-## Newton's Second Law — Momentum Form
+## 4.2 — Impulse and Momentum
+
+### Newton's Second Law — Momentum Form
 
 $$\vec{F}_{net} = \frac{d\vec{p}}{dt} = m\frac{d\vec{v}}{dt} = m\vec{a}$$
 
-This is actually Newton's original formulation — more general than $F = ma$ because it handles variable-mass systems.
+This is actually Newton's original formulation — more general than $F = ma$ because it also handles variable-mass systems:
+$$\vec{F}_{net} = \frac{d\vec{p}}{dt} = \frac{dm}{dt}\vec{v}$$
 
----
+The net external force on a system is equal to the **slope** of a graph of the system's momentum vs. time.
 
-## Impulse
+### Impulse
 
 **Impulse** is the change in momentum, caused by a force acting over time.
 
 $$\vec{J} = \Delta\vec{p} = \vec{p}_f - \vec{p}_i$$
 
-### Impulse-Momentum Theorem
+#### Impulse-Momentum Theorem
 
 $$\vec{J} = \int_{t_i}^{t_f} \vec{F}(t)\,dt = \Delta\vec{p}$$
 
@@ -45,7 +53,7 @@ For constant force: $\vec{J} = \vec{F}\,\Delta t$
 **Average force during a collision:**
 $$\vec{F}_{avg} = \frac{\Delta\vec{p}}{\Delta t}$$
 
-Geometrically: impulse = **area under the $F$-vs-$t$ graph**.
+Geometrically: impulse = **area under the $F$-vs-$t$ graph**. Impulse is a vector, with the same direction as the net force exerted on the system.
 
 > [!example] Example: Impulse in a Collision
 > A 0.5 kg ball hits a wall at 10 m/s and bounces back at 8 m/s. Collision lasts 0.02 s.
@@ -58,7 +66,7 @@ Geometrically: impulse = **area under the $F$-vs-$t$ graph**.
 
 ---
 
-## Conservation of Linear Momentum
+## 4.3 — Conservation of Linear Momentum, Collisions
 
 When the **net external force** on a system is zero:
 
@@ -69,11 +77,12 @@ $$\vec{p}_{i,total} = \vec{p}_{f,total}$$
 $$m_1\vec{v}_{1i} + m_2\vec{v}_{2i} = m_1\vec{v}_{1f} + m_2\vec{v}_{2f}$$
 
 > [!note] Key Definition
-> Momentum is conserved when $\vec{F}_{ext} = 0$. During collisions, even if friction exists, the collision forces (internal) are so large and brief that external impulse is negligible — so momentum is approximately conserved during the collision.
+> Momentum is conserved when $\vec{F}_{ext} = 0$ — this holds in **all** interactions. During collisions, even if friction exists, the collision forces (internal) are so large and brief that external impulse is negligible, so momentum is approximately conserved during the collision. If the net external force on the selected system is nonzero, momentum is instead transferred between the system and its environment (equal to the impulse exerted on it). Any change in one object's momentum is balanced by an equal and opposite change elsewhere in the system — a direct result of Newton's third law: the impulse exerted by one object on another is equal and opposite to the impulse exerted by the second on the first.
 
----
+> [!warning] Scope
+> AP Physics C: Mechanics only expects **quantitative** analysis of collisions in one or two dimensions. Three-dimensional collisions may only be analyzed qualitatively.
 
-## Types of Collisions
+### Types of Collisions
 
 | Type | Momentum | Kinetic Energy | Defining Feature |
 |---|---|---|---|
@@ -122,9 +131,7 @@ $$\Delta KE = KE_i - KE_f = \frac{1}{2}\frac{m_1 m_2}{m_1+m_2}(v_{1i}-v_{2i})^2$
 > $$\frac{1}{2}(m+M)v_f^2 = (m+M)gh$$
 > $$h = \frac{v_f^2}{2g} = \frac{(1.99)^2}{19.6} = 0.202 \text{ m}$$
 
----
-
-## 2D Collisions
+### 2D Collisions
 
 Momentum is conserved independently in each direction:
 
@@ -138,21 +145,17 @@ $$m_1 v_{1iy} + m_2 v_{2iy} = m_1 v_{1fy} + m_2 v_{2fy}$$
 > $$p_y: \quad 1500(15) = 2500\,v_{fy} \implies v_{fy} = 9 \text{ m/s (north)}$$
 > $$|\vec{v}_f| = \sqrt{8^2 + 9^2} = 12.0 \text{ m/s}, \quad \theta = \arctan(9/8) = 48.4° \text{ N of E}$$
 
----
+### Center of Mass Motion
 
-## Center of Mass Motion
-
-The CM moves at constant velocity when $\vec{F}_{ext} = 0$, regardless of what happens internally.
+For a collection of objects, the velocity of the system's center of mass is:
 
 $$\vec{v}_{cm} = \frac{\sum m_i \vec{v}_i}{M_{total}} = \frac{\vec{p}_{total}}{M_{total}}$$
 
-If no external forces: $\vec{v}_{cm}$ = constant throughout any collision.
+The CM moves at **constant velocity** whenever $\vec{F}_{ext} = 0$, regardless of what happens internally (collision, explosion, etc.) — it does not care about internal forces.
 
-**CM reference frame:** frame where $\vec{p}_{total} = 0$. In elastic collisions, speeds are unchanged but directions reverse in this frame.
+**CM reference frame:** the frame where $\vec{p}_{total} = 0$. In elastic collisions, speeds are unchanged but directions reverse in this frame.
 
----
-
-## Explosions
+### Explosions
 
 A "reverse collision" — one object breaks into pieces. Momentum is still conserved.
 

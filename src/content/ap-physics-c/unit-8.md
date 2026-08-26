@@ -7,11 +7,11 @@ unit: 8
 
 ---
 
-## Electric Charge
+## 8.1 — Electric Charge and Electric Force
 
+### Electric Charge
 - Two types: **positive** and **negative**
 - Like charges repel, opposite charges attract
-- Charge is **conserved** — total charge in a closed system is constant
 - Charge is **quantized** — comes in multiples of $e = 1.602\times10^{-19}$ C (elementary charge)
 
 | Particle | Charge | Mass |
@@ -24,9 +24,7 @@ unit: 8
 **Insulators**: charges do not move (rubber, glass, plastic).  
 **Semiconductors**: between conductors and insulators (silicon).
 
----
-
-## Coulomb's Law
+### Coulomb's Law
 
 The electrostatic force between two point charges $q_1$ and $q_2$ separated by distance $r$:
 
@@ -45,7 +43,28 @@ $$\vec{F}_{total} = \sum_i \vec{F}_i$$
 
 ---
 
-## Electric Field
+## 8.2 — Conservation of Electric Charge
+
+- **Charge is conserved**: the total electric charge of an isolated system is constant — charge is never created or destroyed, only transferred between objects.
+- At the particle level, charge conservation holds in every interaction (collisions, radioactive decay, pair production/annihilation) — the net charge before equals the net charge after.
+
+### Methods of Charging
+
+| Method | Mechanism | Result |
+|---|---|---|
+| **Friction** | Rubbing two materials transfers electrons from one surface to the other | Both objects charged, equal and opposite, contact required |
+| **Conduction (contact)** | A charged object touches a neutral conductor; charge (of the same sign) flows until both reach the same potential | Neutral object ends up with charge of the **same sign**, magnitude less than the original |
+| **Induction** | A charged object is brought near (not touching) a conductor; free charges redistribute, then the conductor is grounded and the ground connection removed while the charged object is still nearby | Conductor ends up with charge of the **opposite sign**, with no contact ever occurring |
+
+> [!example] Charging by Induction
+> A negatively charged rod is brought near a neutral, grounded conducting sphere. Free electrons in the sphere are repelled and flow to ground; when the ground wire is disconnected first (rod still nearby), the sphere is left with a net **positive** charge, evenly distributed once the rod is removed.
+
+> [!tip] Isolated System
+> "Conservation" here means an *isolated* system's **total** charge doesn't change — charge can and does move between the objects within the system (that's what charging by conduction and induction rely on).
+
+---
+
+## 8.3 — Electric Fields
 
 The electric field at a point is the force per unit (positive test) charge:
 
@@ -71,7 +90,7 @@ $$\vec{E}_{total} = \sum_i \vec{E}_i = \sum_i k_e\frac{q_i}{r_i^2}\hat{r}_i$$
 
 ---
 
-## Electric Field of Continuous Charge Distributions
+## 8.4 — Electric Fields of Charge Distributions
 
 Replace the sum with an integral over the charge distribution:
 
@@ -115,7 +134,7 @@ Charge element $dq$:
 
 ---
 
-## Electric Flux
+## 8.5 — Electric Flux
 
 Electric flux measures how much field passes through a surface:
 
@@ -130,7 +149,7 @@ $$\Phi_E = \vec{E}\cdot\vec{A} = EA\cos\theta$$
 
 ---
 
-## Gauss's Law
+## 8.6 — Gauss's Law
 
 The total electric flux through any **closed** surface equals the enclosed charge divided by $\epsilon_0$:
 

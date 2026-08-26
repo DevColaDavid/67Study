@@ -7,7 +7,8 @@ import rehypeSlug from 'rehype-slug';
 import 'katex/dist/katex.min.css';
 import type { Components } from 'react-markdown';
 import type { ReactNode } from 'react';
-import HEIMLER_VIDEOS from '../data/heimlerVideos';
+import MODULE_VIDEOS from '../data/moduleVideos';
+import type { ModuleVideo } from '../data/moduleVideos';
 
 // Obsidian callout types → CSS modifier
 const CALLOUT_TYPES: Record<string, string> = {
@@ -65,16 +66,21 @@ function parseCallout(children: ReactNode[]): { type: string; title: string; bod
 
 function ModuleHeading({
   id,
-  videoId,
-  videoTitle,
+  video,
   children,
 }: {
   id?: string;
-  videoId: string;
-  videoTitle: string;
+  video: ModuleVideo;
   children: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
+  const source = video.source ?? "Heimler's History";
+  const embedSrc = video.listId
+    ? `https://www.youtube.com/embed/videoseries?list=${video.listId}`
+    : `https://www.youtube.com/embed/${video.id}`;
+  const watchHref = video.listId
+    ? `https://www.youtube.com/playlist?list=${video.listId}`
+    : `https://www.youtube.com/watch?v=${video.id}`;
   return (
     <>
       <h2 id={id} className="module-heading">
@@ -88,21 +94,21 @@ function ModuleHeading({
           <span className="video-toggle-icon" aria-hidden="true">
             {open ? '✕' : '▶'}
           </span>
-          {open ? 'Hide video' : "Watch Heimler's History video"}
+          {open ? 'Hide video' : `Watch ${source} video`}
         </button>
       </h2>
       {open && (
         <div className="video-embed">
           <p className="video-embed-caption">
-            {videoTitle} —{' '}
-            <a href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noreferrer">
-              Heimler's History
+            {video.title} —{' '}
+            <a href={watchHref} target="_blank" rel="noreferrer">
+              {source}
             </a>
           </p>
           <div className="video-embed-frame">
             <iframe
-              src={`https://www.youtube.com/embed/${videoId}`}
-              title={videoTitle}
+              src={embedSrc}
+              title={video.title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
@@ -133,9 +139,9 @@ const baseComponents: Components = {
 
 // Some subjects (e.g. AP US History, AP World History) reuse the same "N.M
 // Title" module numbering convention for entirely different topics, so the
-// Heimler's History lookup must be scoped to the subject's own video map —
-// otherwise a "3.2" in one subject would pull up a video for the other.
-function buildComponents(videoMap: Record<string, HeimlerVideo> | undefined): Components {
+// video lookup must be scoped to the subject's own video map — otherwise a
+// "3.2" in one subject would pull up a video for the other.
+function buildComponents(videoMap: Record<string, ModuleVideo> | undefined): Components {
   if (!videoMap) return baseComponents;
   return {
     ...baseComponents,
@@ -146,7 +152,7 @@ function buildComponents(videoMap: Record<string, HeimlerVideo> | undefined): Co
       const video = match ? videoMap[match[1]] : undefined;
       if (!video) return <h2 id={id}>{children}</h2>;
       return (
-        <ModuleHeading id={id} videoId={video.id} videoTitle={video.title}>
+        <ModuleHeading id={id} video={video}>
           {children}
         </ModuleHeading>
       );
@@ -160,7 +166,7 @@ interface MarkdownRendererProps {
 }
 
 export default function MarkdownRenderer({ content, subjectSlug }: MarkdownRendererProps) {
-  const components = buildComponents(subjectSlug ? HEIMLER_VIDEOS[subjectSlug] : undefined);
+  const components = buildComponents(subjectSlug ? MODULE_VIDEOS[subjectSlug] : undefined);
   return (
     <div className="markdown-body">
       <ReactMarkdown

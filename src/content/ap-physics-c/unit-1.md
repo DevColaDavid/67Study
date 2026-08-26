@@ -7,7 +7,7 @@ unit: 1
 
 ---
 
-## Fundamental Quantities
+## 1.1 — Scalars and Vectors
 
 | Quantity | Symbol | SI Unit | Type |
 |---|---|---|---|
@@ -17,30 +17,66 @@ unit: 1
 | Speed | $|v|$ | m/s | Scalar |
 | Acceleration | $a$, $\vec{a}$ | m/s² | Vector |
 | Time | $t$ | s | Scalar |
+| Distance | — | m | Scalar |
 
-**Displacement** is change in position — not total distance traveled.
+**Scalars** are described by magnitude only (e.g., distance, speed). **Vectors** are described by magnitude *and* direction (e.g., position, displacement, velocity, acceleration).
 
-$$\Delta x = x_f - x_i$$
+Vectors can be visually modeled as arrows — direction matches the vector's direction, length is proportional to magnitude.
+
+### Unit Vector Notation
+
+A vector can be expressed as the sum of its components along the $x$-, $y$-, and $z$-axes, using unit vectors $\hat{i}$, $\hat{j}$, $\hat{k}$:
+
+$$\vec{r} = A\hat{i} + B\hat{j} + C\hat{k}$$
+
+The **position vector** of a point is $\vec{r}$; the unit vector in the direction of $\vec{r}$ is denoted $\hat{r}$.
+
+$$|\vec{A}| = \sqrt{A_x^2 + A_y^2}, \quad \theta = \arctan\!\left(\frac{A_y}{A_x}\right)$$
+
+### Vector Addition
+
+A resultant vector is the vector sum of the addend vectors' components:
+
+$$\vec{C} = \vec{A} + \vec{B}$$
+$$\vec{C} = (A_x + B_x)\hat{i} + (A_y + B_y)\hat{j}$$
+
+> [!tip] Sign Convention
+> In a one-dimensional coordinate system, opposite directions are denoted by opposite signs. Always define a positive direction before starting a problem.
 
 ---
 
-## Calculus Definitions (Core of AP Physics C)
+## 1.2 — Displacement, Velocity, and Acceleration
 
-The calculus relationships between position, velocity, and acceleration are the foundation of everything in this course.
+**Displacement** is the change in an object's position — not total distance traveled.
 
-### Velocity from Position
+$$\Delta x = x - x_0$$
 
-$$v(t) = \frac{dx}{dt}$$
+### Average Values
 
-Velocity is the **derivative** of position with respect to time. Instantaneous velocity at any moment is the slope of the $x$-vs-$t$ graph.
+Averages of velocity and acceleration are calculated using the initial and final states of an object over a time interval.
 
-### Acceleration from Velocity
+$$\bar{v}_{avg} = \frac{\Delta x}{\Delta t}, \qquad \bar{a}_{avg} = \frac{\Delta \bar{v}}{\Delta t}$$
 
-$$a(t) = \frac{dv}{dt} = \frac{d^2x}{dt^2}$$
+An object is **accelerating** if either the magnitude and/or the direction of its velocity is changing.
 
-Acceleration is the **derivative** of velocity — equivalently the second derivative of position.
+> [!tip] Averages Approach Instantaneous Values
+> Calculating average velocity or average acceleration over a very small time interval yields a value very close to the instantaneous velocity or instantaneous acceleration at that moment.
+
+### Instantaneous Values — The Calculus Core of AP Physics C
+
+As the time interval used to calculate an average value approaches zero, that average approaches the **instantaneous** value at that instant. This is the foundation of everything in this course.
+
+**Velocity is the derivative of position:**
+
+$$\vec{v} = \frac{d\vec{r}}{dt}, \qquad v_x = \frac{dx}{dt}$$
+
+**Acceleration is the derivative of velocity:**
+
+$$\vec{a} = \frac{d\vec{v}}{dt}, \qquad a_x = \frac{dv_x}{dt} = \frac{d^2x}{dt^2}$$
 
 ### Going Backwards — Integration
+
+Time-dependent functions and instantaneous values of position, velocity, and acceleration can be determined using differentiation *and* integration.
 
 $$x(t) = x_0 + \int_{t_0}^{t} v(t')\,dt'$$
 
@@ -55,22 +91,25 @@ Position is found by integrating velocity; velocity is found by integrating acce
 
 ---
 
-## Kinematics in One Dimension
+## 1.3 — Representing Motion
 
-### Constant Acceleration — The Five Equations
+Motion can be represented with motion diagrams, figures, graphs, equations, and narrative descriptions.
 
-When $a$ = constant, the integrals evaluate to clean algebraic equations:
+### Constant Acceleration — The Kinematic Equations
+
+For constant acceleration, three kinematic equations describe instantaneous linear motion in one dimension:
 
 | Equation | Missing Variable |
 |---|---|
-| $v = v_0 + at$ | $\Delta x$ |
-| $\Delta x = v_0 t + \frac{1}{2}at^2$ | $v$ |
-| $v^2 = v_0^2 + 2a\Delta x$ | $t$ |
+| $v_x = v_{x0} + a_x t$ | $\Delta x$ |
+| $x = x_0 + v_{x0}t + \frac{1}{2}a_x t^2$ | $v_x$ |
+| $v_x^2 = v_{x0}^2 + 2a_x(x - x_0)$ | $t$ |
 | $\Delta x = \frac{v_0 + v}{2}\cdot t$ | $a$ |
-| $\Delta x = vt - \frac{1}{2}at^2$ | $v_0$ |
+
+*Note: these are written for the $x$-direction, but apply in any single dimension.*
 
 > [!warning] When NOT to Use These
-> These equations only apply when acceleration is **constant**. If $a = a(t)$ (a function of time), you must integrate.
+> These equations only apply when acceleration is **constant**. If $a = a(t)$ (a function of time), you must integrate instead.
 
 ### Deriving the Kinematic Equations from Calculus
 
@@ -79,6 +118,10 @@ Starting from $a = $ const:
 $$v(t) = \int a\,dt = at + C_1 = v_0 + at$$
 
 $$x(t) = \int v\,dt = \int(v_0 + at)\,dt = v_0 t + \frac{1}{2}at^2 + C_2 = x_0 + v_0 t + \frac{1}{2}at^2$$
+
+An object's instantaneous velocity is the slope of a line tangent to a point on its position-vs-time graph; instantaneous acceleration is the slope of a line tangent to a point on its velocity-vs-time graph. Displacement over an interval equals the **area under the velocity curve**; change in velocity equals the **area under the acceleration curve**:
+
+$$\Delta x = \int_{t_1}^{t_2} v_x(t)\,dt, \qquad \Delta v_x = \int_{t_1}^{t_2} a_x(t)\,dt$$
 
 ### Non-Constant Acceleration
 
@@ -95,15 +138,11 @@ If $a(t)$ is given as a function, integrate to find $v(t)$, then integrate again
 > $$x(t) = \int (3t^2 - 2t)\,dt = t^3 - t^2 + C_2$$
 > At $t = 0$, $x = 0$ → $C_2 = 0$. So $x(t) = t^3 - t^2$.
 
----
+### Free Fall
 
-## Free Fall
+Near Earth's surface, all objects accelerate downward at a constant value:
 
-Near Earth's surface, all objects accelerate downward at:
-
-$$g = 9.8 \text{ m/s}^2 \approx 10 \text{ m/s}^2$$
-
-(AP exam often allows $g = 10$ m/s²)
+$$a_g = g \approx 10 \text{ m/s}^2 \quad (g = 9.8 \text{ m/s}^2 \text{ is also accepted})$$
 
 Define **up as positive** (convention):
 - $a = -g = -9.8$ m/s²
@@ -111,26 +150,50 @@ Define **up as positive** (convention):
 - Time up = Time down (symmetric launch and landing at same height)
 
 > [!warning] Common Mistake
-> At the peak of a projectile's trajectory, $v = 0$ but acceleration is **not zero** — it's still $-9.8$ m/s². The object is still in free fall.
+> At the peak of a projectile's trajectory, $v = 0$ but acceleration is **not zero** — it's still $-g$. The object is still in free fall.
+
+### Graphical Interpretation
+
+| Graph | Slope | Area Under Curve |
+|---|---|---|
+| $x$ vs $t$ | velocity | — |
+| $v$ vs $t$ | acceleration | displacement |
+| $a$ vs $t$ | jerk | change in velocity |
+
+> [!tip] Key Skill
+> On the AP exam, being able to read and sketch motion graphs is tested frequently. The area under a $v$-$t$ curve equals displacement; a negative area means negative displacement.
 
 ---
 
-## Kinematics in Two Dimensions
+## 1.4 — Reference Frames and Relative Motion
 
-### Vectors
+The choice of reference frame determines the direction and magnitude of quantities measured by an observer in that frame.
 
-A vector has both **magnitude** and **direction**.
+> [!note] Boundary Statement
+> Unless otherwise stated, the frame of reference of any problem may be assumed to be **inertial**.
 
-$$\vec{A} = A_x\hat{i} + A_y\hat{j}$$
+### Converting Between Reference Frames
 
-$$|\vec{A}| = \sqrt{A_x^2 + A_y^2}, \quad \theta = \arctan\!\left(\frac{A_y}{A_x}\right)$$
+Measurements from a given reference frame may be converted to measurements from another reference frame. The observed velocity of an object results from the combination of the object's velocity and the velocity of the observer's reference frame.
 
-Vector addition: add components.
-$$\vec{A} + \vec{B} = (A_x + B_x)\hat{i} + (A_y + B_y)\hat{j}$$
+If object A moves at $\vec{v}_{A/G}$ relative to the ground and observer B moves at $\vec{v}_{B/G}$ relative to the ground:
+
+$$\vec{v}_{A/B} = \vec{v}_{A/G} - \vec{v}_{B/G}$$
+
+Combining the motion of an object and the motion of an observer in a given reference frame involves the addition or subtraction of vectors.
+
+> [!tip] Acceleration Is Frame-Independent
+> The acceleration of any object is the same as measured from **all inertial reference frames** — even though position and velocity are not.
+
+---
+
+## 1.5 — Motion in Two or Three Dimensions
+
+Motion in two or three dimensions can be analyzed using one-dimensional kinematic relationships if the motion is separated into components. Velocity and acceleration may be different in each dimension and may be nonuniform — **motion in one dimension may be changed without causing a change in a perpendicular dimension.**
 
 ### Projectile Motion
 
-The key insight: **horizontal and vertical motion are independent.**
+Projectile motion is a special case of two-dimensional motion: zero acceleration in one dimension, constant nonzero acceleration in the other. The key insight: **horizontal and vertical motion are independent.**
 
 | | Horizontal ($x$) | Vertical ($y$) |
 |---|---|---|
@@ -155,24 +218,8 @@ Maximum range at $\theta = 45°$.
 >
 > **Range:** $R = v_{0x}\cdot t = 17.3 \times 2 = 34.6$ m
 
-### Relative Motion
-
-If object A moves at $\vec{v}_{A/G}$ relative to ground and B moves at $\vec{v}_{B/G}$:
-
-$$\vec{v}_{A/B} = \vec{v}_{A/G} - \vec{v}_{B/G}$$
-
----
-
-## Graphical Interpretation
-
-| Graph | Slope | Area Under Curve |
-|---|---|---|
-| $x$ vs $t$ | velocity | — |
-| $v$ vs $t$ | acceleration | displacement |
-| $a$ vs $t$ | jerk | change in velocity |
-
-> [!tip] Key Skill
-> On the AP exam, being able to read and sketch motion graphs is tested frequently. The area under a $v$-$t$ curve equals displacement; a negative area means negative displacement.
+> [!note] Boundary Statement
+> AP Physics C: Mechanics only expects students to quantitatively analyze motion of an object in **two** dimensions.
 
 ---
 

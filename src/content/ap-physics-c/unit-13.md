@@ -7,7 +7,32 @@ unit: 13
 
 ---
 
-## Faraday's Law
+## 13.1 — Magnetic Flux
+
+**Magnetic flux** through a loop or surface measures how much magnetic field passes through it:
+
+$$\Phi_B = \int\vec{B}\cdot d\vec{A} = BA\cos\theta \quad \text{(uniform field, flat loop)}$$
+
+- $d\vec{A}$ is the area vector — magnitude $dA$, direction chosen by the right-hand rule around the loop's positive circulation direction (this choice fixes the sign of $\Phi_B$ and, through Faraday's Law, the sign convention for induced EMF)
+- $\theta$ is the angle between $\vec{B}$ and the area vector $\hat{n}$
+- Units: **weber** (Wb = T·m²), same flux unit as Unit 12
+
+Flux is maximum when $\vec{B}$ is perpendicular to the loop's plane ($\theta = 0$, $\vec{B}\parallel\hat{n}$) and zero when $\vec{B}$ lies in the plane of the loop ($\theta = 90°$).
+
+**Flux through a loop can change because:**
+- $B$ changes in magnitude (e.g., a nearby magnet moves, or current in a nearby circuit changes)
+- The area $A$ changes (loop expands, contracts, or moves partly out of the field)
+- The angle $\theta$ between $\vec{B}$ and the loop's area vector changes (loop rotates)
+- Some combination of the above
+
+> [!tip] Unlike Electric Flux Through a Closed Surface
+> Here $\Phi_B$ is computed over an **open** surface bounded by a loop (e.g., the flat area enclosed by a wire loop), so it need not be zero — contrast with $\oint\vec{B}\cdot d\vec{A}=0$ over a **closed** surface (Gauss's Law for magnetism, Unit 12). It is exactly this *changing* open-surface flux that drives induction.
+
+---
+
+## 13.2 — Faraday's Law and Lenz's Law
+
+### Faraday's Law
 
 A changing magnetic flux through a circuit induces an EMF:
 
@@ -18,18 +43,7 @@ $$\mathcal{E} = -N\frac{d\Phi_B}{dt}$$
 
 The minus sign is Lenz's Law (see below). Units: volts (same as potential difference).
 
-**Magnetic flux** through the circuit:
-$$\Phi_B = \int\vec{B}\cdot d\vec{A} = BA\cos\theta \quad \text{(uniform field, flat loop)}$$
-
-Flux can change because:
-- $B$ changes in magnitude
-- The area $A$ changes (loop expands/contracts)
-- The angle $\theta$ between $\vec{B}$ and $\vec{A}$ changes (loop rotates)
-- Some combination
-
----
-
-## Lenz's Law
+### Lenz's Law
 
 The induced current flows in a direction such that the magnetic field it creates **opposes the change** in flux that caused it.
 
@@ -53,9 +67,7 @@ The induced current flows in a direction such that the magnetic field it creates
 >
 > The loop repels the approaching magnet (opposes change → Lenz's Law).
 
----
-
-## Motional EMF
+### Motional EMF
 
 When a conductor moves through a magnetic field, the free charges experience a magnetic force — this drives an EMF.
 
@@ -78,9 +90,7 @@ Alternatively from force on charges: magnetic force $F = qvB$ on charges in rod 
 > Force on rod due to induced current (by Lenz, opposing motion):
 > $F = BIl = (0.8)(0.6)(0.5) = 0.24$ N (opposing velocity)
 
----
-
-## General Form of Faraday's Law
+### General Form of Faraday's Law
 
 In differential (field) form — Faraday's Law as one of Maxwell's equations:
 
@@ -90,7 +100,9 @@ A changing magnetic field creates a **non-conservative** electric field — a fi
 
 ---
 
-## Self-Inductance
+## 13.3 — Inductance
+
+### Self-Inductance
 
 An inductor is a coil of wire that stores energy in its magnetic field. When current $I$ through the coil changes, the changing flux through the coil induces a **back-EMF** in itself.
 
@@ -102,7 +114,7 @@ $$\mathcal{E}_L = -L\frac{dI}{dt}$$
 
 The minus sign means the inductor opposes changes in current — acts like inertia for current.
 
-### Inductance of a Solenoid
+**Inductance of a Solenoid**
 
 Solenoid with $n$ turns/length, length $\ell$, cross-section area $A$, $N = n\ell$ total turns:
 
@@ -112,9 +124,7 @@ $$L = \frac{N\Phi}{I} = \frac{(n\ell)(\mu_0 nIA)}{I} = \mu_0 n^2 A\ell = \mu_0 n
 
 where $V = A\ell$ is the solenoid volume.
 
----
-
-## Energy Stored in an Inductor
+### Energy Stored in an Inductor
 
 Work done to establish current $I$ in inductor $L$ (against back-EMF):
 
@@ -128,13 +138,11 @@ $$u_B = \frac{B^2}{2\mu_0} \quad \text{(J/m}^3\text{)}$$
 
 Compare to electric energy density: $u_E = \frac{1}{2}\epsilon_0 E^2$.
 
----
-
-## LR Circuits
+### LR Circuits
 
 A resistor $R$ and inductor $L$ in series with battery $\mathcal{E}$.
 
-### Current Build-Up (Switch Closes)
+**Current Build-Up (Switch Closes)**
 
 KVL: $\mathcal{E} - IR - L\frac{dI}{dt} = 0$
 
@@ -151,7 +159,7 @@ Voltage across inductor: $V_L = L\frac{dI}{dt} = \mathcal{E}\,e^{-t/\tau_L}$
 At $t = 0$: $I = 0$, $V_L = \mathcal{E}$ (inductor acts like open circuit instantly)  
 At $t \to \infty$: $I = \mathcal{E}/R$, $V_L = 0$ (inductor acts like a wire in steady state)
 
-### Current Decay (Battery Removed)
+**Current Decay (Battery Removed)**
 
 With $I(0) = I_0$, battery shorted out, current decays through $R$:
 
@@ -170,9 +178,7 @@ $$L\frac{dI}{dt} + IR = 0 \implies I(t) = I_0 e^{-Rt/L} = I_0 e^{-t/\tau_L}$$
 >
 > At $t = 0.2$ s: $I = 2(1-e^{-1}) = 1.26$ A, $V_L = 20e^{-1} = 7.36$ V
 
----
-
-## Comparison: RC vs. LR Circuits
+### Comparison: RC vs. LR Circuits
 
 | Property | RC Circuit | LR Circuit |
 |---|---|---|
@@ -205,6 +211,8 @@ The discovery that light is an electromagnetic wave.
 ---
 
 ## Key Equations Summary
+
+$$\Phi_B = \int\vec{B}\cdot d\vec{A} = BA\cos\theta$$
 
 $$\mathcal{E} = -\frac{d\Phi_B}{dt} = -N\frac{d\Phi}{dt} \quad \text{(Faraday's Law)}$$
 

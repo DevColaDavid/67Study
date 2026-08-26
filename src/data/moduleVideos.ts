@@ -1,23 +1,27 @@
-export interface HeimlerVideo {
-  id: string;
+export interface ModuleVideo {
+  /** Single YouTube video ID. Use this OR listId, not both. */
+  id?: string;
+  /** YouTube playlist ID — embeds as a full playlist instead of one video. */
+  listId?: string;
   title: string;
+  /** Attribution name shown under the embed. Defaults to "Heimler's History". */
+  source?: string;
 }
 
 /**
  * Subject slug -> module number (College Board topic numbering, e.g. "3.11") ->
- * matching Heimler's History YouTube video. Sourced from Heimler's official
- * per-unit YouTube playlists (youtube.com/@heimlershistory).
+ * matching supplementary YouTube video for that module. Each subject may pull
+ * from a different creator (see each entry's `source`) — AP US History and
+ * AP World History use Heimler's History, AP Physics C uses Flipping Physics.
  *
- * Both AP US History and AP World History reuse the same "N.M" module
- * numbering scheme, so the map has to be scoped per subject — otherwise a
- * "3.2" in one subject would collide with "3.2" in the other.
+ * Multiple subjects reuse the same "N.M" module numbering scheme, so the map
+ * has to be scoped per subject — otherwise a "3.2" in one subject would
+ * collide with "3.2" in another.
  *
- * The Contextualizing/Causation/Comparison/Continuity-and-Change synthesis
- * modules (X.1 and the last module of most units) don't have a dedicated
- * Heimler video and are intentionally left out — no video button renders
- * for those headings.
+ * Modules with no dedicated video available are intentionally left out — no
+ * video button renders for those headings.
  */
-const HEIMLER_VIDEOS: Record<string, Record<string, HeimlerVideo>> = {
+const MODULE_VIDEOS: Record<string, Record<string, ModuleVideo>> = {
   'ap-us-history': {
     // Period 1
     '1.2': { id: 'X_3bH6FJsLA', title: 'Native American Societies Before European Contact' },
@@ -204,6 +208,100 @@ const HEIMLER_VIDEOS: Record<string, Record<string, HeimlerVideo>> = {
     '9.6': { id: '_Eg-G6T_anI', title: 'Resistance to Globalization After 1900' },
     '9.7': { id: 'm6cQW5WpceY', title: 'Institutions That Developed in a Globalized World' },
   },
+
+  // AP Physics C — sourced from Flipping Physics (flippingphysics.com), a calculus-based,
+  // AP-Physics-C-specific channel. Every entry below is a single topic-specific video whose
+  // ID was extracted directly from that topic's own lecture page on flippingphysics.com
+  // (not guessed from a title) — one dedicated video per submodule, no unit-wide reuse.
+  'ap-physics-c': {
+    // Unit 1 — Kinematics
+    '1.1': { id: 'ZYl9-iz7nR8', title: 'Introduction to Tip-to-Tail Vector Addition, Vectors and Scalars', source: 'Flipping Physics' },
+    '1.2': { id: 'Kd_DjLpT-GU', title: 'Introduction to Displacement, Velocity and the Derivative', source: 'Flipping Physics' },
+    '1.3': { id: 'fhOqbAF1Uis', title: 'Walking Position, Velocity and Acceleration as a Function of Time Graphs', source: 'Flipping Physics' },
+    '1.4': { id: '2V_jitoWXX8', title: 'Introduction to Relative Motion and Inertial versus Non-Inertial Reference Frames', source: 'Flipping Physics' },
+    '1.5': { id: '1AdVOdOeX0Q', title: 'Introduction to the R Position Vector by way of an Example Problem', source: 'Flipping Physics' },
+
+    // Unit 2 — Force and Translational Dynamics
+    '2.1': { id: '07AJFVuJCb8', title: 'Introduction to Center of Mass of a System of Particles', source: 'Flipping Physics' },
+    '2.2': { id: '29YPIvj1zjc', title: 'Introduction to Free Body Diagrams or Force Diagrams', source: 'Flipping Physics' },
+    '2.3': { id: 'ryBLKmFtSk4', title: "Newton's 3rd Law - AP Physics Version", source: 'Flipping Physics' },
+    '2.4': { id: '7kPRD0ow-hM', title: "Introduction to Newton's First Law of Motion", source: 'Flipping Physics' },
+    '2.5': { id: 'j1TUpbGzPBQ', title: "Introduction to Newton's Second Law of Motion with Example Problem", source: 'Flipping Physics' },
+    '2.6': { id: 'XI51kiWaC9M', title: "Introduction to Newton's Universal Law of Gravitation and a Derivation of Freefall Acceleration", source: 'Flipping Physics' },
+    '2.7': { id: 'SVisnEf0M0A', title: 'Introduction to Static and Kinetic Friction and the Coefficient of Friction', source: 'Flipping Physics' },
+    '2.8': { id: 'EbVeoJBjHTw', title: "Hooke's Law Introduction - Force of a Spring", source: 'Flipping Physics' },
+    '2.9': { id: '7cQ7t0ooX3g', title: 'Introduction to Resistive Forces or the Force of Drag', source: 'Flipping Physics' },
+    '2.10': { id: '-BYeuTbFk80', title: 'Introduction to Uniform Circular Motion', source: 'Flipping Physics' },
+
+    // Unit 3 — Work, Energy, and Power
+    '3.1': { id: 'TcIMFGLqt44', title: 'Introduction to Kinetic Energy with Example Problem', source: 'Flipping Physics' },
+    '3.2': { id: 'svtv13DeyYs', title: 'Defining Work with the Dot Product — Constant Force', source: 'Flipping Physics' },
+    '3.3': { id: 'IWJrZgJAwlI', title: 'Introduction to Gravitational and Elastic Potential Energies', source: 'Flipping Physics' },
+    '3.4': { id: 'B1lwtBsi5As', title: 'Derivation of Conservation of Mechanical Energy', source: 'Flipping Physics' },
+    '3.5': { id: 'lZkKORVCEy8', title: 'Introduction to Mechanical Power with Example Problem', source: 'Flipping Physics' },
+
+    // Unit 4 — Linear Momentum
+    '4.1': { id: 'x6Rd3N1w_T8', title: 'Introduction to Momentum and Derivation of Conservation of Momentum', source: 'Flipping Physics' },
+    '4.2': { id: 'EV8-eJR70Mg', title: 'Derivation of Impulse Using an Integral and Impulse Approximation', source: 'Flipping Physics' },
+    '4.3': { id: 'QAAf8PDModI', title: 'Introduction to Elastic, Inelastic and Perfectly Inelastic Collisions', source: 'Flipping Physics' },
+
+    // Unit 5 — Torque and Rotational Dynamics
+    '5.1': { id: 'N0TngZunzXY', title: 'Uniformly Angularly Accelerated Motion Introduction', source: 'Flipping Physics' },
+    '5.2': { id: 'MugdS-BkGZg', title: 'Comparing Linear and Rotational Variables', source: 'Flipping Physics' },
+    '5.3': { id: 'Tu6e9_SrzBA', title: 'Torque Introduction', source: 'Flipping Physics' },
+    '5.4': { id: 'C2qGOfCOUko', title: 'Moment of Inertia Introduction and Rotational Kinetic Energy Derivation', source: 'Flipping Physics' },
+    '5.5': { id: 'zwZ6OLv4ksA', title: 'Rotational Equilibrium Introduction (and Static Equilibrium Too)', source: 'Flipping Physics' },
+    '5.6': { id: 'Mt5p4S3g5S4', title: "Rotational Form of Newton's Second Law - Introduction", source: 'Flipping Physics' },
+
+    // Unit 6 — Energy and Momentum of Rotating Systems
+    '6.1': { id: 'LBxOMQjqQ8g', title: 'Equations for Kinetic Energy and Angular Momentum of a Point Particle Moving in a Circle', source: 'Flipping Physics' },
+    // 6.2 (Torque and Work) has no dedicated Flipping Physics video — intentionally left out.
+    '6.3': { id: 'MFkqOBq94Gk', title: 'Angular Momentum of Particles Introduction', source: 'Flipping Physics' },
+    '6.4': { id: 'oGzQflqf1VA', title: 'Conservation of Angular Momentum Introduction and Demonstrations', source: 'Flipping Physics' },
+    '6.5': { id: 'r_yqJ2HXoC0', title: 'Rolling Without Slipping Introduction and Demonstrations', source: 'Flipping Physics' },
+    '6.6': { id: 'ovcREs63FiA', title: "Kepler's First Law of Planetary Motion", source: 'Flipping Physics' },
+
+    // Unit 7 — Oscillations
+    '7.1': { id: 'QVkfRELZpK0', title: 'Simple Harmonic Motion Introduction via a Horizontal Mass-Spring System', source: 'Flipping Physics' },
+    '7.2': { id: 'YYroaY0Gd9Q', title: 'Frequency vs. Period in Simple Harmonic Motion', source: 'Flipping Physics' },
+    '7.3': { id: '6TQXZygxsTc', title: 'Simple Harmonic Motion - Graphs of Position, Velocity, and Acceleration', source: 'Flipping Physics' },
+    '7.4': { id: 'vhq4euTgu8E', title: 'Total Mechanical Energy in Simple Harmonic Motion', source: 'Flipping Physics' },
+    '7.5': { id: 'K3HC1S84jP8', title: 'Simple Pendulum - Simple Harmonic Motion Derivation using Calculus', source: 'Flipping Physics' },
+
+    // Unit 8 — Electric Charges, Fields, and Gauss's Law
+    '8.1': { id: '4ubqby1Id4g', title: "Introduction to Coulomb's Law or the Electric Force", source: 'Flipping Physics' },
+    '8.2': { id: 'QPQCsU6U5WI', title: 'Conservation of Charge Example Problems', source: 'Flipping Physics' },
+    '8.3': { id: 'nQXFueA1sMY', title: 'Electric Fields', source: 'Flipping Physics' },
+    '8.4': { id: 'Zpns_8W5fXc', title: 'Continuous Charge Distributions', source: 'Flipping Physics' },
+    '8.5': { id: 'qGZ4bntlbTI', title: 'Electric Flux', source: 'Flipping Physics' },
+    '8.6': { id: 'kHxUkEG71bc', title: "Gauss's Law - Point Charge Electric Flux", source: 'Flipping Physics' },
+
+    // Unit 9 — Electric Potential
+    '9.1': { id: 'yy1jXkzKqkM', title: 'Electric Potential Energy Explained', source: 'Flipping Physics' },
+    '9.2': { id: 'hMoMw3NzCr8', title: 'Electric Potential', source: 'Flipping Physics' },
+    '9.3': { id: 'VM487F-CmYk', title: 'Change in Electric Potential Energy in a Uniform Electric Field', source: 'Flipping Physics' },
+
+    // Unit 10 — Conductors and Capacitors
+    '10.1': { id: 'SI9GBz4Il-8', title: 'Three Properties of Conductors in Electrostatic Equilibrium', source: 'Flipping Physics' },
+    '10.2': { id: '1QnUss8qsAM', title: 'Capacitance', source: 'Flipping Physics' },
+    '10.3': { id: '89S9FYWwJgE', title: 'Capacitance of a Parallel Plate Capacitor with a Dielectric', source: 'Flipping Physics' },
+
+    // Unit 11 — Electric Circuits
+    '11.1': { id: 'HKPMK4nuCLA', title: "Resistance and Ohm's Law", source: 'Flipping Physics' },
+    '11.2': { id: 'coDW6I2L20Y', title: 'Electric Circuit Basics', source: 'Flipping Physics' },
+    '11.3': { id: 'uo4HYgRaMHA', title: 'RC Circuit Basics', source: 'Flipping Physics' },
+
+    // Unit 12 — Magnetic Fields and Electromagnetism
+    '12.1': { id: 'URPKNQ69XdA', title: 'Magnetic Fields and Magnetic Forces on Moving Charges', source: 'Flipping Physics' },
+    // 12.2 (Magnetic Fields and Dipoles) has no dedicated Flipping Physics video — intentionally left out.
+    '12.3': { id: 'zmZhA8YU1So', title: 'Biot-Savart Law and Magnetic Field around a Current Carrying Wire', source: 'Flipping Physics' },
+    '12.4': { id: 'gVr_CFlIY2A', title: "Ampère's Law", source: 'Flipping Physics' },
+
+    // Unit 13 — Electromagnetic Induction
+    '13.1': { id: 'uMo83qlDv2Y', title: 'Magnetic Flux', source: 'Flipping Physics' },
+    '13.2': { id: 'QV0o8Kyixy0', title: 'Electromagnetic Induction', source: 'Flipping Physics' },
+    '13.3': { id: 'CMQUttrejdI', title: 'Inductance', source: 'Flipping Physics' },
+  },
 };
 
-export default HEIMLER_VIDEOS;
+export default MODULE_VIDEOS;
