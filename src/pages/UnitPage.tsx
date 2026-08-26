@@ -262,7 +262,9 @@ export default function UnitPage() {
         <div className="unit-content">
           {error && <p className="unit-error">Could not load content for this unit.</p>}
           {!error && !content && <p className="unit-loading">Loading…</p>}
-          {content && <MarkdownRenderer content={stripFrontmatter(content)} />}
+          {content && (
+            <MarkdownRenderer content={stripFrontmatter(content)} subjectSlug={subjectMeta.slug} />
+          )}
         </div>
 
         {/* Prev / Next navigation */}

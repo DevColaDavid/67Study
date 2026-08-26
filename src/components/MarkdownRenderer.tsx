@@ -115,19 +115,12 @@ function ModuleHeading({
 
 const MODULE_NUMBER_RE = /^(\d+\.\d+)\s/;
 
-const components: Components = {
-  h2({ id, children }) {
-    const arr = Array.isArray(children) ? children : [children];
-    const text = arr.map((c) => (typeof c === 'string' ? c : '')).join('');
-    const match = text.match(MODULE_NUMBER_RE);
-    const video = match ? HEIMLER_VIDEOS[match[1]] : undefined;
-    if (!video) return <h2 id={id}>{children}</h2>;
-    return (
-      <ModuleHeading id={id} videoId={video.id} videoTitle={video.title}>
-        {children}
-      </ModuleHeading>
-    );
-  },
+// Only AP US History uses Heimler's History module videos — other subjects
+// (e.g. AP Chemistry) reuse the same "N.M Title" numbering convention for
+// their own topics, so the lookup must not run for them.
+const HEIMLER_VIDEO_SUBJECT = 'ap-us-history';
+
+const baseComponents: Components = {
   blockquote({ children }) {
     const arr = Array.isArray(children) ? children : [children];
     const callout = parseCallout(arr as ReactNode[]);
@@ -143,11 +136,29 @@ const components: Components = {
   },
 };
 
+const withHeimlerVideos: Components = {
+  ...baseComponents,
+  h2({ id, children }) {
+    const arr = Array.isArray(children) ? children : [children];
+    const text = arr.map((c) => (typeof c === 'string' ? c : '')).join('');
+    const match = text.match(MODULE_NUMBER_RE);
+    const video = match ? HEIMLER_VIDEOS[match[1]] : undefined;
+    if (!video) return <h2 id={id}>{children}</h2>;
+    return (
+      <ModuleHeading id={id} videoId={video.id} videoTitle={video.title}>
+        {children}
+      </ModuleHeading>
+    );
+  },
+};
+
 interface MarkdownRendererProps {
   content: string;
+  subjectSlug?: string;
 }
 
-export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
+export default function MarkdownRenderer({ content, subjectSlug }: MarkdownRendererProps) {
+  const components = subjectSlug === HEIMLER_VIDEO_SUBJECT ? withHeimlerVideos : baseComponents;
   return (
     <div className="markdown-body">
       <ReactMarkdown
