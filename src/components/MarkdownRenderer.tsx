@@ -115,11 +115,6 @@ function ModuleHeading({
 
 const MODULE_NUMBER_RE = /^(\d+\.\d+)\s/;
 
-// Only AP US History uses Heimler's History module videos — other subjects
-// (e.g. AP Chemistry) reuse the same "N.M Title" numbering convention for
-// their own topics, so the lookup must not run for them.
-const HEIMLER_VIDEO_SUBJECT = 'ap-us-history';
-
 const baseComponents: Components = {
   blockquote({ children }) {
     const arr = Array.isArray(children) ? children : [children];
@@ -136,21 +131,28 @@ const baseComponents: Components = {
   },
 };
 
-const withHeimlerVideos: Components = {
-  ...baseComponents,
-  h2({ id, children }) {
-    const arr = Array.isArray(children) ? children : [children];
-    const text = arr.map((c) => (typeof c === 'string' ? c : '')).join('');
-    const match = text.match(MODULE_NUMBER_RE);
-    const video = match ? HEIMLER_VIDEOS[match[1]] : undefined;
-    if (!video) return <h2 id={id}>{children}</h2>;
-    return (
-      <ModuleHeading id={id} videoId={video.id} videoTitle={video.title}>
-        {children}
-      </ModuleHeading>
-    );
-  },
-};
+// Some subjects (e.g. AP US History, AP World History) reuse the same "N.M
+// Title" module numbering convention for entirely different topics, so the
+// Heimler's History lookup must be scoped to the subject's own video map —
+// otherwise a "3.2" in one subject would pull up a video for the other.
+function buildComponents(videoMap: Record<string, HeimlerVideo> | undefined): Components {
+  if (!videoMap) return baseComponents;
+  return {
+    ...baseComponents,
+    h2({ id, children }) {
+      const arr = Array.isArray(children) ? children : [children];
+      const text = arr.map((c) => (typeof c === 'string' ? c : '')).join('');
+      const match = text.match(MODULE_NUMBER_RE);
+      const video = match ? videoMap[match[1]] : undefined;
+      if (!video) return <h2 id={id}>{children}</h2>;
+      return (
+        <ModuleHeading id={id} videoId={video.id} videoTitle={video.title}>
+          {children}
+        </ModuleHeading>
+      );
+    },
+  };
+}
 
 interface MarkdownRendererProps {
   content: string;
@@ -158,7 +160,7 @@ interface MarkdownRendererProps {
 }
 
 export default function MarkdownRenderer({ content, subjectSlug }: MarkdownRendererProps) {
-  const components = subjectSlug === HEIMLER_VIDEO_SUBJECT ? withHeimlerVideos : baseComponents;
+  const components = buildComponents(subjectSlug ? HEIMLER_VIDEOS[subjectSlug] : undefined);
   return (
     <div className="markdown-body">
       <ReactMarkdown
